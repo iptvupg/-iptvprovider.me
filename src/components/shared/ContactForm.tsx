@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useActionState } from 'react';
+import { useFormState } from 'react-dom';
 import { useFormStatus } from 'react-dom';
 import { submitContactForm } from '@/app/actions';
 import { Button } from '@/components/ui/button';
@@ -23,7 +23,7 @@ function SubmitButton() {
 export function ContactForm() {
   const { toast } = useToast();
   const initialState = { message: null, errors: null };
-  const [state, dispatch] = useActionState(submitContactForm, initialState);
+  const [state, dispatch] = useFormState(submitContactForm, initialState);
 
   useEffect(() => {
     if (state.message && !state.errors) {

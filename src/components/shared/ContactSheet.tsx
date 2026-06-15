@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useActionState } from "react";
+import { useFormState } from "react-dom";
 import { useFormStatus } from "react-dom";
 import { MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/app/actions";
+import { useState } from "react";
 
 
 function SubmitButton() {
@@ -32,8 +33,9 @@ function SubmitButton() {
 
 export function ContactSheet() {
   const { toast } = useToast();
+  const [isOpen, setIsOpen] = useState(false);
   const initialState = { message: null, errors: null };
-  const [state, dispatch] = useActionState(submitContactForm, initialState);
+  const [state, dispatch] = useFormState(submitContactForm, initialState);
 
   useEffect(() => {
     if (state.message && !state.errors) {
@@ -41,6 +43,7 @@ export function ContactSheet() {
         title: "Success!",
         description: state.message,
       });
+      setIsOpen(false);
     } else if (state.message && state.errors) {
       toast({
         variant: "destructive",
@@ -51,7 +54,7 @@ export function ContactSheet() {
   }, [state, toast]);
 
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button
           className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-lg"
