@@ -1,6 +1,6 @@
 import Logo from "./Logo";
 
-const WHATSAPP = "https://wa.me/10000000000";
+const WHATSAPP = "https://wa.me/447848197761";
 
 const QUICK_LINKS = [
   { label: "Home", href: "#top" },
@@ -46,8 +46,8 @@ export default function Footer() {
           <div>
             <Logo />
             <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-secondary">
-              The world&apos;s premier IPTV service. 20,000+ live channels and a
-              huge VOD library, streamed in flawless HD &amp; 4K.
+              Premium IPTV for the USA, Canada &amp; Latin America. 54,000+ live
+              channels and 120,000+ movies &amp; series, streamed in HD &amp; 4K.
             </p>
             <div className="mt-7 flex gap-3">
               {SOCIAL.map((s) => (
@@ -105,9 +105,16 @@ export default function Footer() {
             </h3>
             <address className="mt-4 space-y-3 not-italic text-[14px] leading-relaxed text-secondary">
               <p>
-                123 Digital Street,
+                English &amp; Spanish support, 24/7
                 <br />
-                Lizard City, LC 12345
+                <a
+                  href="https://wa.me/447848197761"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-primary"
+                >
+                  +44 7848 197761
+                </a>
               </p>
               <p>
                 <a

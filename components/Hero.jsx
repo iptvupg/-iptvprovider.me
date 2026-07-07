@@ -1,34 +1,30 @@
 import MountHeading from "./MountHeading";
 import HeroVideo from "./HeroVideo";
 
-const WHATSAPP = "https://wa.me/10000000000";
+const WHATSAPP = "https://wa.me/447848197761";
 
 const TRUST = [
   {
-    label: "Instant activation",
+    label: "Free 24-hour trial",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </>
+    ),
+  },
+  {
+    label: "Instant activation in minutes",
     icon: (
       <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
     ),
   },
   {
-    label: "All devices",
+    label: "30-day money-back guarantee",
     icon: (
       <>
-        <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" />
-        <path d="M10 19v-3.96 3.15" />
-        <path d="M7 19h5" />
-        <rect width="6" height="10" x="16" y="12" rx="2" />
-      </>
-    ),
-  },
-  {
-    label: "HD/4K Quality",
-    icon: (
-      <>
-        <path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z" />
-        <path d="M12 17v4" />
-        <path d="M8 21h8" />
-        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6z" />
+        <path d="m9 12 2 2 4-4" />
       </>
     ),
   },
@@ -69,7 +65,7 @@ export default function Hero() {
           style={{ "--d": "150ms" }}
         >
           <span className="h-1 w-1 rounded-full bg-acid shadow-[0_0_10px_2px_rgba(0,255,132,0.7)]" />
-          Trusted by 250,000+ viewers worldwide
+          Premium IPTV · 54,000+ channels
         </p>
 
         <MountHeading
@@ -78,11 +74,11 @@ export default function Hero() {
           stagger={0.1}
           className="mx-auto mt-7 max-w-4xl font-display text-[clamp(2.6rem,7.5vw,5.5rem)] font-semibold leading-[0.98] tracking-editorial text-primary"
           lines={[
-            <span key="1">The World&apos;s Premier</span>,
+            <span key="1">The best IPTV service for</span>,
             <span key="2" className="relative inline-block">
-              IPTV{" "}
+              USA, Canada &amp;{" "}
               <span className="relative text-primary">
-                Provider
+                worldwide
                 <span className="underline-grow absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-acid/80 sm:h-2" />
               </span>
             </span>,
@@ -92,8 +88,10 @@ export default function Hero() {
         <p
           className="mx-auto mt-8 max-w-xl text-pretty text-[16px] leading-relaxed text-secondary sm:text-[17px]"
         >
-          Unlock a world of entertainment with one of the world&apos;s best IPTV
-          providers. Start your subscription now, from just{" "}
+          54,000+ live TV channels and 120,000+ movies &amp; series in up to 4K,
+          streaming on every device you own. Smart TV, Firestick, phone, tablet
+          and PC. Instant setup, no contract, and a free trial so you can test
+          before you pay. Plans from{" "}
           <span className="font-medium text-primary">$7.50/mo</span>.
         </p>
 
@@ -106,7 +104,7 @@ export default function Hero() {
             className="group relative inline-flex items-center gap-2 rounded-full bg-acid px-7 py-3.5 text-[15px] font-semibold text-[#041207] transition-transform duration-500 hover:scale-[1.03] active:scale-95"
           >
             <span className="absolute -inset-2 -z-10 rounded-full bg-acid/35 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-            View Pricing
+            Get Started
             <span className="transition-transform duration-500 group-hover:translate-x-1">
               →
             </span>

@@ -21,27 +21,28 @@ const SITE = "https://www.iptvprovider.me";
 export const metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "IPTV Provider — The World's Premier IPTV Service | 20,000+ Channels",
+    default: "Best IPTV Service USA, Canada & Latin America | 54,000+ Channels",
     template: "%s | IPTV Provider",
   },
   description:
-    "The world's premier IPTV Provider. 20,000+ live channels, an extensive VOD library in HD/4K. Instant activation, anti-freeze technology, all devices. From just $7.50/mo.",
+    "Stream 54,000+ live channels and 120,000+ movies & series in 4K on any device. Free 24-hour trial, instant setup, no contract. IPTV plans from $7.50/mo.",
   keywords: [
     "IPTV",
-    "premium IPTV",
-    "4K IPTV",
-    "live TV streaming",
+    "best IPTV service",
     "IPTV subscription",
-    "sports streaming",
-    "20000 channels",
+    "4K IPTV",
+    "IPTV free trial",
+    "live TV streaming",
+    "IPTV Firestick",
+    "54000 channels",
   ],
   authors: [{ name: "Aurora IPTV" }],
   openGraph: {
     type: "website",
     url: SITE,
-    title: "IPTV Provider — The World's Premier IPTV Service",
+    title: "Best IPTV Service USA, Canada & Latin America",
     description:
-      "20,000+ live channels & extensive VOD in HD/4K. Instant activation. Anti-freeze technology.",
+      "54,000+ live channels & 120,000+ movies & series in HD/4K. Free 24-hour trial. Instant activation.",
     siteName: "IPTV Provider",
     locale: "en_US",
     // og:image is supplied automatically by app/opengraph-image.js — declaring
@@ -49,9 +50,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IPTV Provider — The World's Premier IPTV Service",
+    title: "Best IPTV Service USA, Canada & Latin America",
     description:
-      "20,000+ live channels & extensive VOD in HD/4K. Instant activation. Anti-freeze technology.",
+      "54,000+ live channels & 120,000+ movies & series in HD/4K. Free 24-hour trial. Instant activation.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: SITE },
@@ -68,24 +69,28 @@ export const viewport = {
 
 const FAQ_ITEMS = [
   [
-    "What is IPTV and how does it work?",
-    "IPTV (Internet Protocol Television) streams live TV and on-demand content over your internet connection instead of satellite or cable. Once subscribed, you receive login details and can watch instantly on any compatible device.",
+    "How do I set up my subscription after I buy?",
+    "As soon as your order is confirmed, we email your login credentials and a step-by-step setup guide, usually within minutes. Enter your details into any supported app and you're watching.",
   ],
   [
-    "Which devices are supported?",
-    "Our service works on Smart TVs, Amazon Fire Stick, Android, iOS, Windows, Mac, Apple TV, Roku, MAG boxes and more — any device with a compatible IPTV player.",
+    "Which devices work with our IPTV service?",
+    "Smart TVs, Firestick, Apple TV, Roku, MAG boxes, Android, iOS, Windows and Mac. If it connects to the internet and runs an IPTV player, it works.",
   ],
   [
     "How fast is activation?",
-    "Activation is instant. After checkout you receive your subscription details within minutes and can start streaming right away.",
+    "Minutes. Once your payment is confirmed on WhatsApp, your login arrives by email straight away.",
   ],
   [
     "What internet speed do I need?",
-    "We recommend at least 15 Mbps for HD and 25 Mbps for stable 4K streaming.",
+    "Around 15 Mbps for smooth HD and 25 Mbps or more for stable 4K. A wired connection or solid Wi-Fi gives the best result.",
   ],
   [
-    "Do you offer a money-back guarantee?",
-    "Yes. We offer a satisfaction guarantee — contact our support team if you experience any issues.",
+    "Do you offer a free IPTV trial?",
+    "Yes, a free 24-hour trial. Test the channels and picture quality before you pay anything.",
+  ],
+  [
+    "Is there a money-back guarantee?",
+    "Yes, 30 days. If the service isn't right for you, ask for a refund and you'll get it.",
   ],
 ];
 
@@ -98,13 +103,13 @@ const jsonLd = {
       name: "IPTV Provider",
       url: SITE,
       description:
-        "The world's premier IPTV Provider offering 20,000+ live channels and an extensive VOD library in HD/4K.",
+        "Premium IPTV service for the USA, Canada and Latin America with 54,000+ live channels and 120,000+ movies & series in HD/4K.",
     },
     {
       "@type": "Product",
       name: "IPTV Provider",
       description:
-        "Premium HD/4K IPTV streaming with 20,000+ channels and an extensive VOD library.",
+        "Premium HD/4K IPTV streaming with 54,000+ live channels and 120,000+ movies & series.",
       brand: { "@type": "Brand", name: "IPTV Provider" },
       aggregateRating: {
         "@type": "AggregateRating",

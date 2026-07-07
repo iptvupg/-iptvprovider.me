@@ -12,7 +12,7 @@ const LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const WHATSAPP = "https://wa.me/10000000000";
+const WHATSAPP = "https://wa.me/447848197761";
 
 function WhatsAppIcon({ className = "" }) {
   return (

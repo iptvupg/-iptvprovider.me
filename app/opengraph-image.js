@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "IPTV Provider — 20,000+ channels in HD/4K";
+export const alt = "IPTV Provider — 54,000+ channels in HD/4K";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -51,7 +51,7 @@ export default function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          The World&apos;s Premier IPTV Service
+          Best IPTV Service for USA, Canada &amp; Latin America
         </div>
         <div
           style={{
@@ -61,7 +61,7 @@ export default function OpengraphImage() {
             maxWidth: 820,
           }}
         >
-          20,000+ live channels & extensive VOD in HD/4K. Instant activation.
+          54,000+ live channels & 120,000+ movies & series in HD/4K. Free trial.
         </div>
       </div>
     ),

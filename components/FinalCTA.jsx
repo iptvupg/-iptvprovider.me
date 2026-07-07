@@ -1,7 +1,7 @@
 import AnimatedHeading from "./AnimatedHeading";
 import Reveal from "./Reveal";
 
-const WHATSAPP = "https://wa.me/10000000000";
+const WHATSAPP = "https://wa.me/447848197761";
 
 export default function FinalCTA() {
   return (
@@ -20,17 +20,18 @@ export default function FinalCTA() {
           />
           <div className="relative">
             <p className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#041207]/70">
-              7-day risk-free trial
+              Free 24-hour trial
             </p>
             <AnimatedHeading
               delay={0.05}
               className="mx-auto mt-5 max-w-3xl font-display text-[clamp(2rem,6vw,4rem)] font-semibold leading-[1.02] tracking-editorial text-[#041207]"
-              lines={[<span key="1">Start your IPTV free trial today</span>]}
+              lines={[<span key="1">Start streaming in the next five minutes</span>]}
             />
             <Reveal delay={0.15}>
               <p className="mx-auto mt-6 max-w-lg text-[16px] leading-relaxed text-[#041207]/75">
-                Experience 20,000+ channels and a massive VOD library before you
-                commit. No hassle, instant activation, cancel anytime.
+                54,000+ live channels and 120,000+ movies &amp; series in up to
+                4K, on every device you own. Pick a plan and your login arrives by
+                email right away.
               </p>
             </Reveal>
 
@@ -44,7 +45,7 @@ export default function FinalCTA() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full bg-[#041207] px-8 py-4 text-[15px] font-semibold text-acid transition-transform duration-500 hover:scale-[1.03] active:scale-95"
               >
-                Get IPTV Free Trial
+                Get Started
                 <span className="transition-transform duration-500 group-hover:translate-x-1">
                   →
                 </span>
@@ -53,7 +54,7 @@ export default function FinalCTA() {
                 href="#pricing"
                 className="inline-flex items-center gap-2 rounded-full border border-[#041207]/25 px-8 py-4 text-[15px] font-semibold text-[#041207] transition-colors duration-500 hover:border-[#041207]/50"
               >
-                View Pricing
+                View Plans
               </a>
             </Reveal>
           </div>

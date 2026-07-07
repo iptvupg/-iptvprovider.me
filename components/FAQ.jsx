@@ -3,48 +3,52 @@
 import { useState } from "react";
 import Reveal, { Stagger } from "./Reveal";
 
-const WHATSAPP = "https://wa.me/10000000000";
+const WHATSAPP = "https://wa.me/447848197761";
 
 const ITEMS = [
   {
-    q: "What is IPTV?",
-    a: "IPTV (Internet Protocol Television) delivers live TV channels and on-demand content over the internet instead of traditional satellite or cable. All you need is a compatible device and a stable internet connection.",
+    q: "How do I set up my subscription after I buy?",
+    a: "As soon as your order is confirmed, we email your login credentials and a step-by-step setup guide, usually within minutes. Enter your details into any supported app and you're watching.",
   },
   {
-    q: "How do I get started?",
-    a: "Choose a subscription plan that suits you, complete your order, and you'll receive your login details within minutes. Enter them into your preferred app and start watching right away.",
+    q: "Which devices work with our IPTV service?",
+    a: "Smart TVs, Firestick, Apple TV, Roku, MAG boxes, Android, iOS, Windows and Mac. If it connects to the internet and runs an IPTV player, it works.",
   },
   {
-    q: "Which devices are supported?",
-    a: "Our service works on Smart TVs, Amazon Firestick, Android boxes and phones, Apple TV, iOS, Windows, macOS, MAG boxes, and any modern web browser. Setup guides are provided for each platform.",
-  },
-  {
-    q: "How many channels do you offer?",
-    a: "We provide access to 20,000+ live channels from around the world, plus an extensive video-on-demand library featuring the latest movies and TV series.",
-  },
-  {
-    q: "What internet speed do I need?",
-    a: "We recommend a minimum of 15 Mbps for smooth HD streaming and 25 Mbps or higher for flawless 4K playback. A stable wired or Wi-Fi connection gives the best experience.",
-  },
-  {
-    q: "Will the stream buffer or freeze?",
-    a: "Our anti-freeze technology and load-balanced servers keep playback smooth and stable. With a good connection, you'll enjoy uninterrupted streaming in the highest quality your screen supports.",
-  },
-  {
-    q: "Can I watch on multiple devices?",
-    a: "Yes. Depending on your plan you can use multiple simultaneous connections, so different people in your household can watch different content at the same time.",
-  },
-  {
-    q: "Do you offer a free trial?",
-    a: "Yes, we offer a risk-free trial so you can test the service and quality before committing to a full subscription. Contact us on WhatsApp to get started.",
+    q: "How fast is activation?",
+    a: "Minutes. Once your payment is confirmed on WhatsApp, your login arrives by email straight away.",
   },
   {
     q: "What payment methods do you accept?",
-    a: "We accept a range of secure payment options. Reach out to our support team on WhatsApp and we'll guide you through the quickest way to activate your subscription.",
+    a: "Card, PayPal and crypto, all through encrypted checkout. You place the order over WhatsApp and pay securely.",
   },
   {
-    q: "How can I contact support?",
-    a: "Our support team is available 24/7. The fastest way to reach us is via WhatsApp, and you can also email us at support@iptvprovider.me any time.",
+    q: "What internet speed do I need?",
+    a: "Around 15 Mbps for smooth HD and 25 Mbps or more for stable 4K. A wired connection or solid Wi-Fi gives the best result.",
+  },
+  {
+    q: "Can I customise my playlist of channels, movies and series?",
+    a: "Yes. Tell us what you watch most and we'll shape the lineup around it.",
+  },
+  {
+    q: "Can I use my account while travelling abroad?",
+    a: "Yes. Your subscription follows you anywhere with an internet connection, and every plan includes built-in VPN protection.",
+  },
+  {
+    q: "Is there a money-back guarantee?",
+    a: "Yes, 30 days. If the service isn't right for you, ask for a refund and you'll get it.",
+  },
+  {
+    q: "Can I cancel?",
+    a: "Anytime. Plans are billed once and nothing auto-renews, so there's no subscription to chase down.",
+  },
+  {
+    q: "Do you offer a free IPTV trial?",
+    a: "Yes, a free 24-hour trial. Test the channels and picture quality before you pay anything. Contact us on WhatsApp to get started.",
+  },
+  {
+    q: "How much does an IPTV subscription cost?",
+    a: "Plans start at $7.50/mo on the annual option. You can also go monthly at $16, or pick 3 or 6 months. Every plan includes the full channel list and movie library.",
   },
 ];
 

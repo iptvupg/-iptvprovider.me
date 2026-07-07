@@ -5,7 +5,7 @@ const STEPS = [
   {
     n: "01",
     title: "Choose Your Plan",
-    body: "Pick the subscription duration that fits you best. Every plan unlocks the full library of channels and on-demand content.",
+    body: "Pick the term that suits you: 1, 3, 6 or 12 months. Every plan unlocks the full channel list and movie library.",
     icon: (
       <path
         d="M4 7h16M4 12h16M4 17h10"
@@ -17,8 +17,21 @@ const STEPS = [
   },
   {
     n: "02",
+    title: "Confirm on WhatsApp",
+    body: "Send us your order on WhatsApp and pay by card, PayPal or crypto. No payment is taken on this site.",
+    icon: (
+      <path
+        d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    ),
+  },
+  {
+    n: "03",
     title: "Get Instant Activation",
-    body: "Complete your order and receive your login details within minutes. No waiting, no complicated setup required.",
+    body: "Your login credentials land in your inbox within minutes of the order being confirmed.",
     icon: (
       <path
         d="M13 2 4.5 13.5H11l-1 8.5L18.5 10H12l1-8Z"
@@ -27,9 +40,9 @@ const STEPS = [
     ),
   },
   {
-    n: "03",
-    title: "Start Watching",
-    body: "Log in on any device and enjoy thousands of live channels, movies, and sports in stunning HD and 4K quality.",
+    n: "04",
+    title: "Start Streaming",
+    body: "Open any supported app, enter your details, and watch live channels, movies and sports on any device.",
     icon: (
       <>
         <rect
@@ -59,11 +72,11 @@ export default function Steps() {
           <AnimatedHeading
             delay={0.05}
             className="mt-5 font-display text-[clamp(2rem,5vw,3.4rem)] font-semibold leading-[1.02] tracking-editorial text-primary"
-            lines={[<span key="1">Get started in 3 simple steps</span>]}
+            lines={[<span key="1">How to set up IPTV in 4 steps</span>]}
           />
         </Reveal>
 
-        <Stagger className="relative mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-3">
+        <Stagger className="relative mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
             <div
               key={s.n}

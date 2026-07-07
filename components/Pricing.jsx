@@ -1,43 +1,45 @@
 import AnimatedHeading from "./AnimatedHeading";
 import Reveal, { Stagger } from "./Reveal";
 
-const WHATSAPP = "https://wa.me/10000000000";
+const WHATSAPP = "https://wa.me/447848197761";
 
 const PLANS = [
   {
     name: "1 Month",
     price: 16,
-    per: "$16.00 / month",
+    per: "$16.00 / month · billed once",
     highlight: false,
   },
   {
     name: "3 Months",
     price: 39,
-    per: "Equivalent to $13.00 / month",
+    per: "$13.00 / month · save 19%",
     highlight: false,
   },
   {
     name: "6 Months",
     price: 60,
-    per: "Equivalent to $10.00 / month",
+    per: "$10.00 / month · save 38%",
     highlight: false,
   },
   {
     name: "12 Months",
     price: 90,
-    per: "Equivalent to $7.50 / month",
+    per: "$7.50 / month · save 53%",
     highlight: true,
     badge: "Best Value",
   },
 ];
 
 const FEATURES = [
-  "20,000+ Live Channels",
-  "Extensive VOD Library",
-  "HD / 4K Streaming Quality",
-  "24/7 Customer Support",
-  "Instant Activation",
+  "54,000+ Live TV Channels",
+  "120,000+ Movies & Series",
+  "4K, HD & SD Quality",
+  "Live Sports & Premium Events",
   "Anti-Freeze Technology",
+  "Catch-Up & Full TV Guide (EPG)",
+  "Built-in VPN Protection",
+  "24/7 Technical Support",
 ];
 
 function Check({ acid }) {
@@ -69,11 +71,11 @@ export default function Pricing() {
           <AnimatedHeading
             delay={0.05}
             className="mt-5 font-display text-[clamp(2rem,5vw,3.4rem)] font-semibold leading-[1.02] tracking-editorial text-primary"
-            lines={[<span key="1">Choose your IPTV package</span>]}
+            lines={[<span key="1">IPTV subscription plans</span>]}
           />
           <p className="mx-auto mt-5 max-w-md text-[16px] leading-relaxed text-secondary">
-            Simple, transparent pricing. All plans include every feature — pick
-            the duration that suits you best.
+            Same full channel list and movie library on every plan. Pick your
+            term. Billed once, no auto-renewal, cancel anytime.
           </p>
         </Reveal>
 
@@ -149,7 +151,7 @@ export default function Pricing() {
                     : "bg-acid text-[#041207]"
                 }`}
               >
-                Order Now
+                Get Started
                 <span className="transition-transform duration-500">→</span>
               </a>
             </div>

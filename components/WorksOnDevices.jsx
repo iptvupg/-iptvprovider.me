@@ -28,11 +28,12 @@ export default function WorksOnDevices() {
           <AnimatedHeading
             delay={0.05}
             className="font-display text-[clamp(2rem,5vw,3.4rem)] font-semibold leading-[1.02] tracking-editorial text-primary"
-            lines={[<span key="1">Works on all your devices</span>]}
+            lines={[<span key="1">Every device you own, one subscription</span>]}
           />
           <p className="mx-auto mt-5 max-w-md text-[16px] leading-relaxed text-secondary">
-            Watch on your TV, computer, tablet, or phone. Our IPTV Provider is
-            compatible with a wide range of devices.
+            Stream on Smart TVs, Firestick, Apple TV, Roku, MAG boxes, phones and
+            computers. No extra hardware to buy, and easy setup with IPTV Smarters
+            Pro, TiviMate, M3U or Xtream Codes.
           </p>
         </Reveal>
 
