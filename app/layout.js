@@ -56,6 +56,9 @@ export const metadata = {
   },
   robots: { index: true, follow: true },
   alternates: { canonical: SITE },
+  verification: {
+    google: "WayUe3dolb9UPFpMPHfTYy8CS-T1RkpFYqGvAkW5XqI",
+  },
 };
 
 export const viewport = {
