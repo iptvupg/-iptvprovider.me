@@ -1,42 +1,58 @@
 import Reveal from "./Reveal";
 import Marquee from "./Marquee";
 
+const poster = (file) =>
+  `https://wsrv.nl/?url=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw342%2F${file}&output=webp&q=50&n=-1`;
+
 const MOVIES = [
-  { t: "Nightfall", g: "Thriller", c: "#7C3AED", r: "4K" },
-  { t: "Crimson Line", g: "Action", c: "#DC2626", r: "HDR" },
-  { t: "Deep Blue", g: "Documentary", c: "#0EA5E9", r: "4K" },
-  { t: "Golden Hour", g: "Drama", c: "#F59E0B", r: "4K" },
-  { t: "The Signal", g: "Sci-Fi", c: "#10B981", r: "DV" },
-  { t: "Velvet", g: "Romance", c: "#EC4899", r: "4K" },
-  { t: "Ember", g: "Fantasy", c: "#F97316", r: "DV" },
+  { t: "Passenger", g: "Movie", r: "4K", img: poster("2sOEJzhPzjTkZSlPbGxOJ7xgIyS.jpg") },
+  { t: "Obsession", g: "Movie", r: "4K", img: poster("bRwnj8WEKBCvmfeUNOukJPwB43K.jpg") },
+  { t: "House of the Dragon", g: "TV Show", r: "4K", img: poster("7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg") },
+  { t: "Silo", g: "TV Show", r: "4K", img: poster("gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg") },
+  { t: "Moana", g: "Movie", r: "4K", img: poster("zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg") },
+  { t: "Sparks of Tomorrow", g: "TV Show", r: "4K", img: poster("yDTcX4l5D3OFeYGsQVI5Jqxx1D7.jpg") },
+  { t: "Backrooms", g: "Movie", r: "4K", img: poster("rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg") },
+  { t: "Mushoku Tensei", g: "TV Show", r: "4K", img: poster("gLKOYIMyKlUHW0SVdskhgf9C0yy.jpg") },
+  { t: "Toy Story 5", g: "Movie", r: "4K", img: poster("sfQtVlIHljToOwYjhe21KPGzZWK.jpg") },
+  { t: "Enola Holmes 3", g: "Movie", r: "4K", img: poster("7kRYHH9H9PjBFwz1FprbHB2AAjI.jpg") },
 ];
 
 const SPORTS = [
-  { t: "Champions Final", g: "Football", c: "#22C55E", r: "LIVE" },
-  { t: "Center Court", g: "Tennis", c: "#3B82F6", r: "LIVE" },
-  { t: "Grand Prix", g: "Motorsport", c: "#EF4444", r: "4K" },
-  { t: "Heavyweight", g: "Boxing", c: "#EAB308", r: "PPV" },
-  { t: "Court Kings", g: "Basketball", c: "#F97316", r: "LIVE" },
-  { t: "The Open", g: "Golf", c: "#14B8A6", r: "4K" },
-  { t: "Fast Break", g: "Hockey", c: "#8B5CF6", r: "LIVE" },
+  { t: "Premier League", g: "Football", r: "LIVE", img: "/sports/premier-league.jpg" },
+  { t: "LaLiga", g: "Football", r: "LIVE", img: "/sports/laliga.jpg" },
+  { t: "NBA Superstars", g: "Basketball", r: "4K", img: "/sports/nba-superstars.jpg" },
+  { t: "NBA Playoffs", g: "Basketball", r: "LIVE", img: "/sports/nba-playoffs.jpg" },
+  { t: "Australian Grand Prix", g: "Motorsport", r: "LIVE", img: "/sports/f1-grand-prix.jpg" },
 ];
 
 function Poster({ item }) {
   return (
     <div className="group relative mx-3 w-[190px] shrink-0 sm:w-[220px]">
-      <div className="relative aspect-[2/3] overflow-hidden rounded-2xl border border-white/[0.06] transition-all duration-700 ease-out will-change-transform group-hover:-translate-y-2 group-hover:border-white/15">
-        <div
-          className="absolute inset-0 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-          style={{
-            background: `linear-gradient(160deg, ${item.c} -20%, ${item.c}1f 42%, #060707 100%)`,
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-60"
-          style={{
-            background: `radial-gradient(120% 70% at 30% 0%, ${item.c}55, transparent 55%)`,
-          }}
-        />
+      <div className="relative aspect-[2/3] overflow-hidden rounded-2xl border border-white/[0.06] bg-[#060707] transition-all duration-700 ease-out will-change-transform group-hover:-translate-y-2 group-hover:border-white/15">
+        {item.img ? (
+          <img
+            src={item.img}
+            alt={`${item.t} — ${item.g} in 4K`}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+          />
+        ) : (
+          <>
+            <div
+              className="absolute inset-0 transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+              style={{
+                background: `linear-gradient(160deg, ${item.c} -20%, ${item.c}1f 42%, #060707 100%)`,
+              }}
+            />
+            <div
+              className="absolute inset-0 opacity-60"
+              style={{
+                background: `radial-gradient(120% 70% at 30% 0%, ${item.c}55, transparent 55%)`,
+              }}
+            />
+          </>
+        )}
         <span className="absolute right-3 top-3 rounded-md border border-white/15 bg-black/30 px-1.5 py-0.5 text-[10px] font-medium tracking-wide text-white/70 backdrop-blur">
           {item.r}
         </span>
