@@ -1,4 +1,5 @@
 import CursorMount from "@/components/CursorMount";
+import { CheckoutProvider } from "@/components/Checkout";
 import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -12,7 +13,7 @@ import Footer from "@/components/Footer";
 
 export default function Landing() {
   return (
-    <>
+    <CheckoutProvider>
       <div className="noise" aria-hidden />
       <CursorMount />
       <ScrollProgress />
@@ -27,6 +28,6 @@ export default function Landing() {
         <FAQ />
       </main>
       <Footer />
-    </>
+    </CheckoutProvider>
   );
 }

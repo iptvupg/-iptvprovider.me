@@ -1,5 +1,6 @@
 import MountHeading from "./MountHeading";
 import HeroVideo from "./HeroVideo";
+import { CheckoutButton } from "./Checkout";
 
 const WHATSAPP = "https://wa.me/447848197761";
 
@@ -99,8 +100,7 @@ export default function Hero() {
           className="fade-up mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
           style={{ "--d": "1000ms" }}
         >
-          <a
-            href="#pricing"
+          <CheckoutButton
             className="group relative inline-flex items-center gap-2 rounded-full bg-acid px-7 py-3.5 text-[15px] font-semibold text-[#041207] transition-transform duration-500 hover:scale-[1.03] active:scale-95"
           >
             <span className="absolute -inset-2 -z-10 rounded-full bg-acid/35 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
@@ -108,7 +108,7 @@ export default function Hero() {
             <span className="transition-transform duration-500 group-hover:translate-x-1">
               →
             </span>
-          </a>
+          </CheckoutButton>
           <a
             href={WHATSAPP}
             target="_blank"

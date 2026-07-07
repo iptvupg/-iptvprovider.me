@@ -1,7 +1,6 @@
 import AnimatedHeading from "./AnimatedHeading";
+import { CheckoutButton } from "./Checkout";
 import Reveal, { Stagger } from "./Reveal";
-
-const WHATSAPP = "https://wa.me/447848197761";
 
 const PLANS = [
   {
@@ -141,10 +140,8 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
+              <CheckoutButton
+                plan={{ name: p.name, price: p.price }}
                 className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[14px] font-semibold transition-transform duration-500 hover:scale-[1.03] active:scale-95 ${
                   p.highlight
                     ? "bg-[#041207] text-acid"
@@ -153,7 +150,7 @@ export default function Pricing() {
               >
                 Get Started
                 <span className="transition-transform duration-500">→</span>
-              </a>
+              </CheckoutButton>
             </div>
           ))}
         </Stagger>

@@ -1,7 +1,6 @@
 import AnimatedHeading from "./AnimatedHeading";
+import { CheckoutButton } from "./Checkout";
 import Reveal from "./Reveal";
-
-const WHATSAPP = "https://wa.me/447848197761";
 
 export default function FinalCTA() {
   return (
@@ -39,17 +38,14 @@ export default function FinalCTA() {
               delay={0.25}
               className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
             >
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
+              <CheckoutButton
                 className="group inline-flex items-center gap-2 rounded-full bg-[#041207] px-8 py-4 text-[15px] font-semibold text-acid transition-transform duration-500 hover:scale-[1.03] active:scale-95"
               >
                 Get Started
                 <span className="transition-transform duration-500 group-hover:translate-x-1">
                   →
                 </span>
-              </a>
+              </CheckoutButton>
               <a
                 href="#pricing"
                 className="inline-flex items-center gap-2 rounded-full border border-[#041207]/25 px-8 py-4 text-[15px] font-semibold text-[#041207] transition-colors duration-500 hover:border-[#041207]/50"
