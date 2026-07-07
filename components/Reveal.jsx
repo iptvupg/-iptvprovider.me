@@ -1,66 +1,63 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState, createElement } from "react";
+import { observe } from "@/lib/observer";
 
-const EASE = [0.16, 1, 0.3, 1];
+function useInView(once = true) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let dispose;
+    dispose = observe(el, (entry) => {
+      if (entry.isIntersecting) {
+        setInView(true);
+        if (once) dispose?.();
+      } else if (!once) {
+        setInView(false);
+      }
+    });
+    return () => dispose?.();
+  }, [once]);
+
+  return [ref, inView];
+}
 
 export default function Reveal({
   children,
   as = "div",
   delay = 0,
-  y = 26,
-  blur = 10,
   once = true,
-  amount = 0.3,
-  duration = 0.9,
   className = "",
 }) {
-  const MotionTag = motion[as] || motion.div;
-  return (
-    <MotionTag
-      className={className}
-      initial={{ opacity: 0, y, filter: `blur(${blur}px)` }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once, amount }}
-      transition={{ duration, delay, ease: EASE }}
-    >
-      {children}
-    </MotionTag>
+  const [ref, inView] = useInView(once);
+  return createElement(
+    as,
+    {
+      ref,
+      className: `reveal${inView ? " is-in" : ""} ${className}`.trim(),
+      style: delay ? { "--reveal-delay": `${delay * 1000}ms` } : undefined,
+    },
+    children
   );
 }
 
-export function Stagger({ children, className = "", delay = 0, gap = 0.09 }) {
+export function Stagger({ children, className = "", delay = 0 }) {
+  const [ref, inView] = useInView(true);
   return (
-    <motion.div
-      className={className}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      variants={{
-        hidden: {},
-        show: { transition: { staggerChildren: gap, delayChildren: delay } },
-      }}
+    <div
+      ref={ref}
+      className={`${inView ? "anim-in " : ""}${className}`.trim()}
+      style={delay ? { "--reveal-delay": `${delay * 1000}ms` } : undefined}
+      data-stagger
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-export function StaggerItem({ children, className = "", y = 22 }) {
-  return (
-    <motion.div
-      className={className}
-      variants={{
-        hidden: { opacity: 0, y, filter: "blur(8px)" },
-        show: {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          transition: { duration: 0.85, ease: EASE },
-        },
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+export function StaggerItem({ children, className = "" }) {
+  return <div className={`reveal ${className}`.trim()}>{children}</div>;
 }

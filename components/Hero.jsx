@@ -1,10 +1,6 @@
-"use client";
+import MountHeading from "./MountHeading";
+import HeroVideo from "./HeroVideo";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import AnimatedHeading from "./AnimatedHeading";
-
-const EASE = [0.16, 1, 0.3, 1];
 const WHATSAPP = "https://wa.me/10000000000";
 
 const TRUST = [
@@ -39,33 +35,15 @@ const TRUST = [
 ];
 
 export default function Hero() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
   return (
     <section
       id="top"
-      ref={ref}
       className="relative flex min-h-[92svh] items-center justify-center overflow-hidden pt-36 pb-24 sm:pt-40"
     >
       {/* backdrop */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* background video */}
-        <video
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
-          src="/media/hero.webm"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        />
+        {/* background video (decorative, deferred until idle) */}
+        <HeroVideo />
         {/* readability overlays */}
         <div className="absolute inset-0 bg-[var(--bg)]/70" />
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-transparent to-[var(--bg)]" />
@@ -85,20 +63,17 @@ export default function Hero() {
         />
       </div>
 
-      <motion.div style={{ y, opacity }} className="container-x text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: EASE, delay: 0.15 }}
-          className="eyebrow justify-center"
+      <div className="hero-parallax container-x text-center">
+        <p
+          className="fade-up eyebrow justify-center"
+          style={{ "--d": "150ms" }}
         >
           <span className="h-1 w-1 rounded-full bg-acid shadow-[0_0_10px_2px_rgba(0,255,132,0.7)]" />
           Trusted by 250,000+ viewers worldwide
-        </motion.p>
+        </p>
 
-        <AnimatedHeading
+        <MountHeading
           as="h1"
-          mount
           delay={0.28}
           stagger={0.1}
           className="mx-auto mt-7 max-w-4xl font-display text-[clamp(2.6rem,7.5vw,5.5rem)] font-semibold leading-[0.98] tracking-editorial text-primary"
@@ -108,33 +83,23 @@ export default function Hero() {
               IPTV{" "}
               <span className="relative text-primary">
                 Provider
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.9, ease: EASE, delay: 1 }}
-                  className="absolute -bottom-1 left-0 h-[6px] w-full origin-left rounded-full bg-acid/80 sm:h-2"
-                />
+                <span className="underline-grow absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-acid/80 sm:h-2" />
               </span>
             </span>,
           ]}
         />
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: EASE, delay: 0.85 }}
+        <p
           className="mx-auto mt-8 max-w-xl text-pretty text-[16px] leading-relaxed text-secondary sm:text-[17px]"
         >
           Unlock a world of entertainment with one of the world&apos;s best IPTV
           providers. Start your subscription now, from just{" "}
           <span className="font-medium text-primary">$7.50/mo</span>.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: EASE, delay: 1 }}
-          className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+        <div
+          className="fade-up mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          style={{ "--d": "1000ms" }}
         >
           <a
             href="#pricing"
@@ -157,13 +122,11 @@ export default function Hero() {
             </svg>
             Contact on WhatsApp
           </a>
-        </motion.div>
+        </div>
 
-        <motion.ul
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
+        <ul
+          className="fade-up mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
+          style={{ "--d": "1200ms" }}
         >
           {TRUST.map((t) => (
             <li key={t.label} className="flex items-center gap-2 text-[13px] text-secondary">
@@ -183,8 +146,8 @@ export default function Hero() {
               {t.label}
             </li>
           ))}
-        </motion.ul>
-      </motion.div>
+        </ul>
+      </div>
     </section>
   );
 }

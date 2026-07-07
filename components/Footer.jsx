@@ -38,7 +38,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative border-t border-[color:var(--hair)] pt-20"
+      className="cv-section relative border-t border-[color:var(--hair)] pt-20"
     >
       <div className="container-x">
         <div className="grid gap-12 pb-16 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
@@ -67,9 +67,9 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="text-[13px] font-semibold uppercase tracking-[0.14em] text-tertiary">
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.14em] text-tertiary">
               Quick Links
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-3">
               {QUICK_LINKS.map((l) => (
                 <li key={l.label}>
@@ -86,9 +86,9 @@ export default function Footer() {
 
           {/* Supported apps */}
           <div>
-            <h4 className="text-[13px] font-semibold uppercase tracking-[0.14em] text-tertiary">
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.14em] text-tertiary">
               Supported Apps
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-3">
               {APPS.map((a) => (
                 <li key={a} className="text-[14px] text-secondary">
@@ -100,9 +100,9 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-[13px] font-semibold uppercase tracking-[0.14em] text-tertiary">
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.14em] text-tertiary">
               Contact
-            </h4>
+            </h3>
             <address className="mt-4 space-y-3 not-italic text-[14px] leading-relaxed text-secondary">
               <p>
                 123 Digital Street,

@@ -13,7 +13,7 @@
   --surface-2: #141414;
   --fg: #ffffff;
   --fg-2: #a5a5a5;
-  --fg-3: rgba(255, 255, 255, 0.4);
+  --fg-3: rgba(255, 255, 255, 0.62);
   --hair: rgba(255, 255, 255, 0.08);
   --hair-strong: rgba(255, 255, 255, 0.14);
   --glass: rgba(255, 255, 255, 0.03);
@@ -26,7 +26,7 @@ html.light {
   --surface-2: #f0f0ee;
   --fg: #0a0a0a;
   --fg-2: #57534e;
-  --fg-3: rgba(10, 10, 10, 0.45);
+  --fg-3: rgba(10, 10, 10, 0.6);
   --hair: rgba(10, 10, 10, 0.09);
   --hair-strong: rgba(10, 10, 10, 0.16);
   --glass: rgba(255, 255, 255, 0.7);
@@ -112,8 +112,15 @@ body {
 
   .glass {
     background: var(--glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  /* Where backdrop-filter isn't supported (or is too costly), fall back to a
+     more opaque surface so glass chrome stays legible without a blur pass. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background: var(--surface);
+    }
   }
 
   .eyebrow {
@@ -184,6 +191,252 @@ body {
     background-clip: text;
     color: transparent;
   }
+}
+
+/* --- Below-fold containment ---
+   Skip layout/paint for off-screen sections until they're scrolled near, then
+   remember their measured height so the scrollbar never jumps. Invisible to the
+   user; cuts initial layout/paint work on first render. */
+.cv-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+/* --- Scroll-driven reveal (IntersectionObserver toggles .is-in) --- */
+/* Hidden state is gated behind .js so content is fully visible without/before
+   JavaScript. will-change is applied only while hidden, then dropped once the
+   element is in view to avoid permanently promoting dozens of layers. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(8px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  will-change: auto;
+}
+
+[data-stagger].anim-in > .reveal {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+[data-stagger] > .reveal:nth-child(1) {
+  --reveal-delay: 0ms;
+}
+[data-stagger] > .reveal:nth-child(2) {
+  --reveal-delay: 90ms;
+}
+[data-stagger] > .reveal:nth-child(3) {
+  --reveal-delay: 180ms;
+}
+[data-stagger] > .reveal:nth-child(4) {
+  --reveal-delay: 270ms;
+}
+
+/* --- Line-mask heading reveal --- */
+.anim-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+.anim-line {
+  display: inline-block;
+}
+/* Hidden/animated state gated behind .js so scroll headings are fully visible
+   without JavaScript (and before hydration). */
+.js .anim-line {
+  transform: translateY(115%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--line-delay, 0ms);
+  will-change: transform;
+}
+.js .anim-in .anim-line {
+  transform: translateY(0);
+  will-change: auto;
+}
+/* mount headings autoplay with zero JS for a fast LCP */
+@keyframes line-rise {
+  from {
+    transform: translateY(115%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.anim-line-mount {
+  display: inline-block;
+  transform: translateY(0);
+  animation: line-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--line-delay, 0ms);
+  will-change: transform;
+}
+
+/* mount entrance helpers (CSS autoplay, no JS) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  opacity: 0;
+  animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-down {
+  opacity: 0;
+  animation: fade-down 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes underline-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.underline-grow {
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  animation: underline-grow 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 1s;
+}
+@keyframes video-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+/* hero parallax as progressive enhancement (zero JS) */
+@supports (animation-timeline: scroll()) {
+  .hero-parallax {
+    animation: hero-parallax linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 90vh;
+  }
+  @keyframes hero-parallax {
+    to {
+      transform: translateY(-120px);
+      opacity: 0;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-line-mount,
+  .fade-up,
+  .fade-down,
+  .underline-grow,
+  .hero-video,
+  .hero-parallax {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .fade-up {
+    opacity: 1 !important;
+  }
+}
+
+/* --- CSS-only accordion (grid-rows trick) --- */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
+}
+.faq-panel.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.faq-panel > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* --- Zero-JS scroll progress bar --- */
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.scroll-progress {
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+/* --- Hero video fades in via CSS (no JS) --- */
+.hero-video {
+  opacity: 0.4;
+  animation: video-in 1.2s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .anim-line {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
+
+/* --- Theme toggle knob (CSS-driven from html.light, no hydration state) --- */
+.theme-knob {
+  transform: translateX(0);
+  background: var(--acid);
+  color: #041207;
+}
+.theme-icon-sun {
+  display: none;
+}
+.theme-icon-moon {
+  display: block;
+}
+html.light .theme-knob {
+  transform: translateX(1.25rem);
+  background: #0a0a0a;
+  color: #fbbf24;
+}
+html.light .theme-icon-sun {
+  display: block;
+}
+html.light .theme-icon-moon {
+  display: none;
 }
 
 /* --- Grain / noise overlay --- */

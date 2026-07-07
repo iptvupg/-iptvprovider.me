@@ -1,12 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-
-const EASE = [0.16, 1, 0.3, 1];
+import { createElement, useEffect, useRef, useState } from "react";
+import { observe } from "@/lib/observer";
 
 /**
- * Cinematic line-by-line mask reveal.
- * Pass `lines` as an array of strings or JSX nodes.
+ * Cinematic line-by-line mask reveal on scroll — pure CSS, no animation library.
+ * Uses a lightweight IntersectionObserver to add `.anim-in` when in view.
+ * (For above-the-fold headings that should autoplay without JS, use the server
+ * component MountHeading instead.)
  */
 export default function AnimatedHeading({
   lines,
@@ -14,33 +15,38 @@ export default function AnimatedHeading({
   className = "",
   delay = 0,
   stagger = 0.09,
-  duration = 1.15,
   once = true,
-  amount = 0.25,
-  mount = false,
 }) {
-  const Tag = motion[as] || motion.h2;
-  // Above-the-fold headings animate on mount; the rest reveal on scroll.
-  const revealProps = mount
-    ? { animate: { y: "0%" } }
-    : { whileInView: { y: "0%" }, viewport: { once, amount } };
-  return (
-    <Tag className={className}>
-      {lines.map((line, i) => (
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    let dispose;
+    dispose = observe(el, (entry) => {
+      if (entry.isIntersecting) {
+        setInView(true);
+        if (once) dispose?.();
+      } else if (!once) {
+        setInView(false);
+      }
+    });
+    return () => dispose?.();
+  }, [once]);
+
+  return createElement(
+    as,
+    { ref, className: `${inView ? "anim-in " : ""}${className}`.trim() },
+    lines.map((line, i) => (
+      <span key={i} className="anim-mask">
         <span
-          key={i}
-          className="block overflow-hidden py-[0.12em] -my-[0.12em]"
+          className="anim-line"
+          style={{ "--line-delay": `${(delay + i * stagger) * 1000}ms` }}
         >
-          <motion.span
-            className="block will-change-transform"
-            initial={{ y: "115%" }}
-            {...revealProps}
-            transition={{ duration, ease: EASE, delay: delay + i * stagger }}
-          >
-            {line}
-          </motion.span>
+          {line}
         </span>
-      ))}
-    </Tag>
+      </span>
+    ))
   );
 }

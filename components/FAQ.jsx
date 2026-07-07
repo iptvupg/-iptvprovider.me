@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import Reveal from "./Reveal";
+import Reveal, { Stagger } from "./Reveal";
 
-const EASE = [0.16, 1, 0.3, 1];
 const WHATSAPP = "https://wa.me/10000000000";
 
 const ITEMS = [
@@ -52,15 +50,12 @@ const ITEMS = [
 
 function Row({ item, open, onToggle, index }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.6, ease: EASE, delay: index * 0.04 }}
-      className="border-b border-[color:var(--hair)]"
+    <div
+      className="reveal border-b border-[color:var(--hair)]"
+      style={{ "--reveal-delay": `${index * 40}ms` }}
     >
       <button
-        onClick={onToggle}
+        onClick={() => onToggle(index)}
         aria-expanded={open}
         className="flex w-full items-center justify-between gap-6 py-6 text-left"
       >
@@ -85,27 +80,20 @@ function Row({ item, open, onToggle, index }) {
           <span className="h-px w-3 bg-current" />
         </span>
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: EASE }}
-            className="overflow-hidden"
-          >
-            <p className="max-w-2xl pb-6 pr-10 text-[15px] leading-relaxed text-secondary">
-              {item.a}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+      <div className={`faq-panel${open ? " open" : ""}`}>
+        <div className="overflow-hidden">
+          <p className="max-w-2xl pb-6 pr-10 text-[15px] leading-relaxed text-secondary">
+            {item.a}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export default function FAQ() {
   const [open, setOpen] = useState(0);
+  const toggle = (i) => setOpen((cur) => (cur === i ? -1 : i));
 
   return (
     <section id="faq" className="relative py-24 sm:py-32">
@@ -130,17 +118,17 @@ export default function FAQ() {
             </a>
           </Reveal>
 
-          <div>
+          <Stagger>
             {ITEMS.map((item, i) => (
               <Row
                 key={item.q}
                 item={item}
                 index={i}
                 open={open === i}
-                onToggle={() => setOpen(open === i ? -1 : i)}
+                onToggle={toggle}
               />
             ))}
-          </div>
+          </Stagger>
         </div>
       </div>
     </section>

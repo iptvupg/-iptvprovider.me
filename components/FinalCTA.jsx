@@ -1,23 +1,13 @@
-"use client";
-
-import { motion } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
 import Reveal from "./Reveal";
 
-const EASE = [0.16, 1, 0.3, 1];
 const WHATSAPP = "https://wa.me/10000000000";
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-16 sm:py-24">
+    <section className="cv-section relative py-16 sm:py-24">
       <div className="container-x">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.9, ease: EASE }}
-          className="relative overflow-hidden rounded-[32px] bg-acid px-8 py-16 text-center sm:px-16 sm:py-24"
-        >
+        <Reveal className="relative overflow-hidden rounded-[32px] bg-acid px-8 py-16 text-center sm:px-16 sm:py-24">
           {/* subtle texture */}
           <div
             aria-hidden
@@ -44,11 +34,8 @@ export default function FinalCTA() {
               </p>
             </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: EASE, delay: 0.25 }}
+            <Reveal
+              delay={0.25}
               className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
             >
               <a
@@ -68,9 +55,9 @@ export default function FinalCTA() {
               >
                 View Pricing
               </a>
-            </motion.div>
+            </Reveal>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,10 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
-import Reveal from "./Reveal";
+import Reveal, { Stagger } from "./Reveal";
 
-const EASE = [0.16, 1, 0.3, 1];
 const WHATSAPP = "https://wa.me/10000000000";
 
 const PLANS = [
@@ -66,7 +62,7 @@ function Check({ acid }) {
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-24 sm:py-32">
+    <section id="pricing" className="cv-section relative py-24 sm:py-32">
       <div className="container-x">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center">Pricing</p>
@@ -81,15 +77,12 @@ export default function Pricing() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PLANS.map((p, i) => (
-            <motion.div
+            <div
               key={p.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: EASE, delay: i * 0.07 }}
-              className={`relative flex flex-col rounded-3xl border p-7 transition-transform duration-500 hover:-translate-y-1 ${
+              style={{ "--reveal-delay": `${i * 70}ms` }}
+              className={`reveal relative flex flex-col rounded-3xl border p-7 transition-transform duration-500 hover:-translate-y-1 ${
                 p.highlight
                   ? "border-transparent bg-acid text-[#041207] shadow-[0_20px_60px_-15px_rgba(0,255,132,0.5)]"
                   : "surface hairline hover:hairline-strong"
@@ -159,9 +152,9 @@ export default function Pricing() {
                 Order Now
                 <span className="transition-transform duration-500">→</span>
               </a>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

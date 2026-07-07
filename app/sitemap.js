@@ -1,9 +1,8 @@
 export default function sitemap() {
   const base = "https://www.iptvprovider.me";
+  // Single-page site: only the canonical URL is a valid sitemap entry. Google
+  // ignores hash fragments, so listing #pricing/#faq etc. adds no value.
   return [
     { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
-    { url: `${base}/#pricing`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/#features`, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${base}/#faq`, changeFrequency: "monthly", priority: 0.5 },
   ];
 }

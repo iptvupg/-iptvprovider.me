@@ -1,12 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
@@ -31,9 +25,13 @@ function WhatsAppIcon({ className = "" }) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 24));
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -41,14 +39,12 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-        className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4"
+      <header
+        className="fade-down fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4"
+        style={{ "--d": "150ms" }}
       >
         <nav
-          className={`flex w-full max-w-[1240px] items-center justify-between rounded-2xl border px-4 py-2.5 transition-all duration-500 ${
+          className={`flex w-full max-w-[1240px] items-center justify-between rounded-2xl border px-4 py-2.5 transition-[background-color,border-color,box-shadow] duration-500 ${
             scrolled ? "glass hairline shadow-card" : "border-transparent"
           }`}
         >
@@ -85,6 +81,8 @@ export default function Navbar() {
             <button
               onClick={() => setOpen((v) => !v)}
               aria-label="Toggle menu"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
               className="flex h-10 w-10 items-center justify-center rounded-full border text-primary hairline lg:hidden"
             >
               <div className="space-y-1.5">
@@ -98,47 +96,39 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="bg-canvas fixed inset-0 z-40 flex flex-col px-6 pb-10 pt-28 backdrop-blur-xl lg:hidden"
-          >
-            <ul className="flex flex-col gap-1">
-              {LINKS.map((l, i) => (
-                <motion.li
-                  key={l.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i }}
-                >
-                  <a
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="block border-b py-4 text-2xl font-medium tracking-tight text-primary hairline"
-                  >
-                    {l.label}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-acid px-6 py-4 text-base font-semibold text-[#041207]"
-            >
-              <WhatsAppIcon />
-              Chat on WhatsApp
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        id="mobile-menu"
+        className={`bg-canvas fixed inset-0 z-40 flex flex-col px-6 pb-10 pt-28 transition-opacity duration-300 lg:hidden ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        inert={!open ? true : undefined}
+      >
+        <ul className="flex flex-col gap-1">
+          {LINKS.map((l) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block border-b py-4 text-2xl font-medium tracking-tight text-primary hairline"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a
+          href={WHATSAPP}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setOpen(false)}
+          className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-acid px-6 py-4 text-base font-semibold text-[#041207]"
+        >
+          <WhatsAppIcon />
+          Chat on WhatsApp
+        </a>
+      </div>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import Cursor from "@/components/Cursor";
+import CursorMount from "@/components/CursorMount";
 import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <div className="noise" aria-hidden />
-      <Cursor />
+      <CursorMount />
       <ScrollProgress />
       <Navbar />
       <main className="relative">

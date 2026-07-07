@@ -1,6 +1,3 @@
-"use client";
-
-import AnimatedHeading from "./AnimatedHeading";
 import Reveal from "./Reveal";
 import Marquee from "./Marquee";
 

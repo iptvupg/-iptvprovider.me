@@ -1,5 +1,3 @@
-"use client";
-
 export default function Marquee({ children, reverse = false, slow = false }) {
   return (
     <div className="mask-fade-x group relative flex overflow-hidden">

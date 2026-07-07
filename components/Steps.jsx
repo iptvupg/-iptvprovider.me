@@ -1,10 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
-import Reveal from "./Reveal";
-
-const EASE = [0.16, 1, 0.3, 1];
+import Reveal, { Stagger } from "./Reveal";
 
 const STEPS = [
   {
@@ -57,7 +52,7 @@ const STEPS = [
 
 export default function Steps() {
   return (
-    <section id="steps" className="relative py-24 sm:py-32">
+    <section id="steps" className="cv-section relative py-24 sm:py-32">
       <div className="container-x">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center">How it works</p>
@@ -68,15 +63,12 @@ export default function Steps() {
           />
         </Reveal>
 
-        <div className="relative mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-3">
+        <Stagger className="relative mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-3">
           {STEPS.map((s, i) => (
-            <motion.div
+            <div
               key={s.n}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: EASE, delay: i * 0.1 }}
-              className="surface hairline group relative rounded-3xl p-8"
+              style={{ "--reveal-delay": `${i * 100}ms` }}
+              className="reveal surface hairline group relative rounded-3xl p-8"
             >
               <div className="flex items-center justify-between">
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl border text-acid hairline transition-colors duration-500 group-hover:hairline-strong">
@@ -94,9 +86,9 @@ export default function Steps() {
               <p className="mt-3 text-[15px] leading-relaxed text-secondary">
                 {s.body}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
