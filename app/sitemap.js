@@ -17,6 +17,12 @@ export default function sitemap() {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${base}/iptv-subscription-plans`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     // Trust / legal pages — indexable but low priority.
     ...["about", "contact", "privacy", "terms", "refund"].map((slug) => ({
       url: `${base}/${slug}`,

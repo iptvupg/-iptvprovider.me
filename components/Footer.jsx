@@ -6,7 +6,7 @@ const WHATSAPP = "https://wa.me/447848197761";
 const HOME = "/iptv-smarters-pro";
 const QUICK_LINKS = [
   { label: "Home", href: `${HOME}#top` },
-  { label: "Pricing", href: `${HOME}#pricing` },
+  { label: "Subscription Plans", href: "/iptv-subscription-plans" },
   { label: "How it works", href: `${HOME}#steps` },
   { label: "Free Trial", href: "/iptv-free-trial-2026" },
   { label: "Devices", href: `${HOME}#devices` },
