@@ -13,6 +13,14 @@ const QUICK_LINKS = [
   { label: "FAQ", href: `${HOME}#faq` },
 ];
 
+const LEGAL_LINKS = [
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Refund", href: "/refund" },
+];
+
 const APPS = [
   "Smart TV",
   "Amazon Firestick",
@@ -113,10 +121,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center border-t border-[color:var(--hair)] py-8">
+        <div className="flex flex-col items-center gap-5 border-t border-[color:var(--hair)] py-8 sm:flex-row sm:justify-between">
           <p className="text-[13px] text-tertiary">
             © {new Date().getFullYear()} IPTV Provider. All rights reserved.
           </p>
+          <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {LEGAL_LINKS.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className="text-[13px] text-tertiary transition-colors hover:text-primary"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

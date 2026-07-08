@@ -65,8 +65,6 @@ const GONE_PATTERNS = [
 
 // Individual deleted pages (informational, legal, misc) → 410 Gone.
 const GONE_EXACT = new Set([
-  "/about",
-  "/contact",
   "/faq",
   "/coverage",
   "/countries",
@@ -95,12 +93,12 @@ const GONE_EXACT = new Set([
   "/dmca-policy",
   "/gdpr",
   "/licensing-disclaimer",
-  "/privacy",
   "/refund-policy",
   "/terms-of-service",
   "/review-process",
   "/guide",
   "/guides",
+  // NOTE: /privacy, /about and /contact were revived as live trust pages.
   "/search",
   "/admin",
   "/private",

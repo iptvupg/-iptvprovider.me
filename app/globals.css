@@ -497,6 +497,52 @@ html.light .theme-icon-moon {
   scrollbar-width: none;
 }
 
+/* --- Long-form prose (legal / info pages) --- */
+.prose-legal {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--fg-2);
+}
+.prose-legal h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+}
+.prose-legal h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+.prose-legal p {
+  margin-bottom: 1rem;
+}
+.prose-legal ul {
+  margin: 0 0 1.15rem 0;
+  padding-left: 1.15rem;
+  list-style: disc;
+}
+.prose-legal li {
+  margin-bottom: 0.5rem;
+}
+.prose-legal a {
+  color: var(--acid);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-legal a:hover {
+  color: var(--acid-hover);
+}
+.prose-legal strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
 /* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
   *,
