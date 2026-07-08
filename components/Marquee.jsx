@@ -7,7 +7,12 @@ export default function Marquee({ children, reverse = false, slow = false }) {
         } ${reverse ? "[animation-direction:reverse]" : ""} group-hover:[animation-play-state:paused]`}
       >
         {children}
-        {children}
+        {/* Duplicate track for the seamless loop — hidden from the a11y tree
+            and search so the catalog content isn't announced/counted twice.
+            `contents` keeps the posters as direct flex items (no layout box). */}
+        <span aria-hidden="true" className="contents">
+          {children}
+        </span>
       </div>
     </div>
   );

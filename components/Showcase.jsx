@@ -69,9 +69,9 @@ function Poster({ item }) {
           <p className="text-[10px] uppercase tracking-[0.22em] text-white/45">
             {item.g}
           </p>
-          <h3 className="mt-1 font-display text-[16px] font-medium tracking-editorial text-white">
+          <p className="mt-1 font-display text-[16px] font-medium tracking-editorial text-white">
             {item.t}
-          </h3>
+          </p>
         </div>
       </div>
     </div>

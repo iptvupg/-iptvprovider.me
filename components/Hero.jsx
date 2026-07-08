@@ -75,9 +75,9 @@ export default function Hero() {
           stagger={0.1}
           className="mx-auto mt-7 max-w-4xl font-display text-[clamp(2.6rem,7.5vw,5.5rem)] font-semibold leading-[0.98] tracking-editorial text-primary"
           lines={[
-            <span key="1">best IPTV service for{" "}</span>,
+            <span key="1">IPTV Smarters Pro{" "}</span>,
             <span key="2" className="relative inline-block">
-              USA, Canada &amp;{" "}
+              for USA, Canada &amp;{" "}
               <span className="relative text-primary">
                 worldwide
                 <span className="underline-grow absolute -bottom-1 left-0 h-[6px] w-full rounded-full bg-acid/80 sm:h-2" />

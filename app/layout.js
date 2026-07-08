@@ -92,16 +92,28 @@ const jsonLd = {
     },
     {
       "@type": "Product",
-      name: "IPTV Provider",
+      name: "IPTV Smarters Pro Subscription",
       description:
-        "Premium HD/4K IPTV streaming with 54,000+ live channels and 120,000+ movies & series.",
+        "Premium HD/4K IPTV subscription for IPTV Smarters Pro with 54,000+ live channels and 120,000+ movies & series.",
+      image: `${SITE}/opengraph-image`,
       brand: { "@type": "Brand", name: "IPTV Provider" },
       offers: {
         "@type": "Offer",
         price: "7.50",
         priceCurrency: "USD",
         availability: "https://schema.org/InStock",
-        url: SITE,
+        url: `${SITE}/iptv-smarters-pro`,
+        // Near-term validity so Product eligibility isn't flagged as stale.
+        priceValidUntil: "2026-12-31",
+        // Mirrors the on-page 30-day money-back guarantee (no fabrication).
+        hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: ["US", "CA", "GB"],
+          returnPolicyCategory:
+            "https://schema.org/MerchantReturnFiniteReturnWindow",
+          merchantReturnDays: 30,
+          returnFees: "https://schema.org/FreeReturn",
+        },
       },
     },
   ],
