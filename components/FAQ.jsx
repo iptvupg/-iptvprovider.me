@@ -45,6 +45,7 @@ const ITEMS = [
   {
     q: "Do you offer a free IPTV trial?",
     a: "Yes, a free 24-hour trial. Test the channels and picture quality before you pay anything. Contact us on WhatsApp to get started.",
+    cta: { href: "/iptv-free-trial-2026", label: "Start your free 24-hour trial →" },
   },
   {
     q: "How much does an IPTV subscription cost?",
@@ -86,9 +87,18 @@ function Row({ item, open, onToggle, index }) {
       </button>
       <div className={`faq-panel${open ? " open" : ""}`}>
         <div className="overflow-hidden">
-          <p className="max-w-2xl pb-6 pr-10 text-[15px] leading-relaxed text-secondary">
+          <p className="max-w-2xl pr-10 text-[15px] leading-relaxed text-secondary">
             {item.a}
           </p>
+          {item.cta && (
+            <a
+              href={item.cta.href}
+              className="link-underline mt-3 inline-block pb-6 text-[15px] font-medium text-acid"
+            >
+              {item.cta.label}
+            </a>
+          )}
+          {!item.cta && <div className="pb-6" />}
         </div>
       </div>
     </div>

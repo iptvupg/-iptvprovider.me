@@ -2,12 +2,15 @@ import Logo from "./Logo";
 
 const WHATSAPP = "https://wa.me/447848197761";
 
+// Absolute canonical-page targets so links resolve from any route.
+const HOME = "/iptv-smarters-pro";
 const QUICK_LINKS = [
-  { label: "Home", href: "#top" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "How it works", href: "#steps" },
-  { label: "Devices", href: "#devices" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: `${HOME}#top` },
+  { label: "Pricing", href: `${HOME}#pricing` },
+  { label: "How it works", href: `${HOME}#steps` },
+  { label: "Free Trial", href: "/iptv-free-trial-2026" },
+  { label: "Devices", href: `${HOME}#devices` },
+  { label: "FAQ", href: `${HOME}#faq` },
 ];
 
 const APPS = [

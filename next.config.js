@@ -9,6 +9,25 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // Safe, non-breaking security headers on every route. CSP and
+        // origin-level HSTS are intentionally omitted: the app inlines scripts
+        // (theme + JSON-LD) so CSP needs nonce plumbing, and HSTS is already set
+        // at the Cloudflare edge.
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
+        ],
+      },
+      {
         source: "/media/:path*",
         headers: [
           {

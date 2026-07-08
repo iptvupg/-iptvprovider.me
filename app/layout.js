@@ -114,6 +114,15 @@ export default function RootLayout({ children }) {
       className={`${geist.variable} ${display.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Warm up the third-party image CDN that serves the poster art. */}
+        <link
+          rel="preconnect"
+          href="https://wsrv.nl"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://wsrv.nl" />
+      </head>
       <body className="font-sans antialiased">
         <script
           dangerouslySetInnerHTML={{

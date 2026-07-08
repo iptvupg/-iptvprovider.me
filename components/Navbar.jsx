@@ -4,12 +4,16 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
+// Absolute targets on the canonical page so the same nav works from any route
+// (on /iptv-smarters-pro only the fragment changes, so the browser just scrolls).
+const HOME = "/iptv-smarters-pro";
 const LINKS = [
-  { label: "Home", href: "#top" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "How it works", href: "#steps" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: `${HOME}#top` },
+  { label: "Pricing", href: `${HOME}#pricing` },
+  { label: "How it works", href: `${HOME}#steps` },
+  { label: "Free Trial", href: "/iptv-free-trial-2026" },
+  { label: "FAQ", href: `${HOME}#faq` },
+  { label: "Contact", href: `${HOME}#contact` },
 ];
 
 const WHATSAPP = "https://wa.me/447848197761";
@@ -48,7 +52,7 @@ export default function Navbar() {
             scrolled ? "glass hairline shadow-card" : "border-transparent"
           }`}
         >
-          <a href="#top" aria-label="IPTV Provider home" className="pl-1">
+          <a href={`${HOME}#top`} aria-label="IPTV Provider home" className="pl-1">
             <Logo />
           </a>
 
