@@ -3,6 +3,7 @@ import { CheckoutProvider } from "@/components/Checkout";
 import ScrollProgress from "@/components/ScrollProgress";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import WhatIsIptv from "@/components/WhatIsIptv";
 import WorksOnDevices from "@/components/WorksOnDevices";
 import Pricing from "@/components/Pricing";
 import Steps from "@/components/Steps";
@@ -20,6 +21,7 @@ export default function Landing() {
       <Navbar />
       <main className="relative">
         <Hero />
+        <WhatIsIptv />
         <WorksOnDevices />
         <Pricing />
         <Steps />

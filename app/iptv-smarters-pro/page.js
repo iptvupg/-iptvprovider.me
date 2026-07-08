@@ -46,12 +46,30 @@ const breadcrumbLd = {
   ],
 };
 
+// Freshness signal for AI/search. Dates reflect the page's real git history.
+const webPageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${URL}#webpage`,
+  url: URL,
+  name: "Best IPTV Service USA, Canada & Worldwide – 54,000+ Channels",
+  isPartOf: { "@id": `${SITE}#website` },
+  about: { "@id": `${SITE}#organization` },
+  inLanguage: "en",
+  datePublished: "2026-07-07",
+  dateModified: "2026-07-08",
+};
+
 export default function IptvSmartersProPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
       />
       <Landing />
     </>
