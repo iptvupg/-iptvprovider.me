@@ -1,14 +1,21 @@
 export default function sitemap() {
-  // Single-page site. The homepage "/" 301-redirects to /iptv-smarters-pro,
-  // so the sitemap lists only the live, canonical, 200-status page — never the
-  // redirecting root or hash fragments (#pricing/#faq), which Google ignores.
-  const canonical = "https://www.iptvprovider.me/iptv-smarters-pro";
+  // Live, canonical, 200-status pages only — never the redirecting root or hash
+  // fragments (#pricing/#faq), which Google ignores. The homepage "/"
+  // 301-redirects to /iptv-smarters-pro, so it is not listed here.
+  const base = "https://www.iptvprovider.me";
+  const lastModified = new Date();
   return [
     {
-      url: canonical,
-      lastModified: new Date(),
+      url: `${base}/iptv-smarters-pro`,
+      lastModified,
       changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: `${base}/iptv-free-trial-2026`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
   ];
 }

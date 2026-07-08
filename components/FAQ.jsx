@@ -95,12 +95,26 @@ function Row({ item, open, onToggle, index }) {
   );
 }
 
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function FAQ() {
   const [open, setOpen] = useState(0);
   const toggle = (i) => setOpen((cur) => (cur === i ? -1 : i));
 
   return (
     <section id="faq" className="relative py-24 sm:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+      />
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <Reveal className="lg:sticky lg:top-32 lg:self-start">

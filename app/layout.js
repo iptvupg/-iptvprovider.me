@@ -70,33 +70,6 @@ export const viewport = {
   initialScale: 1,
 };
 
-const FAQ_ITEMS = [
-  [
-    "How do I set up my subscription after I buy?",
-    "As soon as your order is confirmed, we email your login credentials and a step-by-step setup guide, usually within minutes. Enter your details into any supported app and you're watching.",
-  ],
-  [
-    "Which devices work with our IPTV service?",
-    "Smart TVs, Firestick, Apple TV, Roku, MAG boxes, Android, iOS, Windows and Mac. If it connects to the internet and runs an IPTV player, it works.",
-  ],
-  [
-    "How fast is activation?",
-    "Minutes. Once your payment is confirmed on WhatsApp, your login arrives by email straight away.",
-  ],
-  [
-    "What internet speed do I need?",
-    "Around 15 Mbps for smooth HD and 25 Mbps or more for stable 4K. A wired connection or solid Wi-Fi gives the best result.",
-  ],
-  [
-    "Do you offer a free IPTV trial?",
-    "Yes, a free 24-hour trial. Test the channels and picture quality before you pay anything. Contact us on WhatsApp to get started.",
-  ],
-  [
-    "Is there a money-back guarantee?",
-    "Yes, 30 days. If the service isn't right for you, ask for a refund and you'll get it.",
-  ],
-];
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -130,14 +103,6 @@ const jsonLd = {
         availability: "https://schema.org/InStock",
         url: SITE,
       },
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: FAQ_ITEMS.map(([q, a]) => ({
-        "@type": "Question",
-        name: q,
-        acceptedAnswer: { "@type": "Answer", text: a },
-      })),
     },
   ],
 };
