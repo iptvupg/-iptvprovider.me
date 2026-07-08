@@ -23,6 +23,18 @@ export default function sitemap() {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    // Topic-cluster hubs and guides.
+    ...[
+      "learn",
+      "learn/iptv-explained",
+      "how-to",
+      "how-to/install-iptv-on-firestick",
+    ].map((slug) => ({
+      url: `${base}/${slug}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    })),
     // Trust / legal pages — indexable but low priority.
     ...["about", "contact", "privacy", "terms", "refund"].map((slug) => ({
       url: `${base}/${slug}`,

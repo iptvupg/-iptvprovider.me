@@ -3,28 +3,55 @@ import Footer from "@/components/Footer";
 
 const SITE = "https://www.iptvprovider.me";
 
-// Shared shell for the standalone trust / legal pages (privacy, terms, refund,
-// about, contact). Renders the site chrome plus a consistent header and a
-// long-form `.prose-legal` body, and injects BreadcrumbList + WebPage JSON-LD
-// in the initial server-rendered HTML.
+// Shared shell for the standalone content pages (trust/legal pages and the
+// topic-cluster learn/how-to/compare/fix pages). Renders the site chrome plus a
+// consistent header, injects BreadcrumbList + WebPage JSON-LD in the initial
+// server-rendered HTML, and accepts extra JSON-LD (Article, HowTo, FAQPage…)
+// via `schemas`.
+//
+// Props:
+//   slug            path without leading slash, e.g. "learn/iptv-explained"
+//   eyebrow, title, intro, updated ({ iso, label })
+//   breadcrumb      label for the current page's crumb
+//   parent          optional { name, href } middle crumb (e.g. Learn)
+//   schemas         optional array of extra JSON-LD objects
+//   contentClassName  wrapper class for the body (default: prose)
 export default function PageShell({
   slug,
   eyebrow,
   title,
   intro,
   breadcrumb,
+  parent,
   updated,
+  schemas = [],
+  contentClassName = "prose-legal max-w-3xl",
   children,
 }) {
   const url = `${SITE}/${slug}`;
 
+  const crumbItems = [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+  ];
+  if (parent) {
+    crumbItems.push({
+      "@type": "ListItem",
+      position: 2,
+      name: parent.name,
+      item: `${SITE}${parent.href}`,
+    });
+  }
+  crumbItems.push({
+    "@type": "ListItem",
+    position: crumbItems.length + 1,
+    name: breadcrumb,
+    item: url,
+  });
+
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-      { "@type": "ListItem", position: 2, name: breadcrumb, item: url },
-    ],
+    itemListElement: crumbItems,
   };
 
   const webPageLd = {
@@ -39,16 +66,17 @@ export default function PageShell({
     ...(updated ? { dateModified: updated.iso } : {}),
   };
 
+  const allSchemas = [breadcrumbLd, webPageLd, ...schemas];
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }}
-      />
+      {allSchemas.map((s, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+        />
+      ))}
       <div className="noise" aria-hidden />
       <Navbar />
 
@@ -65,6 +93,17 @@ export default function PageShell({
               >
                 Home
               </a>
+              {parent ? (
+                <>
+                  <span className="mx-2 text-[color:var(--hair-strong)]">/</span>
+                  <a
+                    href={parent.href}
+                    className="transition-colors hover:text-primary"
+                  >
+                    {parent.name}
+                  </a>
+                </>
+              ) : null}
               <span className="mx-2 text-[color:var(--hair-strong)]">/</span>
               <span className="text-secondary">{breadcrumb}</span>
             </nav>
@@ -93,7 +132,7 @@ export default function PageShell({
 
         <section className="relative pb-24">
           <div className="container-x">
-            <div className="prose-legal max-w-3xl">{children}</div>
+            <div className={contentClassName}>{children}</div>
           </div>
         </section>
       </main>

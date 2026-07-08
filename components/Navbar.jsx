@@ -10,7 +10,8 @@ const HOME = "/iptv-smarters-pro";
 const LINKS = [
   { label: "Home", href: `${HOME}#top` },
   { label: "Pricing", href: "/iptv-subscription-plans" },
-  { label: "How it works", href: `${HOME}#steps` },
+  { label: "Learn", href: "/learn" },
+  { label: "Setup", href: "/how-to" },
   { label: "Free Trial", href: "/iptv-free-trial-2026" },
   { label: "FAQ", href: `${HOME}#faq` },
   { label: "Contact", href: `${HOME}#contact` },

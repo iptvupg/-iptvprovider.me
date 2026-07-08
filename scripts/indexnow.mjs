@@ -8,6 +8,11 @@ const KEY = "c1e0b143fbc3ea79f872196a2fd7f73c";
 const urlList = [
   `https://${HOST}/iptv-smarters-pro`,
   `https://${HOST}/iptv-free-trial-2026`,
+  `https://${HOST}/iptv-subscription-plans`,
+  `https://${HOST}/learn`,
+  `https://${HOST}/learn/iptv-explained`,
+  `https://${HOST}/how-to`,
+  `https://${HOST}/how-to/install-iptv-on-firestick`,
 ];
 
 const body = {

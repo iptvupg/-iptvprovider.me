@@ -13,6 +13,13 @@ const QUICK_LINKS = [
   { label: "FAQ", href: `${HOME}#faq` },
 ];
 
+const RESOURCE_LINKS = [
+  { label: "Learn IPTV", href: "/learn" },
+  { label: "What is IPTV?", href: "/learn/iptv-explained" },
+  { label: "Setup guides", href: "/how-to" },
+  { label: "IPTV on Firestick", href: "/how-to/install-iptv-on-firestick" },
+];
+
 const LEGAL_LINKS = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -37,7 +44,7 @@ export default function Footer() {
       className="cv-section relative border-t border-[color:var(--hair)] pt-20"
     >
       <div className="container-x">
-        <div className="grid gap-12 pb-16 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+        <div className="grid gap-12 pb-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.2fr]">
           {/* Brand */}
           <div>
             <Logo />
@@ -55,6 +62,25 @@ export default function Footer() {
             <ul className="mt-4 space-y-3">
               {QUICK_LINKS.map((l) => (
                 <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-[14px] text-secondary transition-colors hover:text-primary"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-[13px] font-semibold uppercase tracking-[0.14em] text-tertiary">
+              Resources
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {RESOURCE_LINKS.map((l) => (
+                <li key={l.href}>
                   <a
                     href={l.href}
                     className="text-[14px] text-secondary transition-colors hover:text-primary"
