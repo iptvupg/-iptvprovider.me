@@ -19,12 +19,21 @@ export const metadata = {
       "54,000+ live channels & 120,000+ movies & series in HD/4K on IPTV Smarters Pro. Free 24-hour trial. Instant activation.",
     siteName: "IPTV Provider",
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "IPTV Smarters Pro — 54,000+ live channels & 120,000+ movies in HD/4K",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "IPTV Smarters Pro Subscription | 54,000+ Channels",
     description:
       "54,000+ live channels & 120,000+ movies & series in HD/4K on IPTV Smarters Pro. Free 24-hour trial. Instant activation.",
+    images: ["/opengraph-image"],
   },
 };
 

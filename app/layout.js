@@ -21,7 +21,7 @@ const SITE = "https://www.iptvprovider.me";
 export const metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Best IPTV Service USA, Canada & Latin America | 54,000+ Channels",
+    default: "Best IPTV Service USA, Canada & Worldwide | 54,000+ Channels",
     template: "%s | IPTV Provider",
   },
   description:
@@ -40,7 +40,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: SITE,
-    title: "Best IPTV Service USA, Canada & Latin America",
+    title: "Best IPTV Service USA, Canada & Worldwide",
     description:
       "54,000+ live channels & 120,000+ movies & series in HD/4K. Free 24-hour trial. Instant activation.",
     siteName: "IPTV Provider",
@@ -50,7 +50,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best IPTV Service USA, Canada & Latin America",
+    title: "Best IPTV Service USA, Canada & Worldwide",
     description:
       "54,000+ live channels & 120,000+ movies & series in HD/4K. Free 24-hour trial. Instant activation.",
   },
@@ -89,7 +89,7 @@ const FAQ_ITEMS = [
   ],
   [
     "Do you offer a free IPTV trial?",
-    "Yes, a free 24-hour trial. Test the channels and picture quality before you pay anything.",
+    "Yes, a free 24-hour trial. Test the channels and picture quality before you pay anything. Contact us on WhatsApp to get started.",
   ],
   [
     "Is there a money-back guarantee?",
@@ -105,8 +105,17 @@ const jsonLd = {
       "@id": `${SITE}#organization`,
       name: "IPTV Provider",
       url: SITE,
+      logo: `${SITE}/icon.svg`,
       description:
-        "Premium IPTV service for the USA, Canada and Latin America with 54,000+ live channels and 120,000+ movies & series in HD/4K.",
+        "Premium IPTV service for the USA, Canada and worldwide with 54,000+ live channels and 120,000+ movies & series in HD/4K.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}#website`,
+      url: SITE,
+      name: "IPTV Provider",
+      publisher: { "@id": `${SITE}#organization` },
+      inLanguage: "en",
     },
     {
       "@type": "Product",
@@ -114,11 +123,6 @@ const jsonLd = {
       description:
         "Premium HD/4K IPTV streaming with 54,000+ live channels and 120,000+ movies & series.",
       brand: { "@type": "Brand", name: "IPTV Provider" },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "18420",
-      },
       offers: {
         "@type": "Offer",
         price: "7.50",

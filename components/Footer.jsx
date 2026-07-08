@@ -19,21 +19,6 @@ const APPS = [
   "Windows & macOS",
 ];
 
-const SOCIAL = [
-  {
-    name: "X",
-    path: "M18.9 2H22l-7.4 8.5L23 22h-6.8l-5.3-6.9L4.8 22H1.7l7.9-9L1 2h7l4.8 6.4L18.9 2Z",
-  },
-  {
-    name: "Instagram",
-    path: "M12 7.6A4.4 4.4 0 1 0 12 16.4 4.4 4.4 0 0 0 12 7.6Zm0 7.3a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8Zm5.6-7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM20 7.1c-.1-1.3-.4-2.5-1.4-3.4S16.5 2.4 15.2 2.3C13.8 2.2 9.9 2.2 8.5 2.3c-1.3.1-2.5.4-3.4 1.4S3.7 5.8 3.6 7.1c-.1 1.4-.1 5.3 0 6.7.1 1.3.4 2.5 1.4 3.4s2.1 1.3 3.4 1.4c1.4.1 5.3.1 6.7 0 1.3-.1 2.5-.4 3.4-1.4s1.3-2.1 1.4-3.4c.1-1.4.1-5.3 0-6.7Z",
-  },
-  {
-    name: "YouTube",
-    path: "M23 12s0-3.2-.4-4.7c-.2-.8-.9-1.5-1.7-1.7C19.4 5.2 12 5.2 12 5.2s-7.4 0-8.9.4c-.8.2-1.5.9-1.7 1.7C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.8.9 1.5 1.7 1.7 1.5.4 8.9.4 8.9.4s7.4 0 8.9-.4c.8-.2 1.5-.9 1.7-1.7.4-1.5.4-4.7.4-4.7ZM9.8 15V9l5.2 3-5.2 3Z",
-  },
-];
-
 export default function Footer() {
   return (
     <footer
@@ -46,23 +31,9 @@ export default function Footer() {
           <div>
             <Logo />
             <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-secondary">
-              Premium IPTV for the USA, Canada &amp; Latin America. 54,000+ live
+              Premium IPTV for the USA, Canada &amp; worldwide. 54,000+ live
               channels and 120,000+ movies &amp; series, streamed in HD &amp; 4K.
             </p>
-            <div className="mt-7 flex gap-3">
-              {SOCIAL.map((s) => (
-                <a
-                  key={s.name}
-                  href="#"
-                  aria-label={s.name}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border text-secondary transition-colors hairline hover:hairline-strong hover:text-primary"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d={s.path} />
-                  </svg>
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick links */}
@@ -139,15 +110,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-[color:var(--hair)] py-8 sm:flex-row">
+        <div className="flex items-center justify-center border-t border-[color:var(--hair)] py-8">
           <p className="text-[13px] text-tertiary">
             © {new Date().getFullYear()} IPTV Provider. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-[13px] text-tertiary">
-            <a href="#" className="transition-colors hover:text-primary">Terms</a>
-            <a href="#" className="transition-colors hover:text-primary">Privacy</a>
-            <a href="#" className="transition-colors hover:text-primary">Refund Policy</a>
-          </div>
         </div>
       </div>
     </footer>

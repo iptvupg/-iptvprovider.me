@@ -51,7 +51,7 @@ export default function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          Best IPTV Service for USA, Canada &amp; Latin America
+          Best IPTV Service for USA, Canada &amp; Worldwide
         </div>
         <div
           style={{

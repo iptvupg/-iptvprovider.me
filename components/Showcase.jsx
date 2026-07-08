@@ -33,6 +33,8 @@ function Poster({ item }) {
           <img
             src={item.img}
             alt={`${item.t} — ${item.g} in 4K`}
+            width={220}
+            height={330}
             loading="lazy"
             decoding="async"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
@@ -67,9 +69,9 @@ function Poster({ item }) {
           <p className="text-[10px] uppercase tracking-[0.22em] text-white/45">
             {item.g}
           </p>
-          <h4 className="mt-1 font-display text-[16px] font-medium tracking-editorial text-white">
+          <h3 className="mt-1 font-display text-[16px] font-medium tracking-editorial text-white">
             {item.t}
-          </h4>
+          </h3>
         </div>
       </div>
     </div>
@@ -89,9 +91,9 @@ function Row({ eyebrow, title, subtitle, watermark, items, reverse }) {
         <div className="container-x">
           <Reveal className="mb-9 max-w-xl">
             <p className="eyebrow">{eyebrow}</p>
-            <h3 className="mt-3 font-display text-[clamp(1.7rem,4vw,2.6rem)] font-semibold tracking-editorial text-primary">
+            <h2 className="mt-3 font-display text-[clamp(1.7rem,4vw,2.6rem)] font-semibold tracking-editorial text-primary">
               {title}
-            </h3>
+            </h2>
             <p className="mt-3 text-[15px] leading-relaxed text-secondary">
               {subtitle}
             </p>
