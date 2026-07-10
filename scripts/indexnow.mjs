@@ -13,6 +13,11 @@ const urlList = [
   `https://${HOST}/learn/iptv-explained`,
   `https://${HOST}/how-to`,
   `https://${HOST}/how-to/install-iptv-on-firestick`,
+  `https://${HOST}/how-to/install-iptv-on-android`,
+  `https://${HOST}/how-to/install-iptv-on-smart-tv`,
+  `https://${HOST}/how-to/install-iptv-on-apple-tv`,
+  `https://${HOST}/how-to/install-iptv-on-mag-box`,
+  `https://${HOST}/how-to/install-iptv-on-windows-mac`,
   `https://${HOST}/compare`,
   `https://${HOST}/compare/iptv-smarters-pro-vs-tivimate`,
 ];

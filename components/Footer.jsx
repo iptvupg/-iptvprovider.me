@@ -30,12 +30,12 @@ const LEGAL_LINKS = [
 ];
 
 const APPS = [
-  "Smart TV",
-  "Amazon Firestick",
-  "Android",
-  "Apple TV & iOS",
-  "MAG Box",
-  "Windows & macOS",
+  { label: "Smart TV", href: "/how-to/install-iptv-on-smart-tv" },
+  { label: "Amazon Firestick", href: "/how-to/install-iptv-on-firestick" },
+  { label: "Android", href: "/how-to/install-iptv-on-android" },
+  { label: "Apple TV & iOS", href: "/how-to/install-iptv-on-apple-tv" },
+  { label: "MAG Box", href: "/how-to/install-iptv-on-mag-box" },
+  { label: "Windows & macOS", href: "/how-to/install-iptv-on-windows-mac" },
 ];
 
 export default function Footer() {
@@ -93,15 +93,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Supported apps */}
+          {/* Supported devices */}
           <div>
             <h3 className="text-[13px] font-semibold uppercase tracking-[0.14em] text-tertiary">
-              Supported Apps
+              Setup Guides
             </h3>
             <ul className="mt-4 space-y-3">
               {APPS.map((a) => (
-                <li key={a} className="text-[14px] text-secondary">
-                  {a}
+                <li key={a.href}>
+                  <a
+                    href={a.href}
+                    className="text-[14px] text-secondary transition-colors hover:text-primary"
+                  >
+                    {a.label}
+                  </a>
                 </li>
               ))}
             </ul>

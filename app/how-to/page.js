@@ -22,7 +22,7 @@ export const metadata = {
   },
 };
 
-const UPDATED = { iso: "2026-07-09", label: "9 July 2026" };
+const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 
 const GUIDES = [
   {
@@ -32,29 +32,45 @@ const GUIDES = [
     body: "Get IPTV Smarters Pro running on an Amazon Firestick or Fire TV in about 10 minutes.",
   },
   {
-    href: "/learn/iptv-explained",
-    kicker: "Start here",
-    title: "What is IPTV?",
-    body: "New to IPTV? Understand how it works and what you need before you install anything.",
+    href: "/how-to/install-iptv-on-android",
+    kicker: "Android",
+    title: "Install IPTV on Android",
+    body: "Phone, tablet or Android TV box — set up IPTV Smarters Pro from Google Play in about 5 minutes.",
   },
+  {
+    href: "/how-to/install-iptv-on-smart-tv",
+    kicker: "Smart TV",
+    title: "Install IPTV on Smart TV",
+    body: "Samsung and LG Smart TVs: install a player from the app store and add your playlist.",
+  },
+  {
+    href: "/how-to/install-iptv-on-apple-tv",
+    kicker: "Apple TV & iOS",
+    title: "Install IPTV on Apple TV & iOS",
+    body: "Apple TV, iPhone and iPad — set up an App Store player like IPTV Smarters or iPlayTV.",
+  },
+  {
+    href: "/how-to/install-iptv-on-mag-box",
+    kicker: "MAG Box",
+    title: "Set up IPTV on a MAG box",
+    body: "No app needed — enter your portal URL in the settings, reboot and start watching.",
+  },
+  {
+    href: "/how-to/install-iptv-on-windows-mac",
+    kicker: "Windows & Mac",
+    title: "Install IPTV on Windows & Mac",
+    body: "Use IPTV Smarters Pro desktop or VLC to watch on a PC or Mac with a full TV guide.",
+  },
+];
+
+const NEXT_LINKS = [
+  { href: "/learn/iptv-explained", label: "What is IPTV?" },
   {
     href: "/compare/iptv-smarters-pro-vs-tivimate",
-    kicker: "Compare",
-    title: "Smarters Pro vs TiviMate",
-    body: "Not sure which app to install? Compare the two most popular IPTV players before you set up.",
+    label: "Smarters Pro vs TiviMate",
   },
-  {
-    href: "/iptv-free-trial-2026",
-    kicker: "Get a line",
-    title: "Free 24-hour trial",
-    body: "You need a subscription or trial line to activate any app. Grab a free trial to follow along.",
-  },
-  {
-    href: "/iptv-subscription-plans",
-    kicker: "Plans",
-    title: "Subscription plans",
-    body: "Ready to commit? Pick a plan from $7.50/mo with the full channel and movie library.",
-  },
+  { href: "/iptv-free-trial-2026", label: "Free 24-hour trial" },
+  { href: "/iptv-subscription-plans", label: "Subscription plans" },
 ];
 
 const FAQ_ITEMS = [
@@ -130,6 +146,19 @@ export default function HowToHubPage() {
                 →
               </span>
             </span>
+          </a>
+        ))}
+      </div>
+
+      <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-[14px]">
+        <span className="text-tertiary">Next steps:</span>
+        {NEXT_LINKS.map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            className="font-medium text-secondary underline decoration-[color:var(--hair-strong)] underline-offset-4 transition-colors hover:text-primary"
+          >
+            {l.label}
           </a>
         ))}
       </div>

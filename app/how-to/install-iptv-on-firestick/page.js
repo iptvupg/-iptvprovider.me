@@ -1,4 +1,4 @@
-import PageShell from "@/components/PageShell";
+import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
 
 const SITE = "https://www.iptvprovider.me";
 const URL = `${SITE}/how-to/install-iptv-on-firestick`;
@@ -82,98 +82,37 @@ const FAQ_ITEMS = [
   ],
 ];
 
-const howToLd = {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  name: "How to Install IPTV on Amazon Firestick",
-  description:
-    "Set up IPTV Smarters Pro on an Amazon Firestick and load your channels in about 10 minutes.",
-  totalTime: "PT10M",
-  image: `${SITE}/opengraph-image`,
-  supply: [
-    { "@type": "HowToSupply", name: "Amazon Firestick or Fire TV" },
-    { "@type": "HowToSupply", name: "IPTV subscription or free-trial line" },
-  ],
-  tool: [{ "@type": "HowToTool", name: "IPTV Smarters Pro app" }],
-  step: STEPS.map((s, i) => ({
-    "@type": "HowToStep",
-    position: i + 1,
-    name: s.name,
-    text: s.text,
-    url: `${URL}#step-${i + 1}`,
-  })),
-};
-
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map(([q, a]) => ({
-    "@type": "Question",
-    name: q,
-    acceptedAnswer: { "@type": "Answer", text: a },
-  })),
-};
+const BEFORE = [
+  <li key="1">An Amazon Firestick or Fire TV connected to your TV and the internet.</li>,
+  <li key="2">
+    A stable connection — 5GHz Wi-Fi or ethernet gives the smoothest playback.
+  </li>,
+  <li key="3">
+    Your login details from an active subscription or{" "}
+    <a href="/iptv-free-trial-2026">free 24-hour trial</a> (an Xtream Codes login
+    or an M3U URL).
+  </li>,
+];
 
 export default function InstallOnFirestickPage() {
   return (
-    <PageShell
+    <HowToGuide
       slug="how-to/install-iptv-on-firestick"
       eyebrow="How-to · Firestick"
-      parent={{ name: "How to set up IPTV", href: "/how-to" }}
       breadcrumb="Install on Firestick"
       title="How to install IPTV on Firestick"
       intro="You can get IPTV running on an Amazon Firestick in about 10 minutes using the free IPTV Smarters Pro app. Install the app, enter the login details we send you, and your channels, movies and TV guide load automatically. No sideloading required on current Firesticks."
       updated={UPDATED}
-      author="IPTV Provider Editorial"
-      schemas={[howToLd, faqLd]}
+      device="Amazon Firestick"
+      app="IPTV Smarters Pro"
+      totalTime="PT10M"
+      chips={["⏱ About 10 minutes", "Difficulty: easy", "App: IPTV Smarters Pro"]}
+      supplies={["Amazon Firestick or Fire TV", "IPTV subscription or free-trial line"]}
+      beforeItems={BEFORE}
+      steps={STEPS}
+      stepsHeading="Install IPTV on Firestick: step by step"
+      faqItems={FAQ_ITEMS}
     >
-      <div className="not-prose mb-8 flex flex-wrap gap-3">
-        <span className="rounded-full border border-[color:var(--hair-strong)] px-4 py-1.5 text-[13px] text-secondary">
-          ⏱ About 10 minutes
-        </span>
-        <span className="rounded-full border border-[color:var(--hair-strong)] px-4 py-1.5 text-[13px] text-secondary">
-          Difficulty: easy
-        </span>
-        <span className="rounded-full border border-[color:var(--hair-strong)] px-4 py-1.5 text-[13px] text-secondary">
-          App: IPTV Smarters Pro
-        </span>
-      </div>
-
-      <h2>Before you start</h2>
-      <p>Make sure you have these ready:</p>
-      <ul>
-        <li>An Amazon Firestick or Fire TV connected to your TV and the internet.</li>
-        <li>A stable connection — 5GHz Wi-Fi or ethernet gives the smoothest playback.</li>
-        <li>
-          Your login details from an active subscription or{" "}
-          <a href="/iptv-free-trial-2026">free 24-hour trial</a> (an Xtream Codes
-          login or an M3U URL).
-        </li>
-      </ul>
-
-      <h2>Install IPTV on Firestick: step by step</h2>
-      <ol className="mt-4 list-none space-y-4 pl-0">
-        {STEPS.map((s, i) => (
-          <li
-            key={s.name}
-            id={`step-${i + 1}`}
-            className="surface hairline flex gap-4 rounded-2xl p-5"
-          >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-acid text-[14px] font-bold text-[#041207]">
-              {i + 1}
-            </span>
-            <div>
-              <h3 className="font-display text-[17px] font-semibold tracking-editorial text-primary">
-                {s.name}
-              </h3>
-              <p className="mt-1.5 text-[14.5px] leading-relaxed text-secondary">
-                {s.text}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ol>
-
       <h2>Loading your playlist</h2>
       <p>
         IPTV Smarters Pro accepts two formats and we send you both — use whichever
@@ -196,61 +135,20 @@ export default function InstallOnFirestickPage() {
         running low on memory. Restart the Firestick, switch to 5GHz Wi-Fi or
         ethernet, and close apps running in the background. If it persists, our{" "}
         24/7 support team can help — message us on{" "}
-        <a href="https://wa.me/447848197761" target="_blank" rel="noopener noreferrer">
+        <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
           WhatsApp
         </a>
         .
       </p>
 
-      <h2>Frequently asked questions</h2>
-      <div className="mt-4 divide-y divide-[color:var(--hair)] border-y border-[color:var(--hair)]">
-        {FAQ_ITEMS.map(([q, a]) => (
-          <details key={q} className="group py-4">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15.5px] font-medium text-primary">
-              {q}
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border text-acid hairline transition-transform duration-300 group-open:rotate-45">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                >
-                  <path d="M12 5v14M5 12h14" />
-                </svg>
-              </span>
-            </summary>
-            <p className="mt-2 text-[14px] leading-relaxed text-secondary">{a}</p>
-          </details>
-        ))}
-      </div>
-
-      <div className="not-prose mt-12 rounded-[2rem] border border-[color:var(--hair-strong)] bg-[var(--bg-2)] p-8 text-center">
-        <h2 className="font-display text-[clamp(1.5rem,4vw,2.2rem)] font-semibold tracking-editorial text-primary">
-          No line yet?
-        </h2>
-        <p className="mx-auto mt-3 max-w-lg text-[15px] leading-relaxed text-secondary">
-          Start a free 24-hour trial and follow this guide with the full channel
-          and movie library — no card required.
-        </p>
-        <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="/iptv-free-trial-2026"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-acid px-7 py-3.5 text-[15px] font-semibold text-[#041207] transition-transform duration-500 hover:scale-[1.03] active:scale-95"
-          >
-            Start free trial
-            <span aria-hidden>→</span>
-          </a>
-          <a
-            href="/iptv-subscription-plans"
-            className="inline-flex items-center justify-center gap-2 rounded-full border px-7 py-3.5 text-[15px] font-semibold text-primary transition-colors duration-500 hairline hover:hairline-strong"
-          >
-            View plans
-          </a>
-        </div>
-      </div>
-    </PageShell>
+      <h2>Other devices</h2>
+      <p>
+        Prefer a different device? We have step-by-step guides for{" "}
+        <a href="/how-to/install-iptv-on-android">Android</a>,{" "}
+        <a href="/how-to/install-iptv-on-smart-tv">Smart TVs</a>,{" "}
+        <a href="/how-to/install-iptv-on-apple-tv">Apple TV &amp; iOS</a> and{" "}
+        <a href="/how-to/install-iptv-on-windows-mac">Windows &amp; Mac</a> too.
+      </p>
+    </HowToGuide>
   );
 }

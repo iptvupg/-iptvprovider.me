@@ -29,6 +29,11 @@ export default function sitemap() {
       "learn/iptv-explained",
       "how-to",
       "how-to/install-iptv-on-firestick",
+      "how-to/install-iptv-on-android",
+      "how-to/install-iptv-on-smart-tv",
+      "how-to/install-iptv-on-apple-tv",
+      "how-to/install-iptv-on-mag-box",
+      "how-to/install-iptv-on-windows-mac",
       "compare",
       "compare/iptv-smarters-pro-vs-tivimate",
     ].map((slug) => ({

@@ -17,6 +17,11 @@
 - [What is IPTV?](https://www.iptvprovider.me/learn/iptv-explained): Definition of IPTV, how it works, and how it compares to cable and satellite.
 - [How to set up IPTV](https://www.iptvprovider.me/how-to): Install guides for every device.
 - [Install IPTV on Firestick](https://www.iptvprovider.me/how-to/install-iptv-on-firestick): Step-by-step IPTV Smarters Pro setup on Amazon Firestick.
+- [Install IPTV on Android](https://www.iptvprovider.me/how-to/install-iptv-on-android): Setup on Android phone, tablet or TV box via Google Play.
+- [Install IPTV on Smart TV](https://www.iptvprovider.me/how-to/install-iptv-on-smart-tv): Setup on Samsung and LG Smart TVs.
+- [Install IPTV on Apple TV & iOS](https://www.iptvprovider.me/how-to/install-iptv-on-apple-tv): Setup on Apple TV, iPhone and iPad.
+- [Set up IPTV on a MAG box](https://www.iptvprovider.me/how-to/install-iptv-on-mag-box): Portal-URL setup for MAG boxes (no app needed).
+- [Install IPTV on Windows & Mac](https://www.iptvprovider.me/how-to/install-iptv-on-windows-mac): Desktop setup with IPTV Smarters Pro or VLC.
 - [IPTV app comparisons](https://www.iptvprovider.me/compare): Side-by-side comparisons of IPTV player apps and services.
 - [IPTV Smarters Pro vs TiviMate](https://www.iptvprovider.me/compare/iptv-smarters-pro-vs-tivimate): Which IPTV player app to choose — interface, EPG, devices and price.
 
