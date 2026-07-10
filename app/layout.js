@@ -36,7 +36,9 @@ export const metadata = {
     "IPTV Firestick",
     "54000 channels",
   ],
-  authors: [{ name: "Aurora IPTV" }],
+  authors: [{ name: "IPTV Provider" }],
+  creator: "IPTV Provider",
+  publisher: "IPTV Provider",
   openGraph: {
     type: "website",
     url: SITE,
@@ -78,9 +80,35 @@ const jsonLd = {
       "@id": `${SITE}#organization`,
       name: "IPTV Provider",
       url: SITE,
-      logo: `${SITE}/icon.svg`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE}/icon.svg`,
+      },
+      image: `${SITE}/opengraph-image`,
       description:
         "Premium IPTV service for the USA, Canada and worldwide with 54,000+ live channels and 120,000+ movies & series in HD/4K.",
+      email: "support@iptvprovider.me",
+      areaServed: [
+        { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "Canada" },
+        { "@type": "Country", name: "United Kingdom" },
+        "Worldwide",
+      ],
+      knowsAbout: [
+        "IPTV",
+        "IPTV Smarters Pro",
+        "Live TV streaming",
+        "4K streaming",
+        "Firestick setup",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        telephone: "+44-7848-197761",
+        email: "support@iptvprovider.me",
+        availableLanguage: ["English", "Spanish"],
+        areaServed: ["US", "CA", "GB", "Worldwide"],
+      },
     },
     {
       "@type": "WebSite",

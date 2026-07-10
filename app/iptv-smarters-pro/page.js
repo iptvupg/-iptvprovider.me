@@ -57,7 +57,7 @@ const webPageLd = {
   about: { "@id": `${SITE}#organization` },
   inLanguage: "en",
   datePublished: "2026-07-07",
-  dateModified: "2026-07-08",
+  dateModified: "2026-07-10",
 };
 
 export default function IptvSmartersProPage() {
