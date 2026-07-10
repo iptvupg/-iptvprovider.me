@@ -18,6 +18,7 @@ const RESOURCE_LINKS = [
   { label: "What is IPTV?", href: "/learn/iptv-explained" },
   { label: "Setup guides", href: "/how-to" },
   { label: "IPTV on Firestick", href: "/how-to/install-iptv-on-firestick" },
+  { label: "Compare apps", href: "/compare" },
 ];
 
 const LEGAL_LINKS = [

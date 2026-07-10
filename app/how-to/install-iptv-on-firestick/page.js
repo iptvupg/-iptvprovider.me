@@ -124,6 +124,7 @@ export default function InstallOnFirestickPage() {
       title="How to install IPTV on Firestick"
       intro="You can get IPTV running on an Amazon Firestick in about 10 minutes using the free IPTV Smarters Pro app. Install the app, enter the login details we send you, and your channels, movies and TV guide load automatically. No sideloading required on current Firesticks."
       updated={UPDATED}
+      author="IPTV Provider Editorial"
       schemas={[howToLd, faqLd]}
     >
       <div className="not-prose mb-8 flex flex-wrap gap-3">

@@ -125,23 +125,40 @@ const jsonLd = {
         "Premium HD/4K IPTV subscription for IPTV Smarters Pro with 54,000+ live channels and 120,000+ movies & series.",
       image: `${SITE}/opengraph-image`,
       brand: { "@type": "Brand", name: "IPTV Provider" },
+      // Four real, purchasable plans (1/3/6/12 months). AggregateOffer exposes
+      // the price range for rich results; nested Offers keep per-plan detail.
       offers: {
-        "@type": "Offer",
-        price: "7.50",
+        "@type": "AggregateOffer",
         priceCurrency: "USD",
+        lowPrice: "16",
+        highPrice: "90",
+        offerCount: 4,
         availability: "https://schema.org/InStock",
-        url: `${SITE}/iptv-smarters-pro`,
-        // Near-term validity so Product eligibility isn't flagged as stale.
-        priceValidUntil: "2026-12-31",
-        // Mirrors the on-page 30-day money-back guarantee (no fabrication).
-        hasMerchantReturnPolicy: {
-          "@type": "MerchantReturnPolicy",
-          applicableCountry: ["US", "CA", "GB"],
-          returnPolicyCategory:
-            "https://schema.org/MerchantReturnFiniteReturnWindow",
-          merchantReturnDays: 30,
-          returnFees: "https://schema.org/FreeReturn",
-        },
+        url: `${SITE}/iptv-subscription-plans`,
+        offers: [
+          { name: "1 Month", price: "16" },
+          { name: "3 Months", price: "39" },
+          { name: "6 Months", price: "60" },
+          { name: "12 Months", price: "90" },
+        ].map((p) => ({
+          "@type": "Offer",
+          name: `${p.name} IPTV Subscription`,
+          price: p.price,
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: `${SITE}/iptv-subscription-plans`,
+          // Near-term validity so Product eligibility isn't flagged as stale.
+          priceValidUntil: "2026-12-31",
+          // Mirrors the on-page 30-day money-back guarantee (no fabrication).
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: ["US", "CA", "GB"],
+            returnPolicyCategory:
+              "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: 30,
+            returnFees: "https://schema.org/FreeReturn",
+          },
+        })),
       },
     },
   ],

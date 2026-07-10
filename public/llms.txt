@@ -17,6 +17,8 @@
 - [What is IPTV?](https://www.iptvprovider.me/learn/iptv-explained): Definition of IPTV, how it works, and how it compares to cable and satellite.
 - [How to set up IPTV](https://www.iptvprovider.me/how-to): Install guides for every device.
 - [Install IPTV on Firestick](https://www.iptvprovider.me/how-to/install-iptv-on-firestick): Step-by-step IPTV Smarters Pro setup on Amazon Firestick.
+- [IPTV app comparisons](https://www.iptvprovider.me/compare): Side-by-side comparisons of IPTV player apps and services.
+- [IPTV Smarters Pro vs TiviMate](https://www.iptvprovider.me/compare/iptv-smarters-pro-vs-tivimate): Which IPTV player app to choose — interface, EPG, devices and price.
 
 ## Details
 

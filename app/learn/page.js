@@ -44,6 +44,12 @@ const GUIDES = [
     body: "The most popular setup: get IPTV Smarters Pro running on an Amazon Firestick in about 10 minutes.",
   },
   {
+    href: "/compare/iptv-smarters-pro-vs-tivimate",
+    kicker: "Compare",
+    title: "Smarters Pro vs TiviMate",
+    body: "Choosing a player app? Compare the two most popular IPTV apps on interface, TV guide, devices and price.",
+  },
+  {
     href: "/iptv-subscription-plans",
     kicker: "Plans",
     title: "IPTV subscription plans",

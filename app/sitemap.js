@@ -29,6 +29,8 @@ export default function sitemap() {
       "learn/iptv-explained",
       "how-to",
       "how-to/install-iptv-on-firestick",
+      "compare",
+      "compare/iptv-smarters-pro-vs-tivimate",
     ].map((slug) => ({
       url: `${base}/${slug}`,
       lastModified,

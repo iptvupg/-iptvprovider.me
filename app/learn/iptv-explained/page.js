@@ -69,8 +69,9 @@ const articleLd = {
   description:
     "IPTV explained: what it is, how it delivers live TV and movies over the internet, and how it compares to cable and satellite.",
   image: `${SITE}/opengraph-image`,
-  author: { "@type": "Organization", name: "IPTV Provider", url: SITE },
+  author: { "@id": `${SITE}#organization` },
   publisher: { "@id": `${SITE}#organization` },
+  reviewedBy: { "@id": `${SITE}#organization` },
   mainEntityOfPage: { "@id": `${URL}#webpage` },
   datePublished: "2026-07-09",
   dateModified: UPDATED.iso,
@@ -97,6 +98,7 @@ export default function IptvExplainedPage() {
       title="What is IPTV?"
       intro="IPTV (Internet Protocol Television) delivers live TV channels and on-demand video over a standard internet connection instead of an aerial, satellite dish or cable line. You watch through an app such as IPTV Smarters Pro on a TV, phone, Firestick or computer — no special hardware required."
       updated={UPDATED}
+      author="IPTV Provider Editorial"
       schemas={[articleLd, faqLd]}
     >
       <h2>What IPTV means</h2>

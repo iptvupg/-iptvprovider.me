@@ -24,6 +24,7 @@ export default function PageShell({
   breadcrumb,
   parent,
   updated,
+  author,
   schemas = [],
   contentClassName = "prose-legal max-w-3xl",
   children,
@@ -123,6 +124,15 @@ export default function PageShell({
             ) : null}
             {updated ? (
               <p className="mt-6 text-[13px] text-tertiary">
+                {author ? (
+                  <>
+                    By{" "}
+                    <span className="text-secondary">{author}</span>
+                    <span className="mx-2 text-[color:var(--hair-strong)]">
+                      ·
+                    </span>
+                  </>
+                ) : null}
                 Last updated{" "}
                 <time dateTime={updated.iso}>{updated.label}</time>
               </p>

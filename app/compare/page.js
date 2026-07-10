@@ -1,74 +1,68 @@
 import PageShell from "@/components/PageShell";
 
 const SITE = "https://www.iptvprovider.me";
-const URL = `${SITE}/how-to`;
+const URL = `${SITE}/compare`;
 
 export const metadata = {
   title: {
-    absolute: "How to Set Up IPTV on Any Device — Install Guides | IPTV Provider",
+    absolute: "IPTV App & Service Comparisons — Side-by-Side | IPTV Provider",
   },
   description:
-    "Step-by-step guides to set up IPTV on Firestick, Android TV, Smart TV, Apple TV, Windows and more. Install the app, load your playlist and start watching.",
+    "Honest side-by-side IPTV comparisons: IPTV Smarters Pro vs TiviMate, app features, device support and setup. Pick the right player for your setup.",
   alternates: { canonical: URL },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: URL,
-    title: "How to Set Up IPTV on Any Device",
+    title: "IPTV App & Service Comparisons",
     description:
-      "Step-by-step IPTV install guides for Firestick, Smart TV, Android, Apple TV and more.",
+      "Side-by-side IPTV player and service comparisons to help you choose the right setup.",
     siteName: "IPTV Provider",
     locale: "en_US",
   },
 };
 
-const UPDATED = { iso: "2026-07-09", label: "9 July 2026" };
+const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 
 const GUIDES = [
   {
-    href: "/how-to/install-iptv-on-firestick",
-    kicker: "Firestick",
-    title: "Install IPTV on Firestick",
-    body: "Get IPTV Smarters Pro running on an Amazon Firestick or Fire TV in about 10 minutes.",
+    href: "/compare/iptv-smarters-pro-vs-tivimate",
+    kicker: "Player apps",
+    title: "IPTV Smarters Pro vs TiviMate",
+    body: "The two most popular IPTV player apps compared: interface, EPG, device support and which one to pick.",
   },
   {
     href: "/learn/iptv-explained",
     kicker: "Start here",
     title: "What is IPTV?",
-    body: "New to IPTV? Understand how it works and what you need before you install anything.",
+    body: "Understand how IPTV works and what a player app actually does before you choose one.",
   },
   {
-    href: "/compare/iptv-smarters-pro-vs-tivimate",
-    kicker: "Compare",
-    title: "Smarters Pro vs TiviMate",
-    body: "Not sure which app to install? Compare the two most popular IPTV players before you set up.",
-  },
-  {
-    href: "/iptv-free-trial-2026",
-    kicker: "Get a line",
-    title: "Free 24-hour trial",
-    body: "You need a subscription or trial line to activate any app. Grab a free trial to follow along.",
+    href: "/how-to/install-iptv-on-firestick",
+    kicker: "Setup",
+    title: "Install IPTV on Firestick",
+    body: "Once you've picked an app, follow the 10-minute Firestick install walkthrough.",
   },
   {
     href: "/iptv-subscription-plans",
     kicker: "Plans",
     title: "Subscription plans",
-    body: "Ready to commit? Pick a plan from $7.50/mo with the full channel and movie library.",
+    body: "Every app here works with your line from us. Compare plans from $7.50/mo.",
   },
 ];
 
 const FAQ_ITEMS = [
   [
-    "What do I need before I start?",
-    "A compatible device, a stable internet connection, an IPTV player app (we recommend IPTV Smarters Pro), and the login details from your subscription or free trial. Most setups take under 10 minutes.",
+    "Does the app I choose change what I can watch?",
+    "No. The channels, movies and TV guide come from your subscription line, not the app. IPTV Smarters Pro and TiviMate both play the same content — the difference is the interface, the guide layout and which devices each runs on best.",
   ],
   [
-    "Which app should I install?",
-    "IPTV Smarters Pro is the easiest all-rounder and works on nearly every device. TiviMate is popular on Android TV boxes and Firestick for its polished live-TV guide. Both work with your line from us.",
+    "Are these apps free?",
+    "The player apps are free to download. TiviMate offers an optional paid Premium tier that unlocks extras like multiple playlists and recording, but the core playback is free. You still need a subscription or free-trial line from a provider to watch anything.",
   ],
   [
-    "Do I enter an M3U link or Xtream Codes?",
-    "Either works — we can send you both. Xtream Codes (a username, password and server URL) is usually the simplest to enter, while an M3U URL is a single link. Our per-device guides show exactly where each goes.",
+    "Which app works with your service?",
+    "Both do. We send you an Xtream Codes login and an M3U URL that work in IPTV Smarters Pro, TiviMate and most other players, so you can switch apps any time without changing your subscription.",
   ],
 ];
 
@@ -93,15 +87,16 @@ const faqLd = {
   })),
 };
 
-export default function HowToHubPage() {
+export default function CompareHubPage() {
   return (
     <PageShell
-      slug="how-to"
-      eyebrow="Setup guides"
-      breadcrumb="How to set up IPTV"
-      title="How to set up IPTV on any device"
-      intro="Pick your device and follow the steps. Each guide covers installing the app, entering your login details and loading channels — with troubleshooting tips if anything sticks."
+      slug="compare"
+      eyebrow="Comparisons"
+      breadcrumb="IPTV comparisons"
+      title="IPTV app & service comparisons"
+      intro="Choosing an IPTV player is separate from choosing a subscription. These side-by-side comparisons break down the real differences — interface, TV guide, device support and price — so you can pick the setup that fits how you watch."
       updated={UPDATED}
+      author="IPTV Provider Editorial"
       schemas={[itemListLd, faqLd]}
       contentClassName="max-w-5xl"
     >
@@ -122,7 +117,7 @@ export default function HowToHubPage() {
               {g.body}
             </p>
             <span className="mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-primary">
-              Open guide
+              Read comparison
               <span
                 aria-hidden
                 className="transition-transform duration-500 group-hover:translate-x-1"
@@ -136,7 +131,7 @@ export default function HowToHubPage() {
 
       <div className="mx-auto mt-16 max-w-3xl">
         <h2 className="font-display text-[clamp(1.6rem,4vw,2.2rem)] font-semibold tracking-editorial text-primary">
-          Setup FAQ
+          Comparisons FAQ
         </h2>
         <div className="mt-6 divide-y divide-[color:var(--hair)] border-y border-[color:var(--hair)]">
           {FAQ_ITEMS.map(([q, a]) => (
