@@ -21,11 +21,11 @@ const SITE = "https://www.iptvprovider.me";
 export const metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Best IPTV Service USA, Canada & Worldwide | 54,000+ Channels",
+    default: "Best IPTV Service USA, Canada & Worldwide – 54,000+ Channels",
     template: "%s | IPTV Provider",
   },
   description:
-    "Stream 54,000+ live channels and 120,000+ movies & series in 4K on any device. Free 24-hour trial, instant setup, no contract. IPTV plans from $7.50/mo.",
+    "Watch 54,000+ live channels & 120,000+ movies in HD/4K on any device with IPTV Smarters Pro. Free 24-hour trial, instant setup, no contract. From $7.50/mo.",
   keywords: [
     "IPTV",
     "best IPTV service",
