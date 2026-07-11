@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Reveal, { Stagger } from "./Reveal";
-
-const WHATSAPP = "https://wa.me/447848197761";
+import { WHATSAPP } from "@/lib/site";
 
 const ITEMS = [
   {

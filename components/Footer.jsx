@@ -1,6 +1,5 @@
 import Logo from "./Logo";
-
-const WHATSAPP = "https://wa.me/447848197761";
+import { WHATSAPP } from "@/lib/site";
 
 // Absolute canonical-page targets so links resolve from any route.
 const HOME = "/iptv-smarters-pro";

@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
-const SITE = "https://www.iptvprovider.me";
+import { SITE } from "@/lib/site";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 // Shared shell for the standalone content pages (trust/legal pages and the
 // topic-cluster learn/how-to/compare/fix pages). Renders the site chrome plus a
@@ -31,41 +31,18 @@ export default function PageShell({
 }) {
   const url = `${SITE}/${slug}`;
 
-  const crumbItems = [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-  ];
+  const crumbs = [{ name: "Home", item: SITE }];
   if (parent) {
-    crumbItems.push({
-      "@type": "ListItem",
-      position: 2,
-      name: parent.name,
-      item: `${SITE}${parent.href}`,
-    });
+    crumbs.push({ name: parent.name, item: `${SITE}${parent.href}` });
   }
-  crumbItems.push({
-    "@type": "ListItem",
-    position: crumbItems.length + 1,
-    name: breadcrumb,
-    item: url,
-  });
+  crumbs.push({ name: breadcrumb, item: url });
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: crumbItems,
-  };
-
-  const webPageLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${url}#webpage`,
+  const breadcrumbLd = breadcrumbSchema(crumbs);
+  const webPageLd = webPageSchema({
     url,
     name: title,
-    isPartOf: { "@id": `${SITE}#website` },
-    about: { "@id": `${SITE}#organization` },
-    inLanguage: "en",
-    ...(updated ? { dateModified: updated.iso } : {}),
-  };
+    dateModified: updated ? updated.iso : undefined,
+  });
 
   const allSchemas = [breadcrumbLd, webPageLd, ...schemas];
 

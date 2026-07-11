@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
+import { WHATSAPP } from "@/lib/site";
 
 // Absolute targets on the canonical page so the same nav works from any route
 // (on /iptv-smarters-pro only the fragment changes, so the browser just scrolls).
@@ -16,8 +17,6 @@ const LINKS = [
   { label: "FAQ", href: `${HOME}#faq` },
   { label: "Contact", href: `${HOME}#contact` },
 ];
-
-const WHATSAPP = "https://wa.me/447848197761";
 
 function WhatsAppIcon({ className = "" }) {
   return (

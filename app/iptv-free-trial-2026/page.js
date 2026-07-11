@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TrialForm from "@/components/TrialForm";
+import { SITE, WHATSAPP } from "@/lib/site";
+import { faqSchema } from "@/lib/schema";
 
-const SITE = "https://www.iptvprovider.me";
 const URL = `${SITE}/iptv-free-trial-2026`;
-const WHATSAPP = "https://wa.me/447848197761";
 
 export const metadata = {
   title: {
@@ -157,15 +157,7 @@ const COMPATIBLE = [
   "MAG Box",
 ];
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map(([q, a]) => ({
-    "@type": "Question",
-    name: q,
-    acceptedAnswer: { "@type": "Answer", text: a },
-  })),
-};
+const faqLd = faqSchema(FAQ_ITEMS);
 
 const breadcrumbLd = {
   "@context": "https://schema.org",

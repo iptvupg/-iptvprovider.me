@@ -1,6 +1,7 @@
 import PageShell from "@/components/PageShell";
+import { SITE } from "@/lib/site";
+import { faqSchema, itemListSchema } from "@/lib/schema";
 
-const SITE = "https://www.iptvprovider.me";
 const URL = `${SITE}/compare`;
 
 export const metadata = {
@@ -66,26 +67,9 @@ const FAQ_ITEMS = [
   ],
 ];
 
-const itemListLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: GUIDES.map((g, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: g.title,
-    url: `${SITE}${g.href}`,
-  })),
-};
+const itemListLd = itemListSchema(GUIDES);
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map(([q, a]) => ({
-    "@type": "Question",
-    name: q,
-    acceptedAnswer: { "@type": "Answer", text: a },
-  })),
-};
+const faqLd = faqSchema(FAQ_ITEMS);
 
 export default function CompareHubPage() {
   return (

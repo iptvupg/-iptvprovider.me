@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter, Sora } from "next/font/google";
+import { SITE } from "@/lib/site";
 
 const geist = Inter({
   subsets: ["latin"],
@@ -15,8 +16,6 @@ const display = Sora({
   display: "swap",
   preload: true,
 });
-
-const SITE = "https://www.iptvprovider.me";
 
 export const metadata = {
   metadataBase: new URL(SITE),

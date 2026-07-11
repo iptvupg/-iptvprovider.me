@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { WHATSAPP } from "@/lib/site";
 
 const DEST = "/iptv-smarters-pro";
-const WHATSAPP = "https://wa.me/447848197761";
 
 export const metadata = {
   title: "Page not found — best IPTV service, 54,000+ channels",

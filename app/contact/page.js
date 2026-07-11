@@ -1,6 +1,6 @@
 import PageShell from "@/components/PageShell";
+import { SITE } from "@/lib/site";
 
-const SITE = "https://www.iptvprovider.me";
 const URL = `${SITE}/contact`;
 
 export const metadata = {

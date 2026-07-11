@@ -1,6 +1,6 @@
 import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
+import { SITE } from "@/lib/site";
 
-const SITE = "https://www.iptvprovider.me";
 const URL = `${SITE}/how-to/install-iptv-on-android`;
 
 export const metadata = {

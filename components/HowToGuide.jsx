@@ -1,7 +1,6 @@
 import PageShell from "@/components/PageShell";
-
-const SITE = "https://www.iptvprovider.me";
-const WHATSAPP = "https://wa.me/447848197761";
+import { SITE, WHATSAPP } from "@/lib/site";
+import { faqSchema, howToSchema } from "@/lib/schema";
 
 // Shared body for the /how-to/install-iptv-on-* device guides. Each page passes
 // its own device-specific data (steps, chips, supplies, FAQ) plus any extra
@@ -44,33 +43,17 @@ export default function HowToGuide({
 }) {
   const URL = `${SITE}/${slug}`;
 
-  const howToLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: `How to Install IPTV on ${device}`,
+  const howToLd = howToSchema({
+    device,
     description: intro,
     totalTime,
-    image: `${SITE}/opengraph-image`,
-    supply: supplies.map((s) => ({ "@type": "HowToSupply", name: s })),
-    ...(app ? { tool: [{ "@type": "HowToTool", name: app }] } : {}),
-    step: steps.map((s, i) => ({
-      "@type": "HowToStep",
-      position: i + 1,
-      name: s.name,
-      text: s.text,
-      url: `${URL}#step-${i + 1}`,
-    })),
-  };
+    supplies,
+    app,
+    steps,
+    url: URL,
+  });
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map(([q, a]) => ({
-      "@type": "Question",
-      name: q,
-      acceptedAnswer: { "@type": "Answer", text: a },
-    })),
-  };
+  const faqLd = faqSchema(faqItems);
 
   return (
     <PageShell

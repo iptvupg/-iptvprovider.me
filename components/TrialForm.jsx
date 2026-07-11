@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const WHATSAPP_NUMBER = "447848197761";
+import { WHATSAPP_NUMBER } from "@/lib/site";
 
 const DEVICES = [
   "Android Box",

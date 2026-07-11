@@ -1,6 +1,7 @@
 import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
 
-const SITE = "https://www.iptvprovider.me";
+import { SITE } from "@/lib/site";
+
 const URL = `${SITE}/how-to/install-iptv-on-firestick`;
 
 export const metadata = {

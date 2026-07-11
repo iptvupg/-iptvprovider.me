@@ -1,6 +1,7 @@
 import PageShell from "@/components/PageShell";
+import { SITE } from "@/lib/site";
+import { faqSchema } from "@/lib/schema";
 
-const SITE = "https://www.iptvprovider.me";
 const URL = `${SITE}/compare/iptv-smarters-pro-vs-tivimate`;
 
 export const metadata = {
@@ -88,15 +89,7 @@ const articleLd = {
   inLanguage: "en",
 };
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map(([q, a]) => ({
-    "@type": "Question",
-    name: q,
-    acceptedAnswer: { "@type": "Answer", text: a },
-  })),
-};
+const faqLd = faqSchema(FAQ_ITEMS);
 
 export default function SmartersVsTivimatePage() {
   return (

@@ -1,6 +1,6 @@
 import Landing from "@/components/Landing";
+import { SITE } from "@/lib/site";
 
-const SITE = "https://www.iptvprovider.me";
 const URL = `${SITE}/iptv-smarters-pro`;
 
 export const metadata = {

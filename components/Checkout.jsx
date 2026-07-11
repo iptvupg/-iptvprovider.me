@@ -7,8 +7,8 @@ import {
   useEffect,
   useState,
 } from "react";
+import { WHATSAPP_NUMBER } from "@/lib/site";
 
-const WHATSAPP_NUMBER = "447848197761";
 const DEFAULT_PLAN = { name: "12 Months", price: 90 };
 
 const PayPalLogo = () => (

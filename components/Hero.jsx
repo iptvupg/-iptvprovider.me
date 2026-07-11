@@ -1,8 +1,7 @@
 import MountHeading from "./MountHeading";
 import HeroVideo from "./HeroVideo";
 import { CheckoutButton } from "./Checkout";
-
-const WHATSAPP = "https://wa.me/447848197761";
+import { WHATSAPP } from "@/lib/site";
 
 const TRUST = [
   {

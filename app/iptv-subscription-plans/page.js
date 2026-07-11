@@ -2,10 +2,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Pricing from "@/components/Pricing";
 import { CheckoutProvider, CheckoutButton } from "@/components/Checkout";
+import { SITE, WHATSAPP } from "@/lib/site";
+import { faqSchema } from "@/lib/schema";
 
-const SITE = "https://www.iptvprovider.me";
 const URL = `${SITE}/iptv-subscription-plans`;
-const WHATSAPP = "https://wa.me/447848197761";
 
 export const metadata = {
   title: {
@@ -139,15 +139,7 @@ const productLd = {
   })),
 };
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map(([q, a]) => ({
-    "@type": "Question",
-    name: q,
-    acceptedAnswer: { "@type": "Answer", text: a },
-  })),
-};
+const faqLd = faqSchema(FAQ_ITEMS);
 
 const webPageLd = {
   "@context": "https://schema.org",
