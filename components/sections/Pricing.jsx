@@ -1,6 +1,6 @@
-import AnimatedHeading from "./AnimatedHeading";
-import { CheckoutButton } from "./Checkout";
-import Reveal, { Stagger } from "./Reveal";
+import AnimatedHeading from "@/components/animations/AnimatedHeading";
+import { CheckoutButton } from "@/components/forms/Checkout";
+import Reveal, { Stagger } from "@/components/animations/Reveal";
 
 const PLANS = [
   {

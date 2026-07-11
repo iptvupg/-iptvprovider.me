@@ -1,7 +1,7 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Pricing from "@/components/Pricing";
-import { CheckoutProvider, CheckoutButton } from "@/components/Checkout";
+import Navbar from "@/components/navigation/Navbar";
+import Footer from "@/components/layout/Footer";
+import Pricing from "@/components/sections/Pricing";
+import { CheckoutProvider, CheckoutButton } from "@/components/forms/Checkout";
 import { SITE, WHATSAPP } from "@/config";
 import { faqSchema, breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";

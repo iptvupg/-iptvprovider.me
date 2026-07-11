@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Logo from "./Logo";
-import ThemeToggle from "./ThemeToggle";
+import Logo from "@/components/ui/Logo";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import { WHATSAPP } from "@/config";
 import { HOME, PRIMARY_NAV } from "@/config/navigation";
 

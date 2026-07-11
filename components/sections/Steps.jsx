@@ -1,5 +1,5 @@
-import AnimatedHeading from "./AnimatedHeading";
-import Reveal, { Stagger } from "./Reveal";
+import AnimatedHeading from "@/components/animations/AnimatedHeading";
+import Reveal, { Stagger } from "@/components/animations/Reveal";
 
 const STEPS = [
   {

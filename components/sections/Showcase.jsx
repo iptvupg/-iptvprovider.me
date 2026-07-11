@@ -1,5 +1,5 @@
-import Reveal from "./Reveal";
-import Marquee from "./Marquee";
+import Reveal from "@/components/animations/Reveal";
+import Marquee from "@/components/animations/Marquee";
 
 const poster = (file) =>
   `https://wsrv.nl/?url=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Fw342%2F${file}&output=webp&q=50&n=-1`;

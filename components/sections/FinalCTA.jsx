@@ -1,6 +1,6 @@
-import AnimatedHeading from "./AnimatedHeading";
-import { CheckoutButton } from "./Checkout";
-import Reveal from "./Reveal";
+import AnimatedHeading from "@/components/animations/AnimatedHeading";
+import { CheckoutButton } from "@/components/forms/Checkout";
+import Reveal from "@/components/animations/Reveal";
 
 export default function FinalCTA() {
   return (

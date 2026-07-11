@@ -1,5 +1,5 @@
-import AnimatedHeading from "./AnimatedHeading";
-import Reveal from "./Reveal";
+import AnimatedHeading from "@/components/animations/AnimatedHeading";
+import Reveal from "@/components/animations/Reveal";
 
 // Comparison rows: IPTV (via IPTV Smarters Pro) vs traditional cable/satellite.
 const COMPARE = [

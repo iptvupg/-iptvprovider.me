@@ -1,6 +1,6 @@
-import MountHeading from "./MountHeading";
-import HeroVideo from "./HeroVideo";
-import { CheckoutButton } from "./Checkout";
+import MountHeading from "@/components/animations/MountHeading";
+import HeroVideo from "@/components/sections/HeroVideo";
+import { CheckoutButton } from "@/components/forms/Checkout";
 import { WHATSAPP } from "@/config";
 
 const TRUST = [

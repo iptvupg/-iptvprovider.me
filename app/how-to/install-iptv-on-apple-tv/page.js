@@ -1,4 +1,4 @@
-import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
+import HowToGuide, { WHATSAPP } from "@/components/layout/HowToGuide";
 
 import { SITE } from "@/config";
 import { articleMetadata } from "@/lib/metadata";

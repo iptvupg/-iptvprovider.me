@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Reveal, { Stagger } from "./Reveal";
+import Reveal, { Stagger } from "@/components/animations/Reveal";
 import { WHATSAPP } from "@/config";
 import { faqSchema } from "@/lib/schema";
 

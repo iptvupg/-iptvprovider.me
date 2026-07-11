@@ -1,4 +1,4 @@
-import Logo from "./Logo";
+import Logo from "@/components/ui/Logo";
 import { WHATSAPP } from "@/config";
 import {
   FOOTER_QUICK_LINKS,

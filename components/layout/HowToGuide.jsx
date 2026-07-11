@@ -1,4 +1,4 @@
-import PageShell from "@/components/PageShell";
+import PageShell from "@/components/layout/PageShell";
 import { SITE, WHATSAPP } from "@/config";
 import { faqSchema, howToSchema } from "@/lib/schema";
 

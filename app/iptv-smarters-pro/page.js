@@ -1,4 +1,4 @@
-import Landing from "@/components/Landing";
+import Landing from "@/components/layout/Landing";
 import { SITE } from "@/config";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";

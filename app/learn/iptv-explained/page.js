@@ -1,4 +1,4 @@
-import PageShell from "@/components/PageShell";
+import PageShell from "@/components/layout/PageShell";
 import { SITE } from "@/config";
 import { faqSchema, articleSchema } from "@/lib/schema";
 import { articleMetadata } from "@/lib/metadata";

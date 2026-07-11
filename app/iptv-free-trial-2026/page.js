@@ -1,6 +1,6 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import TrialForm from "@/components/TrialForm";
+import Navbar from "@/components/navigation/Navbar";
+import Footer from "@/components/layout/Footer";
+import TrialForm from "@/components/forms/TrialForm";
 import { SITE, WHATSAPP } from "@/config";
 import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
