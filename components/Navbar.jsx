@@ -4,19 +4,7 @@ import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 import { WHATSAPP } from "@/config";
-
-// Absolute targets on the canonical page so the same nav works from any route
-// (on /iptv-smarters-pro only the fragment changes, so the browser just scrolls).
-const HOME = "/iptv-smarters-pro";
-const LINKS = [
-  { label: "Home", href: `${HOME}#top` },
-  { label: "Pricing", href: "/iptv-subscription-plans" },
-  { label: "Learn", href: "/learn" },
-  { label: "Setup", href: "/how-to" },
-  { label: "Free Trial", href: "/iptv-free-trial-2026" },
-  { label: "FAQ", href: `${HOME}#faq` },
-  { label: "Contact", href: `${HOME}#contact` },
-];
+import { HOME, PRIMARY_NAV } from "@/config/navigation";
 
 function WhatsAppIcon({ className = "" }) {
   return (
@@ -57,7 +45,7 @@ export default function Navbar() {
           </a>
 
           <ul className="hidden items-center gap-1 lg:flex">
-            {LINKS.map((l) => (
+            {PRIMARY_NAV.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
@@ -110,7 +98,7 @@ export default function Navbar() {
         inert={!open ? true : undefined}
       >
         <ul className="flex flex-col gap-1">
-          {LINKS.map((l) => (
+          {PRIMARY_NAV.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}

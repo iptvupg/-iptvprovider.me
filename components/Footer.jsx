@@ -1,41 +1,11 @@
 import Logo from "./Logo";
 import { WHATSAPP } from "@/config";
-
-// Absolute canonical-page targets so links resolve from any route.
-const HOME = "/iptv-smarters-pro";
-const QUICK_LINKS = [
-  { label: "Home", href: `${HOME}#top` },
-  { label: "Subscription Plans", href: "/iptv-subscription-plans" },
-  { label: "How it works", href: `${HOME}#steps` },
-  { label: "Free Trial", href: "/iptv-free-trial-2026" },
-  { label: "Devices", href: `${HOME}#devices` },
-  { label: "FAQ", href: `${HOME}#faq` },
-];
-
-const RESOURCE_LINKS = [
-  { label: "Learn IPTV", href: "/learn" },
-  { label: "What is IPTV?", href: "/learn/iptv-explained" },
-  { label: "Setup guides", href: "/how-to" },
-  { label: "IPTV on Firestick", href: "/how-to/install-iptv-on-firestick" },
-  { label: "Compare apps", href: "/compare" },
-];
-
-const LEGAL_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
-  { label: "Refund", href: "/refund" },
-];
-
-const APPS = [
-  { label: "Smart TV", href: "/how-to/install-iptv-on-smart-tv" },
-  { label: "Amazon Firestick", href: "/how-to/install-iptv-on-firestick" },
-  { label: "Android", href: "/how-to/install-iptv-on-android" },
-  { label: "Apple TV & iOS", href: "/how-to/install-iptv-on-apple-tv" },
-  { label: "MAG Box", href: "/how-to/install-iptv-on-mag-box" },
-  { label: "Windows & macOS", href: "/how-to/install-iptv-on-windows-mac" },
-];
+import {
+  FOOTER_QUICK_LINKS,
+  FOOTER_RESOURCE_LINKS,
+  FOOTER_LEGAL_LINKS,
+  FOOTER_DEVICE_LINKS,
+} from "@/config/navigation";
 
 export default function Footer() {
   return (
@@ -60,7 +30,7 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="mt-4 space-y-3">
-              {QUICK_LINKS.map((l) => (
+              {FOOTER_QUICK_LINKS.map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
@@ -79,7 +49,7 @@ export default function Footer() {
               Resources
             </h3>
             <ul className="mt-4 space-y-3">
-              {RESOURCE_LINKS.map((l) => (
+              {FOOTER_RESOURCE_LINKS.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
@@ -98,7 +68,7 @@ export default function Footer() {
               Setup Guides
             </h3>
             <ul className="mt-4 space-y-3">
-              {APPS.map((a) => (
+              {FOOTER_DEVICE_LINKS.map((a) => (
                 <li key={a.href}>
                   <a
                     href={a.href}
@@ -157,7 +127,7 @@ export default function Footer() {
             © {new Date().getFullYear()} IPTV Provider. All rights reserved.
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            {LEGAL_LINKS.map((l) => (
+            {FOOTER_LEGAL_LINKS.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
