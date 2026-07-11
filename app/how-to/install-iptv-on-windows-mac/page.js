@@ -1,34 +1,30 @@
 import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
 
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { articleMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/how-to/install-iptv-on-windows-mac`;
 
-export const metadata = {
-  title: { absolute: "How to Install IPTV on Windows & Mac (2026 Guide)" },
+export const metadata = articleMetadata({
+  title: "How to Install IPTV on Windows & Mac (2026 Guide)",
   description:
     "Watch IPTV on a Windows PC or Mac in minutes. Set up IPTV Smarters Pro desktop or use VLC with your M3U URL — step-by-step with EPG tips and fixes.",
+  canonical: URL,
   keywords: [
     "iptv on windows",
     "iptv on mac",
     "iptv smarters pro pc",
     "watch iptv on vlc",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "article",
-    url: URL,
     title: "How to Install IPTV on Windows & Mac (2026 Guide)",
     description:
       "Set up IPTV on a Windows PC or Mac with IPTV Smarters Pro desktop or VLC.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       { url: "/opengraph-image", width: 1200, height: 630, alt: "Install IPTV on Windows & Mac" },
     ],
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 

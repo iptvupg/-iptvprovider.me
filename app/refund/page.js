@@ -1,23 +1,19 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/refund`;
 
-export const metadata = {
-  title: { absolute: "Refund Policy — 30-Day Money-Back | IPTV Provider" },
+export const metadata = pageMetadata({
+  title: "Refund Policy — 30-Day Money-Back | IPTV Provider",
   description:
     "IPTV Provider's 30-day money-back guarantee. How refunds work, what's covered, and how to request one from our support team.",
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
+  canonical: URL,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "Refund Policy | IPTV Provider",
     description: "Our 30-day money-back guarantee and how to request a refund.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-08", label: "8 July 2026" };
 

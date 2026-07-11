@@ -1,34 +1,30 @@
 import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
 
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { articleMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/how-to/install-iptv-on-mag-box`;
 
-export const metadata = {
-  title: { absolute: "How to Set Up IPTV on a MAG Box (2026 Portal Guide)" },
+export const metadata = articleMetadata({
+  title: "How to Set Up IPTV on a MAG Box (2026 Portal Guide)",
   description:
     "Set up IPTV on a MAG box in minutes. Enter your portal URL in the settings, reboot, and load channels — no app install needed. MAC address and troubleshooting tips.",
+  canonical: URL,
   keywords: [
     "iptv on mag box",
     "mag box portal url",
     "setup iptv mag 254 322 424",
     "mag box iptv setup",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "article",
-    url: URL,
     title: "How to Set Up IPTV on a MAG Box (2026 Portal Guide)",
     description:
       "Enter your portal URL on a MAG box and load channels — no app needed.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       { url: "/opengraph-image", width: 1200, height: 630, alt: "Set up IPTV on a MAG box" },
     ],
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 

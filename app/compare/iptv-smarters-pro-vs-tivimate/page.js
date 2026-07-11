@@ -1,34 +1,28 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
-import { faqSchema } from "@/lib/schema";
+import { SITE } from "@/config";
+import { faqSchema, articleSchema } from "@/lib/schema";
+import { articleMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/compare/iptv-smarters-pro-vs-tivimate`;
 
-export const metadata = {
-  title: {
-    absolute: "IPTV Smarters Pro vs TiviMate (2026): Which Is Better?",
-  },
+export const metadata = articleMetadata({
+  title: "IPTV Smarters Pro vs TiviMate (2026): Which Is Better?",
   description:
     "IPTV Smarters Pro vs TiviMate compared: interface, TV guide, device support, price and setup. See which IPTV player app suits your setup — both work with our line.",
+  canonical: URL,
   keywords: [
     "IPTV Smarters Pro vs TiviMate",
     "best IPTV player app",
     "TiviMate vs IPTV Smarters",
     "IPTV player comparison",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "article",
-    url: URL,
     title: "IPTV Smarters Pro vs TiviMate (2026): Which Is Better?",
     description:
       "Interface, EPG, device support and price compared — pick the right IPTV player app.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 
@@ -73,21 +67,14 @@ const FAQ_ITEMS = [
   ],
 ];
 
-const articleLd = {
-  "@context": "https://schema.org",
-  "@type": "Article",
+const articleLd = articleSchema({
   headline: "IPTV Smarters Pro vs TiviMate (2026): Which Is Better?",
   description:
     "A side-by-side comparison of IPTV Smarters Pro and TiviMate across interface, TV guide, device support, price and setup.",
-  image: `${SITE}/opengraph-image`,
-  author: { "@id": `${SITE}#organization` },
-  publisher: { "@id": `${SITE}#organization` },
-  reviewedBy: { "@id": `${SITE}#organization` },
-  mainEntityOfPage: { "@id": `${URL}#webpage` },
+  url: URL,
   datePublished: "2026-07-10",
   dateModified: UPDATED.iso,
-  inLanguage: "en",
-};
+});
 
 const faqLd = faqSchema(FAQ_ITEMS);
 

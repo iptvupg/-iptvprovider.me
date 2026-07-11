@@ -1,24 +1,20 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/about`;
 
-export const metadata = {
-  title: { absolute: "About IPTV Provider — Who We Are" },
+export const metadata = pageMetadata({
+  title: "About IPTV Provider — Who We Are",
   description:
     "IPTV Provider delivers 54,000+ live channels and 120,000+ movies & series in HD/4K to viewers in the USA, Canada and worldwide, with 24/7 support.",
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
+  canonical: URL,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "About IPTV Provider",
     description:
       "Who we are: premium IPTV for the USA, Canada and worldwide with 24/7 support.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
   },
-};
+});
 
 export default function AboutPage() {
   return (

@@ -1,27 +1,21 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
 import { faqSchema, itemListSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/how-to`;
 
-export const metadata = {
-  title: {
-    absolute: "How to Set Up IPTV on Any Device — Install Guides | IPTV Provider",
-  },
+export const metadata = pageMetadata({
+  title: "How to Set Up IPTV on Any Device — Install Guides | IPTV Provider",
   description:
     "Step-by-step guides to set up IPTV on Firestick, Android TV, Smart TV, Apple TV, Windows and more. Install the app, load your playlist and start watching.",
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
+  canonical: URL,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "How to Set Up IPTV on Any Device",
     description:
       "Step-by-step IPTV install guides for Firestick, Smart TV, Android, Apple TV and more.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 

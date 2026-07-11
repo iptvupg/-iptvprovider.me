@@ -1,24 +1,20 @@
 import Landing from "@/components/Landing";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/iptv-smarters-pro`;
 
-export const metadata = {
-  title: {
-    absolute:
-      "Best IPTV Service USA, Canada & Worldwide – 54,000+ Channels",
-  },
+export const metadata = pageMetadata({
+  title: "Best IPTV Service USA, Canada & Worldwide – 54,000+ Channels",
   description:
     "Watch 54,000+ live channels & 120,000+ movies in HD/4K on any device with IPTV Smarters Pro. Free 24-hour trial, instant setup, no contract. From $7.50/mo.",
-  alternates: { canonical: URL },
+  canonical: URL,
+  robots: false,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "IPTV Smarters Pro Subscription | 54,000+ Channels",
     description:
       "54,000+ live channels & 120,000+ movies & series in HD/4K on IPTV Smarters Pro. Free 24-hour trial. Instant activation.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       {
         url: "/opengraph-image",
@@ -35,30 +31,20 @@ export const metadata = {
       "54,000+ live channels & 120,000+ movies & series in HD/4K on IPTV Smarters Pro. Free 24-hour trial. Instant activation.",
     images: ["/opengraph-image"],
   },
-};
+});
 
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-    { "@type": "ListItem", position: 2, name: "IPTV Smarters Pro", item: URL },
-  ],
-};
+const breadcrumbLd = breadcrumbSchema([
+  { name: "Home", item: SITE },
+  { name: "IPTV Smarters Pro", item: URL },
+]);
 
 // Freshness signal for AI/search. Dates reflect the page's real git history.
-const webPageLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": `${URL}#webpage`,
+const webPageLd = webPageSchema({
   url: URL,
   name: "Best IPTV Service USA, Canada & Worldwide – 54,000+ Channels",
-  isPartOf: { "@id": `${SITE}#website` },
-  about: { "@id": `${SITE}#organization` },
-  inLanguage: "en",
   datePublished: "2026-07-07",
   dateModified: "2026-07-10",
-};
+});
 
 export default function IptvSmartersProPage() {
   return (

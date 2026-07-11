@@ -1,29 +1,25 @@
 import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
 
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { articleMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/how-to/install-iptv-on-firestick`;
 
-export const metadata = {
-  title: { absolute: "How to Install IPTV on Firestick (2026 Step-by-Step)" },
+export const metadata = articleMetadata({
+  title: "How to Install IPTV on Firestick (2026 Step-by-Step)",
   description:
     "Install IPTV on an Amazon Firestick in about 10 minutes. Step-by-step guide to setting up IPTV Smarters Pro, entering your login and loading channels — plus buffering fixes.",
+  canonical: URL,
   keywords: [
     "iptv on firestick",
     "install iptv firestick",
     "iptv smarters pro firestick",
     "firestick iptv setup",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "article",
-    url: URL,
     title: "How to Install IPTV on Firestick (2026 Step-by-Step)",
     description:
       "Set up IPTV Smarters Pro on Amazon Firestick in about 10 minutes.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       {
         url: "/opengraph-image",
@@ -33,7 +29,7 @@ export const metadata = {
       },
     ],
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-09", label: "9 July 2026" };
 

@@ -1,13 +1,15 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
-import { faqSchema } from "@/lib/schema";
+import { SITE } from "@/config";
+import { faqSchema, articleSchema } from "@/lib/schema";
+import { articleMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/learn/iptv-explained`;
 
-export const metadata = {
-  title: { absolute: "What Is IPTV? How Internet TV Works in 2026" },
+export const metadata = articleMetadata({
+  title: "What Is IPTV? How Internet TV Works in 2026",
   description:
     "IPTV explained in plain English: what IPTV means, how it delivers live TV and movies over the internet, what you need to watch it, and how it compares to cable and satellite.",
+  canonical: URL,
   keywords: [
     "what is iptv",
     "iptv meaning",
@@ -15,19 +17,13 @@ export const metadata = {
     "iptv explained",
     "internet protocol television",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "article",
-    url: URL,
     title: "What Is IPTV? How Internet TV Works in 2026",
     description:
       "IPTV explained: what it is, how it works, and what you need to start watching.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "What is IPTV?" }],
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-09", label: "9 July 2026" };
 
@@ -63,21 +59,14 @@ const FAQ_ITEMS = [
   ],
 ];
 
-const articleLd = {
-  "@context": "https://schema.org",
-  "@type": "Article",
+const articleLd = articleSchema({
   headline: "What Is IPTV? How Internet TV Works in 2026",
   description:
     "IPTV explained: what it is, how it delivers live TV and movies over the internet, and how it compares to cable and satellite.",
-  image: `${SITE}/opengraph-image`,
-  author: { "@id": `${SITE}#organization` },
-  publisher: { "@id": `${SITE}#organization` },
-  reviewedBy: { "@id": `${SITE}#organization` },
-  mainEntityOfPage: { "@id": `${URL}#webpage` },
+  url: URL,
   datePublished: "2026-07-09",
   dateModified: UPDATED.iso,
-  inLanguage: "en",
-};
+});
 
 const faqLd = faqSchema(FAQ_ITEMS);
 

@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter, Sora } from "next/font/google";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { CONTEXT, organizationSchema, websiteSchema } from "@/lib/schema";
 
 const geist = Inter({
   subsets: ["latin"],
@@ -72,51 +73,10 @@ export const viewport = {
 };
 
 const jsonLd = {
-  "@context": "https://schema.org",
+  "@context": CONTEXT,
   "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${SITE}#organization`,
-      name: "IPTV Provider",
-      url: SITE,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE}/icon.svg`,
-      },
-      image: `${SITE}/opengraph-image`,
-      description:
-        "Premium IPTV service for the USA, Canada and worldwide with 54,000+ live channels and 120,000+ movies & series in HD/4K.",
-      email: "support@iptvprovider.me",
-      areaServed: [
-        { "@type": "Country", name: "United States" },
-        { "@type": "Country", name: "Canada" },
-        { "@type": "Country", name: "United Kingdom" },
-        "Worldwide",
-      ],
-      knowsAbout: [
-        "IPTV",
-        "IPTV Smarters Pro",
-        "Live TV streaming",
-        "4K streaming",
-        "Firestick setup",
-      ],
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        telephone: "+44-7848-197761",
-        email: "support@iptvprovider.me",
-        availableLanguage: ["English", "Spanish"],
-        areaServed: ["US", "CA", "GB", "Worldwide"],
-      },
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE}#website`,
-      url: SITE,
-      name: "IPTV Provider",
-      publisher: { "@id": `${SITE}#organization` },
-      inLanguage: "en",
-    },
+    organizationSchema(),
+    websiteSchema(),
     {
       "@type": "Product",
       name: "IPTV Smarters Pro Subscription",

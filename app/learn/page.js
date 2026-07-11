@@ -1,25 +1,21 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
 import { faqSchema, itemListSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/learn`;
 
-export const metadata = {
-  title: { absolute: "Learn IPTV — How It Works, Setup & Guides | IPTV Provider" },
+export const metadata = pageMetadata({
+  title: "Learn IPTV — How It Works, Setup & Guides | IPTV Provider",
   description:
     "Learn what IPTV is, how it works, what you need to watch it, and how it compares to cable and streaming. Plain-English guides for beginners and beyond.",
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
+  canonical: URL,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "Learn IPTV — How It Works, Setup & Guides",
     description:
       "Plain-English IPTV guides: what it is, how it works, and how to get started.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-09", label: "9 July 2026" };
 

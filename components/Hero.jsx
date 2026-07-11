@@ -1,7 +1,7 @@
 import MountHeading from "./MountHeading";
 import HeroVideo from "./HeroVideo";
 import { CheckoutButton } from "./Checkout";
-import { WHATSAPP } from "@/lib/site";
+import { WHATSAPP } from "@/config";
 
 const TRUST = [
   {

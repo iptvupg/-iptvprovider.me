@@ -1,5 +1,5 @@
 import Logo from "./Logo";
-import { WHATSAPP } from "@/lib/site";
+import { WHATSAPP } from "@/config";
 
 // Absolute canonical-page targets so links resolve from any route.
 const HOME = "/iptv-smarters-pro";

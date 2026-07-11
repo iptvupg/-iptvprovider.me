@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { WHATSAPP } from "@/lib/site";
+import { WHATSAPP } from "@/config";
 
 const DEST = "/iptv-smarters-pro";
 

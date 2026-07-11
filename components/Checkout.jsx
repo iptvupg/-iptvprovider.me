@@ -7,7 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { WHATSAPP_NUMBER } from "@/lib/site";
+import { WHATSAPP_NUMBER } from "@/config";
 
 const DEFAULT_PLAN = { name: "12 Months", price: 90 };
 

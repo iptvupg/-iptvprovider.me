@@ -1,34 +1,30 @@
 import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
 
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { articleMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/how-to/install-iptv-on-apple-tv`;
 
-export const metadata = {
-  title: { absolute: "How to Install IPTV on Apple TV & iOS (2026 Guide)" },
+export const metadata = articleMetadata({
+  title: "How to Install IPTV on Apple TV & iOS (2026 Guide)",
   description:
     "Install IPTV on Apple TV, iPhone and iPad from the App Store in minutes. Set up an IPTV player, add your login and load channels — plus AirPlay tips and fixes.",
+  canonical: URL,
   keywords: [
     "iptv on apple tv",
     "iptv on iphone",
     "install iptv ios",
     "iptv smarters apple tv",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "article",
-    url: URL,
     title: "How to Install IPTV on Apple TV & iOS (2026 Guide)",
     description:
       "Set up IPTV on Apple TV, iPhone and iPad using the App Store.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       { url: "/opengraph-image", width: 1200, height: 630, alt: "Install IPTV on Apple TV & iOS" },
     ],
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 

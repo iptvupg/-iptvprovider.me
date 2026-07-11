@@ -2,17 +2,17 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Pricing from "@/components/Pricing";
 import { CheckoutProvider, CheckoutButton } from "@/components/Checkout";
-import { SITE, WHATSAPP } from "@/lib/site";
-import { faqSchema } from "@/lib/schema";
+import { SITE, WHATSAPP } from "@/config";
+import { faqSchema, breadcrumbSchema, webPageSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/iptv-subscription-plans`;
 
-export const metadata = {
-  title: {
-    absolute: "IPTV Subscription Plans & Pricing 2026 | From $7.50/mo",
-  },
+export const metadata = pageMetadata({
+  title: "IPTV Subscription Plans & Pricing 2026 | From $7.50/mo",
   description:
     "Compare IPTV subscription plans: 1, 3, 6 and 12-month options from $7.50/mo. Every plan includes 54,000+ live channels and 120,000+ movies in HD/4K. Billed once, no auto-renewal, 30-day money-back guarantee.",
+  canonical: URL,
   keywords: [
     "IPTV subscription",
     "IPTV subscription plans",
@@ -22,16 +22,10 @@ export const metadata = {
     "cheap IPTV subscription",
     "IPTV Smarters Pro subscription",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "website",
-    url: URL,
     title: "IPTV Subscription Plans & Pricing 2026 — From $7.50/mo",
     description:
       "1, 3, 6 and 12-month IPTV plans with 54,000+ channels & 120,000+ movies in HD/4K. Billed once, no auto-renewal, 30-day money-back guarantee.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       {
         url: "/opengraph-image",
@@ -48,7 +42,7 @@ export const metadata = {
       "1, 3, 6 and 12-month IPTV plans with 54,000+ channels & 120,000+ movies. Billed once, no auto-renewal.",
     images: ["/opengraph-image"],
   },
-};
+});
 
 // Real plan data — mirrors components/Pricing.jsx so the on-page cards and the
 // Product schema never drift apart.
@@ -98,19 +92,10 @@ const FAQ_ITEMS = [
   ],
 ];
 
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "IPTV Subscription Plans",
-      item: URL,
-    },
-  ],
-};
+const breadcrumbLd = breadcrumbSchema([
+  { name: "Home", item: SITE },
+  { name: "IPTV Subscription Plans", item: URL },
+]);
 
 const productLd = {
   "@context": "https://schema.org",
@@ -141,17 +126,11 @@ const productLd = {
 
 const faqLd = faqSchema(FAQ_ITEMS);
 
-const webPageLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": `${URL}#webpage`,
+const webPageLd = webPageSchema({
   url: URL,
   name: "IPTV Subscription Plans & Pricing 2026",
-  isPartOf: { "@id": `${SITE}#website` },
-  about: { "@id": `${SITE}#organization` },
-  inLanguage: "en",
   dateModified: "2026-07-08",
-};
+});
 
 export default function IptvSubscriptionPlansPage() {
   return (

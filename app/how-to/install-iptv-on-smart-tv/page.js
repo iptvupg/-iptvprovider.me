@@ -1,34 +1,30 @@
 import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
 
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { articleMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/how-to/install-iptv-on-smart-tv`;
 
-export const metadata = {
-  title: { absolute: "How to Install IPTV on Smart TV — Samsung & LG (2026)" },
+export const metadata = articleMetadata({
+  title: "How to Install IPTV on Smart TV — Samsung & LG (2026)",
   description:
     "Install IPTV on a Samsung or LG Smart TV in minutes. Set up an IPTV player from the app store, add your playlist and load channels — plus a Firestick fallback.",
+  canonical: URL,
   keywords: [
     "iptv on smart tv",
     "install iptv samsung tv",
     "iptv on lg tv",
     "smart iptv setup",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "article",
-    url: URL,
     title: "How to Install IPTV on Smart TV — Samsung & LG (2026)",
     description:
       "Set up IPTV on a Samsung or LG Smart TV using the built-in app store.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       { url: "/opengraph-image", width: 1200, height: 630, alt: "Install IPTV on Smart TV" },
     ],
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 

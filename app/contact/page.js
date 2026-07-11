@@ -1,23 +1,19 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/contact`;
 
-export const metadata = {
-  title: { absolute: "Contact IPTV Provider — 24/7 Support" },
+export const metadata = pageMetadata({
+  title: "Contact IPTV Provider — 24/7 Support",
   description:
     "Contact IPTV Provider by WhatsApp or email. 24/7 support in English and Spanish for free trials, subscriptions, setup and refunds.",
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
+  canonical: URL,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "Contact IPTV Provider",
     description: "24/7 support in English and Spanish by WhatsApp or email.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
   },
-};
+});
 
 export default function ContactPage() {
   return (

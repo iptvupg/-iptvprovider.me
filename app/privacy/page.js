@@ -1,24 +1,20 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/privacy`;
 
-export const metadata = {
-  title: { absolute: "Privacy Policy | IPTV Provider" },
+export const metadata = pageMetadata({
+  title: "Privacy Policy | IPTV Provider",
   description:
     "How IPTV Provider collects, uses and protects the information you share when you request a free trial, buy a subscription or contact our support team.",
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
+  canonical: URL,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "Privacy Policy | IPTV Provider",
     description:
       "How IPTV Provider collects, uses and protects your information.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-08", label: "8 July 2026" };
 

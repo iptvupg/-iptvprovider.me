@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 // Shared shell for the standalone content pages (trust/legal pages and the

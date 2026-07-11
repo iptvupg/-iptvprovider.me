@@ -1,24 +1,20 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/terms`;
 
-export const metadata = {
-  title: { absolute: "Terms of Service | IPTV Provider" },
+export const metadata = pageMetadata({
+  title: "Terms of Service | IPTV Provider",
   description:
     "The terms that apply when you use IPTV Provider — free trials, subscriptions, acceptable use, payments and our 30-day money-back guarantee.",
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
+  canonical: URL,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "Terms of Service | IPTV Provider",
     description:
       "The terms that apply when you use IPTV Provider's trials and subscriptions.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-08", label: "8 July 2026" };
 

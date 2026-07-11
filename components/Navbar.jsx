@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
-import { WHATSAPP } from "@/lib/site";
+import { WHATSAPP } from "@/config";
 
 // Absolute targets on the canonical page so the same nav works from any route
 // (on /iptv-smarters-pro only the fragment changes, so the browser just scrolls).

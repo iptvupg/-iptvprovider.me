@@ -1,17 +1,17 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TrialForm from "@/components/TrialForm";
-import { SITE, WHATSAPP } from "@/lib/site";
-import { faqSchema } from "@/lib/schema";
+import { SITE, WHATSAPP } from "@/config";
+import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/iptv-free-trial-2026`;
 
-export const metadata = {
-  title: {
-    absolute: "Free IPTV Trial 2026 — 24 Hours, No Card | 54,000+ Channels",
-  },
+export const metadata = pageMetadata({
+  title: "Free IPTV Trial 2026 — 24 Hours, No Card | 54,000+ Channels",
   description:
     "Start a free 24-hour IPTV trial. Test 54,000+ live channels and 120,000+ movies & series in HD/4K on any device before you buy. No credit card required.",
+  canonical: URL,
   keywords: [
     "IPTV free trial",
     "free IPTV trial 2026",
@@ -20,15 +20,10 @@ export const metadata = {
     "test IPTV",
     "IPTV Smarters Pro free trial",
   ],
-  alternates: { canonical: URL },
   openGraph: {
-    type: "website",
-    url: URL,
     title: "Free IPTV Trial 2026 — 24 Hours, No Card Required",
     description:
       "Test 54,000+ live channels & 120,000+ movies in HD/4K free for 24 hours. Works on Firestick, Smart TV, Android, iOS and more.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       {
         url: "/opengraph-image",
@@ -45,8 +40,7 @@ export const metadata = {
       "Test 54,000+ live channels & 120,000+ movies in HD/4K free for 24 hours. No credit card.",
     images: ["/opengraph-image"],
   },
-  robots: { index: true, follow: true },
-};
+});
 
 const HERO_TRUST = [
   "No credit card required",
@@ -159,14 +153,10 @@ const COMPATIBLE = [
 
 const faqLd = faqSchema(FAQ_ITEMS);
 
-const breadcrumbLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE },
-    { "@type": "ListItem", position: 2, name: "IPTV Free Trial", item: URL },
-  ],
-};
+const breadcrumbLd = breadcrumbSchema([
+  { name: "Home", item: SITE },
+  { name: "IPTV Free Trial", item: URL },
+]);
 
 export default function IptvFreeTrialPage() {
   return (

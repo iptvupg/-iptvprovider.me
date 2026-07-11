@@ -1,5 +1,5 @@
 import PageShell from "@/components/PageShell";
-import { SITE, WHATSAPP } from "@/lib/site";
+import { SITE, WHATSAPP } from "@/config";
 import { faqSchema, howToSchema } from "@/lib/schema";
 
 // Shared body for the /how-to/install-iptv-on-* device guides. Each page passes

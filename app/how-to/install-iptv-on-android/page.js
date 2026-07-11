@@ -1,33 +1,29 @@
 import HowToGuide, { WHATSAPP } from "@/components/HowToGuide";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
+import { articleMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/how-to/install-iptv-on-android`;
 
-export const metadata = {
-  title: { absolute: "How to Install IPTV on Android (2026 Step-by-Step)" },
+export const metadata = articleMetadata({
+  title: "How to Install IPTV on Android (2026 Step-by-Step)",
   description:
     "Install IPTV on Android phone, tablet or TV box in about 5 minutes. Set up IPTV Smarters Pro from Google Play, enter your login and load channels — with fixes.",
+  canonical: URL,
   keywords: [
     "iptv on android",
     "install iptv android",
     "iptv smarters pro android",
     "android tv box iptv",
   ],
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
   openGraph: {
-    type: "article",
-    url: URL,
     title: "How to Install IPTV on Android (2026 Step-by-Step)",
     description:
       "Set up IPTV Smarters Pro on Android phone, tablet or TV box in about 5 minutes.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
     images: [
       { url: "/opengraph-image", width: 1200, height: 630, alt: "Install IPTV on Android" },
     ],
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 

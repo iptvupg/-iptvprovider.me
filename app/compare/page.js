@@ -1,27 +1,21 @@
 import PageShell from "@/components/PageShell";
-import { SITE } from "@/lib/site";
+import { SITE } from "@/config";
 import { faqSchema, itemListSchema } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 
 const URL = `${SITE}/compare`;
 
-export const metadata = {
-  title: {
-    absolute: "IPTV App & Service Comparisons — Side-by-Side | IPTV Provider",
-  },
+export const metadata = pageMetadata({
+  title: "IPTV App & Service Comparisons — Side-by-Side | IPTV Provider",
   description:
     "Honest side-by-side IPTV comparisons: IPTV Smarters Pro vs TiviMate, app features, device support and setup. Pick the right player for your setup.",
-  alternates: { canonical: URL },
-  robots: { index: true, follow: true },
+  canonical: URL,
   openGraph: {
-    type: "website",
-    url: URL,
     title: "IPTV App & Service Comparisons",
     description:
       "Side-by-side IPTV player and service comparisons to help you choose the right setup.",
-    siteName: "IPTV Provider",
-    locale: "en_US",
   },
-};
+});
 
 const UPDATED = { iso: "2026-07-10", label: "10 July 2026" };
 

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Reveal, { Stagger } from "./Reveal";
-import { WHATSAPP } from "@/lib/site";
+import { WHATSAPP } from "@/config";
+import { faqSchema } from "@/lib/schema";
 
 const ITEMS = [
   {
@@ -104,15 +105,7 @@ function Row({ item, open, onToggle, index }) {
   );
 }
 
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
-  })),
-};
+const faqLd = faqSchema(ITEMS.map((item) => [item.q, item.a]));
 
 export default function FAQ() {
   const [open, setOpen] = useState(0);
