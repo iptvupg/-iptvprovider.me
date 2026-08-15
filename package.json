@@ -59,7 +59,7 @@
     "typescript": "^5.1.0"
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": "20.x"
   },
   "browserslist": [
     "Chrome 111",
