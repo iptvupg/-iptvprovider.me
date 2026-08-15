@@ -23,14 +23,19 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound();
   }
 
-  const title = `Best IPTV Provider in ${country.name} | Reliable Streaming`;
+  const title = `Best IPTV in ${country.name} (2026) | #1 Provider`;
   const description = `Get the best IPTV Provider in ${country.name}. Enjoy 24,000+ channels, HD/4K quality, and instant activation. Perfect for sports, movies, and TV shows in ${country.name}.`;
 
-  return generatePageMetadata({
-    title,
-    description,
-    canonical: `/country/${params.country}`,
-  });
+  return {
+    ...generatePageMetadata({
+      title,
+      description,
+      canonical: `/country/${params.country}`,
+    }),
+    title: {
+      absolute: title,
+    }
+  };
 }
 
 export default async function CountryPage(props: { params: Promise<{ country: string }>}) {
@@ -126,19 +131,7 @@ export default async function CountryPage(props: { params: Promise<{ country: st
             <p className="text-sm text-muted-foreground mb-6">
               Learn how to set up and optimize your IPTV streaming setup in {name} with our step-by-step technical guides:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="rounded-md border p-4 bg-background hover:border-primary transition-colors">
-                <h3 className="font-semibold text-sm mb-1">
-                  <Link href="/tv/guides/what-is-iptv" className="hover:text-primary">
-                    Learn how IPTV works
-                  </Link>
-                </h3>
-                <p className="text-xs text-muted-foreground mb-3">Understanding IPTV technology and network protocols.</p>
-                <Link href="/tv/guides/what-is-iptv" className="text-xs text-primary font-medium inline-flex items-center gap-1">
-                  Read Article <ChevronRight size={14} />
-                </Link>
-              </div>
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <div className="rounded-md border p-4 bg-background hover:border-primary transition-colors">
                 <h3 className="font-semibold text-sm mb-1">
                   <Link href="/tv/guides/iptv-setup-guide" className="hover:text-primary">
@@ -147,31 +140,67 @@ export default async function CountryPage(props: { params: Promise<{ country: st
                 </h3>
                 <p className="text-xs text-muted-foreground mb-3">Step-by-step app installation across all streaming hardware.</p>
                 <Link href="/tv/guides/iptv-setup-guide" className="text-xs text-primary font-medium inline-flex items-center gap-1">
-                  Read Guide <ChevronRight size={14} />
-                </Link>
-              </div>
-
-              <div className="rounded-md border p-4 bg-background hover:border-primary transition-colors">
-                <h3 className="font-semibold text-sm mb-1">
-                  <Link href="/tv/guides/iptv-buffering-troubleshooting" className="hover:text-primary">
-                    How to fix IPTV buffering
-                  </Link>
-                </h3>
-                <p className="text-xs text-muted-foreground mb-3">Fix stream lag, packet loss, and connection drops.</p>
-                <Link href="/tv/guides/iptv-buffering-troubleshooting" className="text-xs text-primary font-medium inline-flex items-center gap-1">
-                  Read Guide <ChevronRight size={14} />
+                  Read Setup Guide <ChevronRight size={14} />
                 </Link>
               </div>
 
               <div className="rounded-md border p-4 bg-background hover:border-primary transition-colors">
                 <h3 className="font-semibold text-sm mb-1">
                   <Link href="/tv/devices/fire-tv" className="hover:text-primary">
-                    Set up IPTV on Fire TV
+                    Amazon Fire TV Stick Setup
                   </Link>
                 </h3>
-                <p className="text-xs text-muted-foreground mb-3">Downloader app and player setup for Firestick 4K.</p>
+                <p className="text-xs text-muted-foreground mb-3">Downloader app and player setup for Fire TV Stick 4K & Max.</p>
                 <Link href="/tv/devices/fire-tv" className="text-xs text-primary font-medium inline-flex items-center gap-1">
-                  View Device Guide <ChevronRight size={14} />
+                  View Fire TV Guide <ChevronRight size={14} />
+                </Link>
+              </div>
+
+              <div className="rounded-md border p-4 bg-background hover:border-primary transition-colors">
+                <h3 className="font-semibold text-sm mb-1">
+                  <Link href="/tv/devices/android" className="hover:text-primary">
+                    Android & Google TV Setup
+                  </Link>
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3">Setup instructions for Android TV, Google TV, and TV boxes.</p>
+                <Link href="/tv/devices/android" className="text-xs text-primary font-medium inline-flex items-center gap-1">
+                  View Android Guide <ChevronRight size={14} />
+                </Link>
+              </div>
+
+              <div className="rounded-md border p-4 bg-background hover:border-primary transition-colors">
+                <h3 className="font-semibold text-sm mb-1">
+                  <Link href="/tv/devices/samsung-tv" className="hover:text-primary">
+                    Samsung Smart TV (Tizen OS)
+                  </Link>
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3">How to stream on Samsung Smart TVs with dedicated IPTV players.</p>
+                <Link href="/tv/devices/samsung-tv" className="text-xs text-primary font-medium inline-flex items-center gap-1">
+                  View Samsung Guide <ChevronRight size={14} />
+                </Link>
+              </div>
+
+              <div className="rounded-md border p-4 bg-background hover:border-primary transition-colors">
+                <h3 className="font-semibold text-sm mb-1">
+                  <Link href="/tv/devices/apple-tv" className="hover:text-primary">
+                    Apple TV 4K (tvOS) Setup
+                  </Link>
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3">Installation and configuration for Apple TV 4K and iOS devices.</p>
+                <Link href="/tv/devices/apple-tv" className="text-xs text-primary font-medium inline-flex items-center gap-1">
+                  View Apple TV Guide <ChevronRight size={14} />
+                </Link>
+              </div>
+
+              <div className="rounded-md border p-4 bg-background hover:border-primary transition-colors">
+                <h3 className="font-semibold text-sm mb-1">
+                  <Link href="/tv/guides/iptv-buffering-troubleshooting" className="hover:text-primary">
+                    Fix Buffering & Lag
+                  </Link>
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3">Optimize buffer settings, DNS, and ISP routing for smooth streaming.</p>
+                <Link href="/tv/guides/iptv-buffering-troubleshooting" className="text-xs text-primary font-medium inline-flex items-center gap-1">
+                  Read Optimization Guide <ChevronRight size={14} />
                 </Link>
               </div>
             </div>

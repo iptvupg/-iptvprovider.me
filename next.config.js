@@ -131,6 +131,36 @@ const nextConfig = {
         destination: '/tv/pricing',
         permanent: true,
       },
+      {
+        source: '/country/east-germany',
+        destination: '/tv/country/germany',
+        permanent: true,
+      },
+      {
+        source: '/tv/country/east-germany',
+        destination: '/tv/country/germany',
+        permanent: true,
+      },
+      {
+        source: '/country/congo-free-state',
+        destination: '/tv/country/democratic-republic-of-the-congo',
+        permanent: true,
+      },
+      {
+        source: '/tv/country/congo-free-state',
+        destination: '/tv/country/democratic-republic-of-the-congo',
+        permanent: true,
+      },
+      {
+        source: '/country/burma',
+        destination: '/tv/country/myanmar',
+        permanent: true,
+      },
+      {
+        source: '/tv/country/burma',
+        destination: '/tv/country/myanmar',
+        permanent: true,
+      },
     ]
   },
 };
