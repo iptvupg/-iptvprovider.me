@@ -29,12 +29,14 @@ export function generateMetadata({
   canonical?: string;
 }) {
   const ogImageUrl = image || `${siteConfig.url}${siteConfig.ogImage}?title=${encodeURIComponent(title)}`;
-  
+
   return {
     title,
     description,
     alternates: {
-      canonical: canonical ? `${siteConfig.url}${canonical}` : undefined,
+      // Pages are served under the /tv prefix, so the canonical must include it
+      // to point at the final 200 URL rather than the pre-redirect path.
+      canonical: canonical ? `${siteConfig.url}/tv${canonical}` : undefined,
     },
     openGraph: {
       title,

@@ -1,6 +1,3 @@
-
-
-
 import { getSafeArticleData } from '@/lib/how-to';
 import { getArticlesWithEmbeddings } from '@/lib/server/how-to-server';
 import { findSemanticallySimilarContent } from './vector-related-content';
@@ -9,8 +6,9 @@ import { unstable_cache as cache } from 'next/cache';
 export type Post = ReturnType<typeof getSafeArticleData>;
 
 // In a real app, this would fetch from a database or CMS.
-export async function getAllPosts(): Promise<Post[]> {
-  return (await getArticlesWithEmbeddings()).map(p => ({
+export async function getAllPosts() {
+  const posts = await getArticlesWithEmbeddings();
+  return posts.map(p => ({
     id: p.id,
     title: p.title,
     description: p.description,
@@ -19,9 +17,12 @@ export async function getAllPosts(): Promise<Post[]> {
     datePublished: p.datePublished,
     dateModified: p.dateModified,
     totalTime: p.totalTime,
+    directAnswer: p.directAnswer,
     steps: p.steps,
     faqs: p.faqs,
-    extraSections: p.extraSections,
+    troubleshooting: p.troubleshooting,
+    extraSections: 'extraSections' in p ? p.extraSections : undefined,
+    relatedGuideSlugs: p.relatedGuideSlugs,
   }));
 }
 
@@ -63,7 +64,7 @@ export const getRelatedPosts = cache(async (currentId: string, minLinks = 3) => 
   
   return related.map(post => ({
       ...post,
-      href: `/devices/${post.id}`
+      href: `/tv/devices/${post.id}`
   }));
 },
 ['related-posts'],

@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
@@ -6,11 +5,9 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle,
 } from '@/components/ui/card';
 import { Container } from '@/components/shared/Container';
 import { ContactForm } from '@/components/shared/ContactForm';
-import SemanticContent from '@/components/shared/SemanticContent';
 import { getContactPageData } from '@/lib/data/contact-page';
 import { Schema } from '@/components/shared/Schema';
 import { generateMetadata as generatePageMetadata } from '@/lib/site-config';
@@ -24,23 +21,17 @@ export function generateMetadata(): Metadata {
 }
 
 export default async function ContactPage() {
-    const { breadcrumbSchema, semanticContent } = await getContactPageData();
+    const { breadcrumbSchema } = await getContactPageData();
 
     return (
         <>
             <Schema id="breadcrumb" schema={breadcrumbSchema} />
-            <SemanticContent 
-                primaryEntity={semanticContent.primaryEntity}
-                relatedEntities={semanticContent.relatedEntities}
-                semanticClusters={semanticContent.semanticClusters}
-                contextualKeywords={semanticContent.contextualKeywords}
-            />
             <main className="py-16 sm:py-24">
                 <Container>
                     <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
                       <ol className="flex items-center gap-2">
                         <li>
-                          <Link href="/" className="hover:text-primary">
+                          <Link href="/tv" className="hover:text-foreground">
                             Home
                           </Link>
                         </li>
@@ -53,7 +44,7 @@ export default async function ContactPage() {
                     <div className="mx-auto max-w-lg">
                         <Card>
                             <CardHeader>
-                                <CardTitle>Contact Us</CardTitle>
+                                <h1 className="font-headline text-2xl font-bold">Contact Customer Support</h1>
                                 <CardDescription>
                                     Have a question or need support? Fill out the form below and we'll get back to you shortly.
                                 </CardDescription>

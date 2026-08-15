@@ -1,43 +1,50 @@
-
 export const faqs = [
-    {
-        question: "Do you offer free trials for your IPTV Provider?",
-        answer: "We do not offer free trials to maintain the highest quality for our paying subscribers, but we provide a low-cost 1-month plan as a perfect way to test our service. This approach prevents server overload from temporary users and ensures a stable, premium experience for serious customers."
-    },
-    {
-        question: "How many devices can I use with one IPTV Provider subscription?",
-        answer: "Our standard IPTV Provider plan allows for one connection at a time to ensure stable and high-quality streaming for every user. If you require multiple simultaneous connections for your family, please contact our support team, and we would be happy to create a custom plan for you."
-    },
-    {
-        question: "Why is my IPTV Provider buffering?",
-        answer: "Buffering is most often caused by an unstable internet connection, ISP throttling, or a device issue. For a smooth experience, we recommend a stable internet connection of at least 25 Mbps, using a wired Ethernet connection instead of Wi-Fi, and using a reliable VPN to prevent your Internet Service Provider from slowing down your stream."
-    },
-    {
-        question: "How long does IPTV Provider activation take?",
-        answer: "Activation for your IPTV Provider is instant and automatic. As soon as your payment is successfully processed, your login credentials and setup instructions will be sent to your email address, allowing you to start streaming within minutes."
-    },
-    {
-        question: "Do I need a VPN to use the IPTV Provider?",
-        answer: "While a VPN is not strictly required, it is highly recommended for the best and most private IPTV Provider experience. A VPN encrypts your traffic, which prevents your ISP from throttling or blocking your stream and protects your online privacy."
-    },
-    {
-        question: "What is your refund policy for the IPTV Provider?",
-        answer: "We offer a 7-day, 100% money-back guarantee on all our IPTV Provider plans, allowing you to try our service completely risk-free. If you are not satisfied within the first week, simply contact our support team to request a full and prompt refund."
-    },
-    {
-        question: "What apps does your IPTV Provider support?",
-        answer: "Our flexible IPTV Provider supports a wide range of popular applications to suit your preference. This includes IPTV Smarters, TiviMate, GSE Smart IPTV, OTT Navigator, and many others. We also provide easy-to-follow setup guides for all major apps and devices to get you started quickly."
-    },
-    {
-        question: "Do you provide channel updates for the IPTV Provider?",
-        answer: "Yes, our IPTV Provider channel list is updated automatically and regularly at no extra cost. This ensures you always have access to the latest channels, movies, and TV series without needing to perform any manual updates on your end."
-    },
-    {
-        question: "How can I get support for my IPTV Provider?",
-        answer: "We offer dedicated 24/7 customer support for our IPTV Provider. You can reach our expert team anytime via our contact form, email, or live chat. We are always ready to assist you with any setup, billing, or technical questions you may have."
-    },
-    {
-        question: "Can I cancel my IPTV Provider subscription anytime?",
-        answer: "Yes, you can cancel your IPTV Provider subscription at any time without any penalty. We do not use binding contracts, so you have complete flexibility. Simply contact our support team, and they will process the cancellation for you."
-    }
+  {
+    question: "Do you offer free trials for your IPTV service?",
+    answer: "Yes! We offer a 24-hour free trial so you can test our 24,000+ live HD/4K channels and VOD library before purchasing a full subscription. Trial credentials are delivered automatically to your email."
+  },
+  {
+    question: "How many devices can I use with one IPTV subscription?",
+    answer: "Our standard IPTV plan allows for one active connection at a time. If you require multi-room or multi-device streaming for family members, custom multi-connection options are available."
+  },
+  {
+    question: "Why is my IPTV stream buffering and how do I fix it?",
+    answer: "Buffering is usually caused by network latency, Wi-Fi interference, or ISP throttling. We recommend a stable connection of at least 25 Mbps, connecting via wired Ethernet cable, or using a VPN to prevent ISP throttling."
+  },
+  {
+    question: "How long does IPTV subscription activation take?",
+    answer: "Activation is instant and automated. As soon as your payment is processed, your M3U playlist URL, Xtream Codes API login credentials, and setup instructions are sent to your email immediately."
+  },
+  {
+    question: "Do I need a VPN to use your IPTV service?",
+    answer: "While a VPN is not strictly required, it is recommended if your Internet Service Provider actively throttles high-bandwidth video streaming traffic during peak evening hours."
+  },
+  {
+    question: "What is your refund policy?",
+    answer: "We offer a 7-day money-back guarantee on all subscription plans. If you encounter unresolved technical issues within the first week, contact customer support for a prompt refund."
+  },
+  {
+    question: "What apps and players are supported?",
+    answer: "Our IPTV service is compatible with all top-tier player applications including TiviMate, IPTV Smarters Pro, Smartone IPTV, IBO Player, GSE Smart IPTV, VLC Media Player, and XCIPTV."
+  },
+  {
+    question: "Are channel lists and VOD content updated automatically?",
+    answer: "Yes. Channel lineups, EPG program guides, and VOD movie/series catalogs update automatically on our servers without requiring manual file re-downloads."
+  },
+  {
+    question: "How can I get technical customer support?",
+    answer: "We provide 24/7 technical customer support via WhatsApp and email to help you with setup, playlist configuration, or device troubleshooting."
+  },
+  {
+    question: "Can I cancel my IPTV subscription anytime?",
+    answer: "Yes. All plans are pay-as-you-go with no long-term contracts or hidden auto-renewal fees."
+  },
+  {
+    question: "What internet speed is required for 4K IPTV streaming?",
+    answer: "We recommend a minimum download speed of 15 Mbps for 1080p HD streams and 25 Mbps or higher for smooth 4K Ultra HD and 60fps live sports playback."
+  },
+  {
+    question: "What is the difference between M3U playlists and Xtream Codes API?",
+    answer: "An M3U playlist is a static file or URL listing video streams, while Xtream Codes API uses a Server URL, Username, and Password to dynamically import channels, VOD catalogs, and EPG schedules."
+  }
 ];

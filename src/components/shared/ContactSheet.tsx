@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import { MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -35,7 +35,7 @@ export function ContactSheet() {
   const { toast } = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const initialState = { message: null, errors: null };
-  const [state, dispatch] = useFormState(submitContactForm, initialState);
+  const [state, dispatch] = useActionState(submitContactForm, initialState);
 
   useEffect(() => {
     if (state.message && !state.errors) {

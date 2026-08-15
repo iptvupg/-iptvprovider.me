@@ -4,31 +4,29 @@ import { Button } from '@/components/ui/button';
 import { Container } from '@/components/shared/Container';
 import { Logo } from '@/components/shared/Logo';
 import { MobileNav } from '@/components/shared/MobileNav';
-import { ThemeToggle } from '@/components/shared/ThemeToggle';
 import { navLinks } from '@/lib/site-data/nav';
 import { SiWhatsapp } from 'react-icons/si';
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <Container>
         <div className="flex h-16 items-center">
           <Logo />
-          <nav className="ml-10 hidden items-center space-x-6 lg:flex">
+          <nav className="ml-10 hidden items-center space-x-7 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.name}
               </Link>
             ))}
           </nav>
-          <div className="ml-auto flex items-center gap-2">
-            <ThemeToggle />
+          <div className="ml-auto flex items-center gap-2 sm:gap-3">
             <Button asChild>
-              <Link href="https://wa.me/212700664844" target="_blank" rel="noopener noreferrer">
+              <Link href="https://wa.me/447848197761" target="_blank" rel="noopener noreferrer">
                 <SiWhatsapp />
                 <span className='hidden sm:inline-block ml-2'>WhatsApp</span>
               </Link>

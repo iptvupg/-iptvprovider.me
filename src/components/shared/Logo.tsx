@@ -3,9 +3,9 @@ import { Tv2 } from "lucide-react";
 
 export function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2" aria-label="IPTV Provider homepage">
-      <Tv2 className="h-7 w-7 text-primary" />
-      <strong className="text-xl font-bold font-headline tracking-tight">
+    <Link href="/tv" className="flex shrink-0 items-center gap-2" aria-label="IPTV Provider homepage">
+      <Tv2 className="h-7 w-7 shrink-0 text-primary" />
+      <strong className="whitespace-nowrap font-headline text-xl font-bold tracking-tight">
         IPTV Provider
       </strong>
     </Link>

@@ -7,7 +7,6 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/shared/Logo';
 import { navLinks } from '@/lib/site-data/nav';
-import { ThemeToggle } from './ThemeToggle';
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,15 +26,12 @@ export function MobileNav() {
             <Link
               key={link.name}
               href={link.href}
-              className="rounded-md px-3 py-2 text-lg font-medium hover:bg-accent"
+              className="rounded-lg px-3 py-2 text-lg font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
             </Link>))}
         </nav>
-        <div className="mt-auto flex justify-center">
-            <ThemeToggle />
-        </div>
       </SheetContent>
     </Sheet>
   );

@@ -1,48 +1,54 @@
-
-import { CheckCircle, Package, Tv } from "lucide-react";
+import { Package, Key, Settings, Tv } from "lucide-react";
 import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Reveal } from "../shared/Reveal";
 
 const steps = [
-    {
-        icon: Package,
-        title: "Choose Your Plan",
-        description: "Select the subscription plan that best fits your needs, from one month to our best-value 12-month package."
-    },
-    {
-        icon: CheckCircle,
-        title: "Get Instant Activation",
-        description: "Your login credentials and setup instructions are sent to your email immediately after payment confirmation."
-    },
-    {
-        icon: Tv,
-        title: "Start Watching",
-        description: "Use our easy-to-follow guides to set up the service on your favorite device and start streaming in minutes."
-    }
-]
+  {
+    number: "01",
+    icon: Package,
+    title: "1. Choose a Plan",
+    description: "Select the subscription plan that best fits your needs, from 1 month to our best-value 12-month package."
+  },
+  {
+    number: "02",
+    icon: Key,
+    title: "2. Get Activation Details",
+    description: "Your M3U playlist URL and Xtream Codes API login credentials are delivered automatically to your email within minutes."
+  },
+  {
+    number: "03",
+    icon: Settings,
+    title: "3. Set Up Your Device",
+    description: "Follow our simple step-by-step setup guides to configure TiviMate, IPTV Smarters, or your Smart TV player app."
+  },
+  {
+    number: "04",
+    icon: Tv,
+    title: "4. Start Watching",
+    description: "Enjoy 24,000+ live HD/4K channels, live sports broadcasts, and 80,000+ on-demand movies and TV series immediately."
+  }
+];
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-16 sm:py-24 bg-muted/30 dark:bg-card/50">
+    <section id="how-it-works" className="py-20 sm:py-28 border-t">
       <Container>
         <SectionHeader
-          title="Get Started in 3 Simple Steps"
-          subtitle="We've made the process of getting world-class entertainment as simple as possible. Follow these steps and you'll be watching in no time."
+          title="How IPTV Subscription Works"
+          subtitle="Get started in four easy steps. Setup takes less than five minutes on any supported device."
         />
         <Reveal>
-          <div className="relative grid grid-cols-1 gap-12 md:grid-cols-3">
-             <div className="absolute top-1/2 left-0 hidden w-full -translate-y-1/2 md:block">
-                <div className="w-full border-t-2 border-dashed border-border" />
-            </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, i) => (
-                <div key={i} className="relative flex flex-col items-center text-center">
-                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-background ring-4 ring-muted/30 dark:ring-card/50 shadow-md">
-                        <step.icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="mb-2 font-headline text-xl font-bold">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
+              <div key={i} className="relative flex flex-col items-center text-center rounded-lg border bg-card p-6">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border bg-muted/30 text-primary font-bold">
+                  <step.icon className="h-6 w-6" />
                 </div>
+                <div className="text-xs font-bold uppercase tracking-wider text-primary mb-1">{step.number}</div>
+                <h3 className="mb-2 font-headline text-lg font-bold text-foreground">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+              </div>
             ))}
           </div>
         </Reveal>

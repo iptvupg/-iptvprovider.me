@@ -6,7 +6,6 @@ import { Check, Tv, Zap, Shield, MessageCircle, Smartphone, UserCheck, Star } fr
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiWhatsapp } from "react-icons/si";
-import SemanticContent from "@/components/shared/SemanticContent";
 import { getIptvFreeTrialPageData } from "@/lib/data/iptv-free-trial-page";
 import { Schema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
@@ -61,7 +60,7 @@ const howItWorksSteps = [
 ];
 
 export default async function IptvFreeTrialPage() {
-    const { semanticContent, breadcrumbSchema, faqSchema, serviceSchema, trialFaqs } = await getIptvFreeTrialPageData();
+    const { breadcrumbSchema, faqSchema, serviceSchema, trialFaqs } = await getIptvFreeTrialPageData();
 
     return (
         <>
@@ -69,12 +68,6 @@ export default async function IptvFreeTrialPage() {
             <Schema id="faq" schema={faqSchema} />
             <Schema id="service" schema={serviceSchema} />
 
-            <SemanticContent 
-                primaryEntity={semanticContent.primaryEntity}
-                relatedEntities={semanticContent.relatedEntities}
-                semanticClusters={semanticContent.semanticClusters}
-                contextualKeywords={semanticContent.contextualKeywords}
-            />
             <main>
                 {/* Hero Section */}
                 <section className="py-20 sm:py-32 text-center bg-muted/20 dark:bg-card/30">
@@ -82,7 +75,7 @@ export default async function IptvFreeTrialPage() {
                          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
                             <ol className="flex items-center justify-center gap-2">
                             <li>
-                                <Link href="/" className="hover:text-primary">
+                                <Link href="/tv" className="hover:text-foreground">
                                 Home
                                 </Link>
                             </li>
@@ -92,14 +85,15 @@ export default async function IptvFreeTrialPage() {
                             </li>
                             </ol>
                         </nav>
+                        <p className="eyebrow-cap mb-5 text-sm font-medium text-muted-foreground">No Card Needed</p>
                         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-6xl">
-                           Start Your IPTV Free Trial Now
+                           Start Your IPTV <span className="chip-lime">Free Trial</span> Now
                         </h1>
                         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
                            20,000+ Channels. Zero Commitment. Instant Access.
                         </p>
                         <Button asChild size="lg" className="mt-8">
-                            <Link href="https://wa.me/212700664844" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://wa.me/447848197761" target="_blank" rel="noopener noreferrer">
                                 <SiWhatsapp className="mr-2" />
                                 Start Free Trial on WhatsApp
                             </Link>
@@ -206,23 +200,20 @@ export default async function IptvFreeTrialPage() {
                 {/* Final CTA Section */}
                 <section className="py-16 sm:py-24">
                     <Container>
-                        <div className="rounded-xl bg-primary p-8 text-center md:p-12">
-                            <h2 className="font-headline text-3xl font-bold text-primary-foreground sm:text-4xl">
-                                Ready to Start Streaming?
-                            </h2>
-                            <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
-                                Your 24-hour, all-access pass to the best entertainment is just one click away.
-                            </p>
-                            <Button
-                            asChild
-                            size="lg"
-                            variant="outline"
-                            className="mt-8 border-primary-foreground bg-primary text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-                            >
-                            <Link href="https://wa.me/212700664844" target="_blank" rel="noopener noreferrer">
-                                Get Your Free Trial Now
-                            </Link>
-                            </Button>
+                        <div className="relative overflow-hidden rounded-lg bg-night p-8 text-center md:p-12">
+                            <div className="relative z-10">
+                                <h2 className="font-headline text-3xl font-extrabold text-white sm:text-4xl">
+                                    Ready to Start Streaming?
+                                </h2>
+                                <p className="mx-auto mt-4 max-w-2xl text-lg text-white/80">
+                                    Your 24-hour, all-access pass to the best entertainment is just one click away.
+                                </p>
+                                <Button asChild size="lg" className="mt-8 bg-white text-ink hover:bg-white/90">
+                                <Link href="https://wa.me/447848197761" target="_blank" rel="noopener noreferrer">
+                                    Get Your Free Trial Now
+                                </Link>
+                                </Button>
+                            </div>
                         </div>
                     </Container>
                 </section>

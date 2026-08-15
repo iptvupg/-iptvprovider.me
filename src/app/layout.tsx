@@ -1,7 +1,7 @@
 
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter, Outfit } from 'next/font/google';
+import { Nunito, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
@@ -15,26 +15,30 @@ import { Schema } from "@/components/shared/Schema";
 import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 
-const inter = Inter({
+// Display tier — Nunito is the open substitute for SF Pro Rounded, the
+// soft-geometric rounded display face used on headings (DESIGN-ollama.md).
+const display = Nunito({
   subsets: ["latin"],
+  weight: ["600", "700", "800"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-display",
+  fallback: ["system-ui", "sans-serif"],
   preload: true,
 });
 
-const outfit = Outfit({
+// Code tier — JetBrains Mono for the install-snippet pill and terminal
+// mockups (DESIGN-ollama.md).
+const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["700", "900"],
+  weight: ["400", "500", "700"],
   display: "swap",
-  variable: "--font-outfit",
+  variable: "--font-mono",
+  fallback: ["monospace"],
   preload: true,
 });
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
-  ],
+  themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -43,7 +47,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — IPTV Service in USA, UK & Worldwide`,
+    default: `Best IPTV Service 2026 — 24,000+ Live Channels & 4K VOD`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -66,7 +70,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteConfig.url,
+    url: `${siteConfig.url}/tv`,
     siteName: siteConfig.name,
     title: `${siteConfig.name} — IPTV Service in USA, UK & Worldwide`,
     description: siteConfig.description,
@@ -105,22 +109,24 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: '/',
+    // The homepage's indexable URL is /tv (root 301-redirects there).
+    canonical: '/tv',
     languages: {
-      'en-US': '/',
-      'x-default': '/',
+      'en-US': '/tv',
+      'x-default': '/tv',
     },
   },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/android-chrome-192x192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/android-chrome-512x512.png', type: 'image/png', sizes: '512x512' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png' },
+      { url: '/apple-touch-icon.png', sizes: '180x180' },
     ],
   },
-  manifest: '/site.webmanifest',
+  manifest: '/manifest.json',
   category: 'technology',
 };
 
@@ -133,8 +139,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={cn(
         "font-body antialiased",
-        inter.variable,
-        outfit.variable
+        display.variable,
+        mono.variable
       )}>
        <head>
           <Schema id="organization" schema={generateOrganizationSchema()} />
@@ -144,20 +150,25 @@ export default function RootLayout({
       <body>
         <ProgressBar />
         <Analytics />
-        <Script
-            src="https://cdn.visitors.now/v.js"
-            data-token="0a9ca441-3262-415a-a3ac-e06859feeeba"
-            strategy="afterInteractive"
-        />
-        <Script
-            src="https://analytics.ahrefs.com/analytics.js"
-            id="ahrefs-analytics"
-            strategy="afterInteractive"
-        />
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script
+                src="https://cdn.visitors.now/v.js"
+                data-token="0a9ca441-3262-415a-a3ac-e06859feeeba"
+                strategy="afterInteractive"
+            />
+            <Script
+                src="https://analytics.ahrefs.com/analytics.js"
+                id="ahrefs-analytics"
+                strategy="afterInteractive"
+            />
+          </>
+        )}
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          forcedTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">

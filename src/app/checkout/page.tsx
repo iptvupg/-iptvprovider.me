@@ -9,7 +9,6 @@ import { CreditCard } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiWhatsapp } from "react-icons/si";
-import SemanticContent from "@/components/shared/SemanticContent";
 import { Schema } from "@/components/shared/Schema";
 import { getCheckoutPageData } from "@/lib/data/checkout-page";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
@@ -19,29 +18,25 @@ export function generateMetadata(): Metadata {
         title: "Secure Checkout | IPTV Provider",
         description: "Complete your IPTV Provider subscription securely. Enter your payment details to get instant access to thousands of channels.",
         canonical: "/checkout",
+        // Transactional, thin page with no search value — keep it out of the index.
+        noIndex: true,
     });
 }
 
 
 export default async function CheckoutPage() {
-    const { breadcrumbSchema, semanticContent } = await getCheckoutPageData();
+    const { breadcrumbSchema } = await getCheckoutPageData();
 
     return (
         <>
             <Schema id="breadcrumb" schema={breadcrumbSchema} />
 
-            <SemanticContent 
-                primaryEntity={semanticContent.primaryEntity}
-                relatedEntities={semanticContent.relatedEntities}
-                semanticClusters={semanticContent.semanticClusters}
-                contextualKeywords={semanticContent.contextualKeywords}
-            />
             <main className="py-16 sm:py-24">
                 <Container>
                      <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
                       <ol className="flex items-center gap-2">
                         <li>
-                          <Link href="/" className="hover:text-primary">
+                          <Link href="/tv" className="hover:text-foreground">
                             Home
                           </Link>
                         </li>
@@ -90,7 +85,7 @@ export default async function CheckoutPage() {
                                             <Input id="name" placeholder="Full Name" disabled />
                                         </div>
                                         <Button asChild size="lg" className="w-full">
-                                            <Link href="https://wa.me/212700664844" target="_blank" rel="noopener noreferrer">
+                                            <Link href="https://wa.me/447848197761" target="_blank" rel="noopener noreferrer">
                                                 <SiWhatsapp className="mr-2 h-4 w-4" />
                                                 Contact on WhatsApp
                                             </Link>
@@ -107,7 +102,7 @@ export default async function CheckoutPage() {
                                 <CardContent className="space-y-4">
                                     <div className="flex justify-between">
                                         <p className="text-muted-foreground">12-Month Plan</p>
-                                        <p className="font-semibold">$90.00</p>
+                                        <p className="font-semibold">$192.00</p>
                                     </div>
                                     <div className="flex justify-between">
                                         <p className="text-muted-foreground">Discount</p>

@@ -8,9 +8,11 @@ import type {
   Article,
   HowTo,
   Service,
+  SearchAction,
   Brand,
   Offer,
-  AggregateOffer
+  AggregateOffer,
+  WithContext
 } from 'schema-dts';
 import { siteConfig } from '@/lib/site-config';
 
@@ -24,30 +26,32 @@ const defaultPublisher = {
   },
 };
 
-export function generateWebSiteSchema(): WebSite {
+export function generateWebSiteSchema(): WithContext<WebSite> {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    'url': siteConfig.url,
+    'url': `${siteConfig.url}/tv`,
     'name': siteConfig.name,
     'alternateName': ["IPTV Providers", "best iptv provider"],
+    // `query-input` is a Google-specific extension for the sitelinks search box
+    // that schema-dts does not model, so we cast to the base SearchAction type.
     'potentialAction': {
       '@type': 'SearchAction',
       'target': {
         '@type': 'EntryPoint',
-        'urlTemplate': `${siteConfig.url}/?s={search_term_string}`
+        'urlTemplate': `${siteConfig.url}/tv/?s={search_term_string}`
       },
       'query-input': 'required name=search_term_string',
-    },
+    } as SearchAction,
   };
 }
 
-export function generateOrganizationSchema(): Organization {
+export function generateOrganizationSchema(): WithContext<Organization> {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     'name': siteConfig.name,
-    'url': siteConfig.url,
+    'url': `${siteConfig.url}/tv`,
     'logo': `${siteConfig.url}/api/og`,
     'contactPoint': {
       '@type': 'ContactPoint',
@@ -66,8 +70,8 @@ interface ProductSchemaProps {
   name: string;
   description: string;
   image: string;
-  ratingValue: string;
-  reviewCount: string;
+  ratingValue?: string;
+  reviewCount?: string;
   price?: string;
   offers?: Offer | AggregateOffer;
   sku?: string;
@@ -75,7 +79,7 @@ interface ProductSchemaProps {
   brand?: Brand;
 }
 
-export function generateProductSchema(props: ProductSchemaProps): Product {
+export function generateProductSchema(props: ProductSchemaProps): WithContext<Product> {
     const { name, description, image, ratingValue, reviewCount, price, offers, sku, mpn, brand } = props;
     
     const offerDetails = offers || (price ? {
@@ -83,8 +87,8 @@ export function generateProductSchema(props: ProductSchemaProps): Product {
         price: price,
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock' as const,
-        url: `${siteConfig.url}/pricing`,
-        priceValidUntil: "2025-12-31",
+        url: `${siteConfig.url}/tv/pricing`,
+        priceValidUntil: "2026-12-31",
     } : undefined);
 
     return {
@@ -96,17 +100,19 @@ export function generateProductSchema(props: ProductSchemaProps): Product {
         sku,
         mpn,
         brand,
-        aggregateRating: {
+        ...(ratingValue && reviewCount ? {
+          aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue,
-            reviewCount,
-        },
+            reviewCount: Number(reviewCount),
+          },
+        } : {}),
         offers: offerDetails,
     };
 }
 
 
-export function generateFAQPageSchema(mainEntity: { question: string; answer: string }[]): FAQPage {
+export function generateFAQPageSchema(mainEntity: { question: string; answer: string }[]): WithContext<FAQPage> {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -121,7 +127,7 @@ export function generateFAQPageSchema(mainEntity: { question: string; answer: st
   };
 }
 
-export function generateBreadcrumbSchema(itemListElement: { name: string; item: string }[]): BreadcrumbList {
+export function generateBreadcrumbSchema(itemListElement: { name: string; item: string }[]): WithContext<BreadcrumbList> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -145,7 +151,7 @@ interface ArticleSchemaProps {
     url: string;
 }
 
-export function generateArticleSchema(props: ArticleSchemaProps): Article {
+export function generateArticleSchema(props: ArticleSchemaProps): WithContext<Article> {
     return {
         '@context': 'https://schema.org',
         '@type': 'Article',
@@ -174,7 +180,7 @@ interface HowToSchemaProps {
     totalTime?: string;
 }
 
-export function generateHowToSchema(props: HowToSchemaProps): HowTo {
+export function generateHowToSchema(props: HowToSchemaProps): WithContext<HowTo> {
     const { name, description, image, steps, totalTime } = props;
     return {
         '@context': 'https://schema.org',
@@ -184,8 +190,8 @@ export function generateHowToSchema(props: HowToSchemaProps): HowTo {
         image: image ? {
             '@type': 'ImageObject',
             url: image.url,
-            width: image.width,
-            height: image.height,
+            width: image.width?.toString(),
+            height: image.height?.toString(),
         } : undefined,
         step: steps.map((step, index) => ({
             '@type': 'HowToStep',
@@ -208,7 +214,7 @@ interface ServiceSchemaProps {
     offers?: Offer | AggregateOffer;
 }
 
-export function generateServiceSchema(props: ServiceSchemaProps): Service {
+export function generateServiceSchema(props: ServiceSchemaProps): WithContext<Service> {
     return {
         '@context': 'https://schema.org',
         '@type': 'Service',

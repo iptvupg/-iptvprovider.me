@@ -1,26 +1,22 @@
 
 import { unstable_cache as cache } from 'next/cache';
-import { generateSemanticContent, type SemanticContent as SemanticContentType } from "@/lib/vector-seo";
 import { plans } from "@/lib/site-data/pricing";
 import { pricingPageFaqs } from "@/lib/site-data/pricing-page-faq";
 import { generateProductSchema, generateBreadcrumbSchema, generateFAQPageSchema } from "@/lib/schema";
-import type { Product, BreadcrumbList, FAQPage } from 'schema-d-ts';
 import { siteConfig } from '../site-config';
 
 // This function fetches and processes all data required for the pricing page in a single, cached operation.
 export const getPricingPageData = cache(
   async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me';
+    // Pages are served under /tv; breadcrumb + offer URLs must match the 200 URL.
+    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me'}/tv`;
 
     // Define all data fetching and processing promises
-    const semanticContentPromise: Promise<SemanticContentType> = generateSemanticContent("IPTV Subscription Plans");
-    
-    const productSchemaPromise: Promise<Product> = Promise.resolve(generateProductSchema({
+    const productSchemaPromise = Promise.resolve(generateProductSchema({
       name: "IPTV Subscription",
       description: "Premium IPTV subscription with 24,000+ live channels, 80,000+ VOD content, HD/4K streaming, and 24/7 support.",
       image: "https://images-cdn.ubuy.co.in/633fee9c3a16a463ad2f7388-iptv-subscription-not-box-including.jpg",
-      ratingValue: "4.8",
-      reviewCount: "2847",
+
       brand: {
         "@type": "Brand",
         name: siteConfig.name,
@@ -30,7 +26,7 @@ export const getPricingPageData = cache(
         priceCurrency: "USD",
         lowPrice: Math.min(...plans.map(p => p.price_monthly)).toFixed(2),
         highPrice: Math.max(...plans.map(p => p.price_monthly)).toFixed(2),
-        offerCount: plans.length.toString(),
+        offerCount: plans.length,
         offers: plans.map(plan => ({
             "@type": "Offer",
             "name": `IPTV Subscription - ${plan.name}`,
@@ -38,7 +34,7 @@ export const getPricingPageData = cache(
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock",
             "url": `${baseUrl}/pricing`,
-            "priceValidUntil": "2025-12-31",
+            "priceValidUntil": "2026-12-31",
             "itemCondition": "https://schema.org/NewCondition",
             "seller": {
               "@type": "Organization",
@@ -48,28 +44,25 @@ export const getPricingPageData = cache(
       }
     }));
 
-    const breadcrumbSchemaPromise: Promise<BreadcrumbList> = Promise.resolve(generateBreadcrumbSchema([
+    const breadcrumbSchemaPromise = Promise.resolve(generateBreadcrumbSchema([
         { name: "Home", item: `${baseUrl}/` },
         { name: "Pricing", item: `${baseUrl}/pricing` }
     ]));
-    
-    const faqSchemaPromise: Promise<FAQPage> = Promise.resolve(generateFAQPageSchema(pricingPageFaqs));
+
+    const faqSchemaPromise = Promise.resolve(generateFAQPageSchema(pricingPageFaqs));
 
     // Await all promises in parallel for maximum efficiency
     const [
-      semanticContent,
       productSchema,
       breadcrumbSchema,
       faqSchema,
     ] = await Promise.all([
-      semanticContentPromise,
       productSchemaPromise,
       breadcrumbSchemaPromise,
       faqSchemaPromise,
     ]);
 
-    return { 
-      semanticContent, 
+    return {
       productSchema,
       breadcrumbSchema,
       faqSchema,

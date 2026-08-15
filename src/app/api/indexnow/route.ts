@@ -29,7 +29,6 @@ async function submitUrls(urlList: string[]) {
       throw new Error(`IndexNow API error: ${response.status} ${response.statusText} - ${errorText}`);
     }
     
-    console.log('IndexNow submission successful:', payload);
     return { success: true, status: response.status, payload };
 
   } catch (error) {
@@ -43,7 +42,6 @@ export async function GET(req: NextRequest) {
     const staticPages = [
         '/',
         '/pricing',
-        '/iptv-subscription',
         '/locations',
         '/faq',
         '/contact',
@@ -53,10 +51,11 @@ export async function GET(req: NextRequest) {
     const devicePages = howToArticles.map(article => `/devices/${article.id}`);
     const countryPages = allCountries.map(country => `/country/${country.id}`);
 
+    // Every route is served under the /tv prefix, so submit the final 200 URLs.
     const allUrls = [
-        ...staticPages.map(path => `${SITE_URL}${path}`),
-        ...devicePages.map(path => `${SITE_URL}${path}`),
-        ...countryPages.map(path => `${SITE_URL}${path}`),
+        ...staticPages.map(path => `${SITE_URL}/tv${path === '/' ? '' : path}`),
+        ...devicePages.map(path => `${SITE_URL}/tv${path}`),
+        ...countryPages.map(path => `${SITE_URL}/tv${path}`),
     ];
     
     const result = await submitUrls(allUrls);

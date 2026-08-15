@@ -42,7 +42,7 @@ export function ClientCarousel({
             key={index}
             className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6 xl:basis-1/7 pl-3 max-w-[200px]"
           >
-            <main className="group relative overflow-hidden rounded-xl">
+            <div className="group relative overflow-hidden rounded-xl">
               <Image
                 alt={`Poster for ${item.title}, a popular movie available on IPTV Provider`}
                 loading="lazy"
@@ -85,7 +85,7 @@ export function ClientCarousel({
                   </div>
                 </>
               )}
-            </main>
+            </div>
           </CarouselItem>
         ))}
       </CarouselContent>

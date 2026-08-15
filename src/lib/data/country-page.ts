@@ -1,10 +1,9 @@
 
 import { unstable_cache as cache } from 'next/cache';
 import { notFound } from 'next/navigation';
-import { generateSemanticContent, type SemanticContent as SemanticContentType } from "@/lib/vector-seo";
 import { getCountryById } from "@/lib/countries";
 import { generateBreadcrumbSchema, generateServiceSchema, generateFAQPageSchema } from '@/lib/schema';
-import type { BreadcrumbList, Service, FAQPage } from 'schema-dts';
+import { plans } from '@/lib/site-data/pricing';
 
 const getPageFaqs = (name: string) => [
     {
@@ -12,8 +11,8 @@ const getPageFaqs = (name: string) => [
         answer: `Yes, our IPTV service is fully available and optimized for viewers in ${name}. You get access to local channels as well as our full international lineup.`
     },
     {
-        question: `What payment methods do you accept in ${name}?`,
-        answer: `We accept a variety of payment methods, including major credit cards and cryptocurrencies. All payments are securely processed. For specific options available in ${name}, please proceed to checkout or contact our support team.`
+        question: `How do I place an order for ${name}?`,
+        answer: `To subscribe, contact our team directly via WhatsApp. Our support team will guide you through plan selection, confirm your order, and deliver your login credentials to your email immediately after payment.`
     },
     {
         question: `How fast is the activation process in ${name}?`,
@@ -28,8 +27,9 @@ const getPageFaqs = (name: string) => [
 // This function fetches and processes all data required for a specific country page in a single, cached operation.
 export const getCountryPageData = cache(
   async (countryId: string) => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me';
-    
+    // Pages are served under /tv; breadcrumb URLs must match the 200 URL.
+    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me'}/tv`;
+
     const country = getCountryById(countryId);
     if (!country) {
         notFound();
@@ -39,46 +39,46 @@ export const getCountryPageData = cache(
     const pageFaqs = getPageFaqs(name);
 
     // Define all data fetching and processing promises
-    const semanticContentPromise: Promise<SemanticContentType> = generateSemanticContent(`IPTV Provider in ${name}`);
-
-    const breadcrumbSchemaPromise: Promise<BreadcrumbList> = Promise.resolve(generateBreadcrumbSchema([
+    const breadcrumbSchemaPromise = Promise.resolve(generateBreadcrumbSchema([
         { name: "Home", item: `${baseUrl}/` },
         { name: "Locations", item: `${baseUrl}/locations` },
         { name: name, item: `${baseUrl}/country/${countryId}` }
     ]));
 
-    const serviceSchemaPromise: Promise<Service> = Promise.resolve(generateServiceSchema({
+    const lowPrice = Math.min(...plans.map(p => p.price_monthly));
+    const highPrice = Math.max(...plans.map(p => p.price_monthly));
+
+    const serviceSchemaPromise = Promise.resolve(generateServiceSchema({
         serviceType: "IPTV Provider",
         providerName: "IPTV Provider",
         areaServed: { type: "Country", name },
         name: `IPTV Provider for ${name}`,
-        description: `Premium IPTV service available in ${name} with over 20,000 channels, HD/4K quality, and instant setup.`,
+        description: `Premium IPTV service available in ${name} with over 24,000 channels, HD/4K quality, and instant setup.`,
         offers: {
-            "@type": "Offer",
-            price: "16.00",
-            priceCurrency: "USD"
+            "@type": "AggregateOffer",
+            priceCurrency: "USD",
+            lowPrice: lowPrice.toFixed(2),
+            highPrice: highPrice.toFixed(2),
+            offerCount: plans.length,
         }
     }));
 
-    const faqSchemaPromise: Promise<FAQPage> = Promise.resolve(generateFAQPageSchema(pageFaqs));
+    const faqSchemaPromise = Promise.resolve(generateFAQPageSchema(pageFaqs));
 
     // Await all promises in parallel
     const [
-      semanticContent,
       breadcrumbSchema,
       serviceSchema,
       faqSchema
     ] = await Promise.all([
-      semanticContentPromise,
       breadcrumbSchemaPromise,
       serviceSchemaPromise,
       faqSchemaPromise
     ]);
 
-    return { 
+    return {
       country,
       pageFaqs,
-      semanticContent, 
       breadcrumbSchema,
       serviceSchema,
       faqSchema

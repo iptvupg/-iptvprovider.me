@@ -2,13 +2,14 @@
 import { ImageResponse } from 'next/og'
 import { getSafeArticleData } from '@/lib/how-to';
 
-export const runtime = 'edge'
+export const runtime = 'nodejs'
 export const alt = 'IPTV Setup Guide'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-export default async function Image({ params }: { params: { device: string } }) {
-  const post = getSafeArticleData(params.device)
+export default async function Image({ params }: { params: Promise<{ device: string }> }) {
+  const { device } = await params
+  const post = getSafeArticleData(device)
   
   return new ImageResponse(
     (

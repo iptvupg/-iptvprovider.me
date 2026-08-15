@@ -9,11 +9,16 @@ import { Container } from "../shared/Container";
 import { SectionHeader } from "../shared/SectionHeader";
 import { Reveal } from "../shared/Reveal";
 
-export function FAQ() {
+interface FAQProps {
+  as?: 'h1' | 'h2';
+}
+
+export function FAQ({ as = 'h2' }: FAQProps) {
   return (
     <section id="faq" className="py-16 sm:py-24">
       <Container>
         <SectionHeader
+          as={as}
           title="Frequently Asked Questions"
           subtitle="Have questions? We've got answers. If you can't find what you're looking for, feel free to contact us."
         />

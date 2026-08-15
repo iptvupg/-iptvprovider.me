@@ -1,9 +1,7 @@
-
 import { FAQ } from "@/components/sections/FAQ";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/shared/Container";
-import SemanticContent from "@/components/shared/SemanticContent";
 import { getFaqPageData } from "@/lib/data/faq-page";
 import { Schema } from "@/components/shared/Schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
@@ -17,10 +15,9 @@ export function generateMetadata(): Metadata {
 }
 
 export default async function FaqPage() {
-  const { 
-    semanticContent, 
-    faqSchema, 
-    breadcrumbSchema 
+  const {
+    faqSchema,
+    breadcrumbSchema
   } = await getFaqPageData();
 
   return (
@@ -28,18 +25,12 @@ export default async function FaqPage() {
       <Schema id="faq" schema={faqSchema} />
       <Schema id="breadcrumb" schema={breadcrumbSchema} />
 
-      <SemanticContent 
-        primaryEntity={semanticContent.primaryEntity}
-        relatedEntities={semanticContent.relatedEntities}
-        semanticClusters={semanticContent.semanticClusters}
-        contextualKeywords={semanticContent.contextualKeywords}
-      />
       <main>
         <Container className="py-16 sm:py-24">
             <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
                 <ol className="flex items-center gap-2">
                 <li>
-                    <Link href="/" className="hover:text-primary">
+                    <Link href="/tv" className="hover:text-foreground">
                     Home
                     </Link>
                 </li>
@@ -49,7 +40,7 @@ export default async function FaqPage() {
                 </li>
                 </ol>
             </nav>
-            <FAQ />
+            <FAQ as="h1" />
         </Container>
       </main>
     </>

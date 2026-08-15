@@ -17,9 +17,23 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ["var(--font-inter)", "sans-serif"],
-        headline: ["var(--font-outfit)", "sans-serif"],
-        code: ["monospace"],
+        // DESIGN-ollama.md: system-ui body, rounded display (Nunito substitute
+        // for SF Pro Rounded), monospace code (JetBrains Mono).
+        body: [
+          "-apple-system",
+          "system-ui",
+          "Segoe UI",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
+        headline: [
+          "var(--font-display)",
+          "-apple-system",
+          "system-ui",
+          "sans-serif",
+        ],
+        code: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
         background: "hsl(var(--background))",
@@ -35,6 +49,30 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        // --- DESIGN-ollama.md flat B&W palette ---
+        // Named keys retained but repointed to the Ollama grayscale so any
+        // existing markup referencing them stays on-brand (pure black/white).
+        canvas: "#ffffff", // paper-white canvas end-to-end
+        night: "#171717", // surface-dark — the single inverted "Max" band
+        ink: {
+          DEFAULT: "#000000", // ink — headings, primary CTA fill
+          press: "#090909", // ink-deep — pressed state
+        },
+        lime: {
+          DEFAULT: "#000000", // no lime — emphasis is plain ink
+          foreground: "#ffffff",
+        },
+        pink: "#000000", // no accent hues
+        violet: {
+          deep: "#171717", // repurposed to surface-dark
+          mid: "#525252", // charcoal
+          link: "#000000", // inline links are ink
+        },
+        hairline: {
+          DEFAULT: "#e5e5e5", // hairline
+          cloud: "#e5e5e5", // hairline
+          cool: "#d4d4d4", // hairline-strong — form-field borders
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -74,9 +112,23 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        // DESIGN-ollama.md: pills use rounded-full; cards use lg (12px).
+        xs: "6px",
+        sm: "8px",
+        md: "10px",
+        lg: "12px",
+        xl: "14px",
+        "2xl": "16px",
+      },
+      boxShadow: {
+        // DESIGN-ollama.md: no drop shadows — depth comes from hairlines only.
+        // Keys retained as effectively-flat no-ops for any lingering usage.
+        soft: "none",
+        "lift-sm": "none",
+        card: "none",
+        elevated: "none",
+        glow: "none",
+        press: "none",
       },
       keyframes: {
         "accordion-down": {

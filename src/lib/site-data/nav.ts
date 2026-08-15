@@ -1,10 +1,10 @@
 
 
 export const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "IPTV Free Trial", href: "/iptv-free-trial" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "Locations", href: "/locations" },
-  { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/tv" },
+  { name: "IPTV Free Trial", href: "/tv/iptv-free-trial" },
+  { name: "Pricing", href: "/tv/pricing" },
+  { name: "Locations", href: "/tv/locations" },
+  { name: "FAQ", href: "/tv/faq" },
+  { name: "Contact", href: "/tv/contact" },
 ];

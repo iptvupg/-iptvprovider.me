@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "nextn-dev",
+      "runtimeExecutable": "/Users/mac/.nvm/versions/node/v24.18.0/bin/node",
+      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev"],
+      "port": 9002,
+      "autoPort": false,
+      "env": {
+        "PATH": "/Users/mac/.nvm/versions/node/v24.18.0/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+      }
+    }
+  ]
+}

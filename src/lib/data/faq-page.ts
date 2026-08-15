@@ -1,39 +1,23 @@
 
 import { unstable_cache as cache } from 'next/cache';
-import { generateSemanticContent, type SemanticContent as SemanticContentType } from "@/lib/vector-seo";
 import { faqs } from "@/lib/site-data/faq";
 import { generateBreadcrumbSchema, generateFAQPageSchema } from '@/lib/schema';
-import type { BreadcrumbList, FAQPage } from 'schema-dts';
 
 
 // This function fetches and processes all data required for the FAQ page in a single, cached operation.
 export const getFaqPageData = cache(
   async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me';
+    // Pages are served under /tv; breadcrumb URLs must match the 200 URL.
+    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me'}/tv`;
 
-    // Define all data fetching and processing promises
-    const semanticContentPromise: Promise<SemanticContentType> = generateSemanticContent("IPTV Provider Frequently Asked Questions");
+    const faqSchema = generateFAQPageSchema(faqs);
 
-    const faqSchemaPromise: Promise<FAQPage> = Promise.resolve(generateFAQPageSchema(faqs));
-
-    const breadcrumbSchemaPromise: Promise<BreadcrumbList> = Promise.resolve(generateBreadcrumbSchema([
+    const breadcrumbSchema = generateBreadcrumbSchema([
         { name: "Home", item: `${baseUrl}/` },
         { name: "FAQ", item: `${baseUrl}/faq` }
-    ]));
-
-    // Await all promises in parallel
-    const [
-      semanticContent,
-      faqSchema,
-      breadcrumbSchema
-    ] = await Promise.all([
-      semanticContentPromise,
-      faqSchemaPromise,
-      breadcrumbSchemaPromise
     ]);
 
-    return { 
-      semanticContent,
+    return {
       faqSchema,
       breadcrumbSchema
     };

@@ -1,34 +1,20 @@
 
 import { unstable_cache as cache } from 'next/cache';
-import { generateSemanticContent, type SemanticContent as SemanticContentType } from "@/lib/vector-seo";
 import { generateBreadcrumbSchema } from '@/lib/schema';
-import type { BreadcrumbList } from 'schema-dts';
 
 
 // This function fetches and processes all data required for the contact page in a single, cached operation.
 export const getContactPageData = cache(
   async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me';
+    // Pages are served under /tv; breadcrumb URLs must match the 200 URL.
+    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me'}/tv`;
 
-    // Define all data fetching and processing promises
-    const semanticContentPromise: Promise<SemanticContentType> = generateSemanticContent("Contact IPTV Provider Support");
-
-    const breadcrumbSchemaPromise: Promise<BreadcrumbList> = Promise.resolve(generateBreadcrumbSchema([
+    const breadcrumbSchema = generateBreadcrumbSchema([
         { name: "Home", item: `${baseUrl}/` },
         { name: "Contact Us", item: `${baseUrl}/contact` }
-    ]));
-
-    // Await all promises in parallel for maximum efficiency
-    const [
-      semanticContent,
-      breadcrumbSchema,
-    ] = await Promise.all([
-      semanticContentPromise,
-      breadcrumbSchemaPromise,
     ]);
 
-    return { 
-      semanticContent, 
+    return {
       breadcrumbSchema,
     };
   },

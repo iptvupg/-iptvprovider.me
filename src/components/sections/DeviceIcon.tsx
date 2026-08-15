@@ -39,12 +39,12 @@ export function DeviceIcon({ name, iconName, href }: DeviceIconProps) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Component href={href} className={cn(
-            "group flex h-16 w-16 items-center justify-center rounded-lg bg-muted/50 transition-colors hover:bg-primary/10",
+          <Component href={href} aria-label={`Install IPTV on ${name}`} className={cn(
+            "group flex h-16 w-16 items-center justify-center rounded-lg bg-muted/50 transition-colors hover:bg-accent",
             !isInternal && "cursor-pointer",
             href === '#' && "pointer-events-none opacity-50"
           )}>
-            <Icon className="h-8 w-8 text-muted-foreground transition-colors group-hover:text-primary" />
+            <Icon className="h-8 w-8 text-muted-foreground transition-colors group-hover:text-foreground" />
           </Component>
         </TooltipTrigger>
         <TooltipContent>

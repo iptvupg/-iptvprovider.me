@@ -6,7 +6,8 @@ import { footerLinks } from "@/lib/site-data/footer";
 
 export function Footer() {
   return (
-    <footer className="border-t bg-background">
+    // DESIGN-ollama.md: flat footer, plain hairline divider — no squiggle.
+    <footer className="border-t border-border bg-background">
       <Container>
         <div className="grid grid-cols-2 gap-8 py-12 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
@@ -20,7 +21,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {footerLinks.quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
                     {link.name}
                   </Link>
                 </li>
@@ -32,7 +33,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               {footerLinks.supportedLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">
+                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-foreground">
                     {link.name}
                   </Link>
                 </li>
@@ -43,7 +44,7 @@ export function Footer() {
             <h3 className="font-semibold">Contact</h3>
             <address className="mt-4 space-y-2 text-sm not-italic text-muted-foreground">
               <p>{footerLinks.contact.address}</p>
-              <a href={`mailto:${footerLinks.contact.email}`} className="hover:text-primary">
+              <a href={`mailto:${footerLinks.contact.email}`} className="hover:text-foreground">
                 {footerLinks.contact.email}
               </a>
             </address>
@@ -54,9 +55,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()} IPTV Provider. All rights reserved.
           </p>
           <div className="mt-4 flex items-center space-x-4 sm:mt-0">
-            <Link href="#" aria-label="Follow us on Facebook" className="text-muted-foreground hover:text-primary"><Facebook className="h-5 w-5" /></Link>
-            <Link href="#" aria-label="Follow us on Twitter" className="text-muted-foreground hover:text-primary"><Twitter className="h-5 w-5" /></Link>
-            <Link href="#" aria-label="Follow us on Instagram" className="text-muted-foreground hover:text-primary"><Instagram className="h-5 w-5" /></Link>
+            <Link href="#" aria-label="Follow us on Facebook" className="text-muted-foreground hover:text-foreground"><Facebook className="h-5 w-5" /></Link>
+            <Link href="#" aria-label="Follow us on Twitter" className="text-muted-foreground hover:text-foreground"><Twitter className="h-5 w-5" /></Link>
+            <Link href="#" aria-label="Follow us on Instagram" className="text-muted-foreground hover:text-foreground"><Instagram className="h-5 w-5" /></Link>
           </div>
         </div>
       </Container>

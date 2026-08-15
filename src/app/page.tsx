@@ -1,52 +1,39 @@
-
 import { Hero } from "@/components/sections/Hero";
-import { Brands } from "@/components/sections/Brands";
+import { WhyChoose } from "@/components/sections/WhyChoose";
 import { Pricing } from "@/components/sections/Pricing";
-import SemanticContent from "@/components/shared/SemanticContent";
-import { Devices } from "@/components/sections/Devices";
-import { CTA } from "@/components/sections/CTA";
-import { FAQ } from "@/components/sections/FAQ";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { Devices } from "@/components/sections/Devices";
+import { WhatIsIPTVSection } from "@/components/sections/WhatIsIPTVSection";
+import { FreeTrialBanner } from "@/components/sections/FreeTrialBanner";
+import { FAQ } from "@/components/sections/FAQ";
+import { CTA } from "@/components/sections/CTA";
 import { getHomePageData } from "@/lib/data/home-page";
+import { faqs } from "@/lib/site-data/faq";
+import { generateFAQPageSchema } from "@/lib/schema";
 import { Schema } from "@/components/shared/Schema";
-import dynamic from 'next/dynamic';
-import { ContentCarouselSkeleton } from "@/components/shared/ContentCarousel";
-
-const WeeklyBuzz = dynamic(() => import('@/components/sections/WeeklyBuzz').then(mod => mod.WeeklyBuzz), {
-  loading: () => <ContentCarouselSkeleton />,
-});
-
-const SportEvents = dynamic(() => import('@/components/sections/SportEvents').then(mod => mod.SportEvents), {
-  loading: () => <ContentCarouselSkeleton />,
-});
-
 
 export default async function Home() {
-    const { 
-      semanticContent, 
-      weeklyBuzzItemsWithPlaceholders, 
-      sportEventsWithPlaceholders,
-      productSchema
-    } = await getHomePageData();
+  const { productSchema } = await getHomePageData();
+  const faqSchema = generateFAQPageSchema(
+    faqs.map((item: { question: string; answer: string }) => ({
+      question: item.question,
+      answer: item.answer,
+    }))
+  );
 
   return (
     <>
       <Schema id="product" schema={productSchema} />
-      <SemanticContent 
-        primaryEntity={semanticContent.primaryEntity}
-        relatedEntities={semanticContent.relatedEntities}
-        semanticClusters={semanticContent.semanticClusters}
-        contextualKeywords={semanticContent.contextualKeywords}
-      />
+      <Schema id="faq" schema={faqSchema} />
       <Hero />
-      <Brands />
-      <Devices />
+      <WhyChoose />
       <Pricing />
       <HowItWorks />
-      <WeeklyBuzz items={weeklyBuzzItemsWithPlaceholders} />
-      <SportEvents items={sportEventsWithPlaceholders} />
-      <CTA />
+      <Devices />
+      <WhatIsIPTVSection />
+      <FreeTrialBanner />
       <FAQ />
+      <CTA />
     </>
   );
 }

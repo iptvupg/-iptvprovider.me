@@ -1,8 +1,6 @@
 
 import { unstable_cache as cache } from 'next/cache';
-import { generateSemanticContent, type SemanticContent as SemanticContentType } from "@/lib/vector-seo";
 import { generateBreadcrumbSchema, generateFAQPageSchema, generateServiceSchema } from '@/lib/schema';
-import type { BreadcrumbList, FAQPage, Service } from 'schema-dts';
 
 const trialFaqs = [
     {
@@ -29,19 +27,18 @@ const trialFaqs = [
 
 export const getIptvFreeTrialPageData = cache(
   async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me';
+    // Pages are served under /tv; breadcrumb URLs must match the 200 URL.
+    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me'}/tv`;
     const pageUrl = `${baseUrl}/iptv-free-trial`;
 
-    const semanticContentPromise: Promise<SemanticContentType> = generateSemanticContent("IPTV Free Trial");
-
-    const breadcrumbSchemaPromise: Promise<BreadcrumbList> = Promise.resolve(generateBreadcrumbSchema([
+    const breadcrumbSchemaPromise = Promise.resolve(generateBreadcrumbSchema([
         { name: "Home", item: `${baseUrl}/` },
         { name: "IPTV Free Trial", item: pageUrl }
     ]));
 
-    const faqSchemaPromise: Promise<FAQPage> = Promise.resolve(generateFAQPageSchema(trialFaqs));
+    const faqSchemaPromise = Promise.resolve(generateFAQPageSchema(trialFaqs));
 
-    const serviceSchemaPromise: Promise<Service> = Promise.resolve(generateServiceSchema({
+    const serviceSchemaPromise = Promise.resolve(generateServiceSchema({
         serviceType: "Free IPTV Trial",
         providerName: "IPTV Provider",
         name: "24-Hour IPTV Free Trial",
@@ -55,19 +52,16 @@ export const getIptvFreeTrialPageData = cache(
     }));
     
     const [
-      semanticContent,
       breadcrumbSchema,
       faqSchema,
       serviceSchema
     ] = await Promise.all([
-      semanticContentPromise,
       breadcrumbSchemaPromise,
       faqSchemaPromise,
       serviceSchemaPromise,
     ]);
 
-    return { 
-      semanticContent, 
+    return {
       breadcrumbSchema,
       faqSchema,
       serviceSchema,

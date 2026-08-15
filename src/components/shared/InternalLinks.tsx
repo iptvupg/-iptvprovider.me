@@ -30,7 +30,7 @@ export default function InternalLinks({ currentId }: { currentId: string }) {
       setIsLoading(true);
       const posts = await getRelatedPostsAction(currentId);
       const links = posts.map(post => ({
-        href: `/devices/${post.id}`,
+        href: `/tv/devices/${post.id}`,
         title: post.title,
       }));
       setRelatedLinks(links);

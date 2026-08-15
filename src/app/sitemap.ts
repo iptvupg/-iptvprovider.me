@@ -1,12 +1,15 @@
-
 import { MetadataRoute } from 'next'
 import { howToArticles } from '@/lib/how-to';
 import { allCountries } from '@/lib/countries';
+import { allGuides } from '@/lib/guides';
 
-const baseUrl = process.env.SITE_URL || 'https://www.iptvprovider.me';
+// Every route is served under the /tv prefix (see src/proxy.ts + the /tv
+// rewrites in next.config.js). The sitemap must list the final 200 URLs — i.e.
+// the /tv/* forms — otherwise every entry would be a 301 redirect.
+const baseUrl = `${process.env.SITE_URL || 'https://www.iptvprovider.me'}/tv`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  
+
   const devicePages: MetadataRoute.Sitemap = howToArticles.map((article) => ({
     url: `${baseUrl}/devices/${article.id}`,
     lastModified: new Date(article.dateModified),
@@ -19,6 +22,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.7,
+  }));
+
+  const guidePages: MetadataRoute.Sitemap = allGuides.map((guide) => ({
+    url: `${baseUrl}/guides/${guide.slug}`,
+    lastModified: new Date(`${guide.updatedAt}T00:00:00Z`),
+    changeFrequency: 'weekly',
+    priority: 0.8,
   }));
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -53,15 +63,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-        url: `${baseUrl}/iptv-free-trial`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.8,
+      url: `${baseUrl}/iptv-free-trial`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/guides`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
   ];
 
   return [
     ...staticPages,
+    ...guidePages,
     ...devicePages,
     ...countryPages,
   ]
