@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getCountryById } from "@/lib/countries";
 import { generateBreadcrumbSchema, generateServiceSchema, generateFAQPageSchema } from '@/lib/schema';
 import { plans } from '@/lib/site-data/pricing';
+import { getCountryEnrichment } from './country-enrichment';
 
 const getPageFaqs = (name: string) => [
     {
@@ -36,7 +37,11 @@ export const getCountryPageData = cache(
     }
     const { name } = country;
 
-    const pageFaqs = getPageFaqs(name);
+    const enrichment = getCountryEnrichment(countryId);
+    const baseFaqs = getPageFaqs(name);
+    const pageFaqs = enrichment
+      ? [...enrichment.specificFaqs, ...baseFaqs.slice(1)]
+      : baseFaqs;
 
     // Define all data fetching and processing promises
     const breadcrumbSchemaPromise = Promise.resolve(generateBreadcrumbSchema([
@@ -78,6 +83,7 @@ export const getCountryPageData = cache(
 
     return {
       country,
+      enrichment,
       pageFaqs,
       breadcrumbSchema,
       serviceSchema,

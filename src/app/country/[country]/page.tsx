@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 import { allCountries } from "@/lib/countries";
-import { Check, Shield, Tv, Zap, MessageCircle, Smartphone, BookOpen, ChevronRight } from "lucide-react";
+import { Check, Shield, Tv, Zap, MessageCircle, Smartphone, BookOpen, ChevronRight, Globe } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { getCountryPageData } from "@/lib/data/country-page";
 import { Schema } from "@/components/shared/Schema";
@@ -42,6 +42,7 @@ export default async function CountryPage(props: { params: Promise<{ country: st
   const params = await props.params;
   const {
     country,
+    enrichment,
     pageFaqs,
     breadcrumbSchema,
     serviceSchema,
@@ -123,6 +124,52 @@ export default async function CountryPage(props: { params: Promise<{ country: st
                 </div>
             </div>
           </section>
+
+          {enrichment && (
+            <section className="my-16 rounded-lg border border-hairline bg-surface-card p-6 sm:p-10">
+              <h2 className="font-headline text-2xl sm:text-3xl font-bold tracking-tight mb-4 text-foreground flex items-center gap-2.5">
+                <Globe className="text-primary h-6 w-6 shrink-0" /> {enrichment.regionalTitle}
+              </h2>
+              <p className="text-body text-base leading-relaxed mb-8 max-w-3xl">
+                {enrichment.regionalOverview}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="rounded-lg border border-hairline bg-canvas p-6">
+                  <h3 className="font-headline text-lg font-bold text-foreground mb-2 flex items-center gap-2">
+                    <Tv className="text-primary h-5 w-5 shrink-0" /> {enrichment.contentHighlights.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                    {enrichment.contentHighlights.description}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {enrichment.contentHighlights.items.map((item, idx) => (
+                      <li key={idx} className="text-sm text-body flex items-start gap-2.5 leading-snug">
+                        <Check className="text-primary h-4 w-4 mt-0.5 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-lg border border-hairline bg-canvas p-6">
+                  <h3 className="font-headline text-lg font-bold text-foreground mb-2 flex items-center gap-2">
+                    <Shield className="text-primary h-5 w-5 shrink-0" /> {enrichment.setupOptimization.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                    {enrichment.setupOptimization.description}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {enrichment.setupOptimization.tips.map((tip, idx) => (
+                      <li key={idx} className="text-sm text-body flex items-start gap-2.5 leading-snug">
+                        <Check className="text-primary h-4 w-4 mt-0.5 shrink-0" />
+                        <span>{tip}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          )}
 
           <section className="mb-16 rounded-lg border border-hairline bg-surface-card p-6 sm:p-8">
             <h2 className="font-headline text-2xl font-bold tracking-tight mb-2 flex items-center gap-2 text-foreground">
