@@ -601,10 +601,10 @@ export const allGuides: Guide[] = [
   {
     slug: "iptv-apps-and-players",
     title: "Best IPTV Apps and Media Players: Features & Compatibility",
-    description: "Compare top-rated IPTV player apps including TiviMate, IPTV Smarters Pro, XCIPTV, GSE Smart IPTV, and Smartone IPTV.",
+    description: "Compare top-rated IPTV player apps including TiviMate, IPTV Smarters Pro, XCIPTV, and GSE Smart IPTV with platform compatibility and quick setup steps.",
     h1: "Best IPTV Apps & Media Players Compared",
     category: "Apps & Hardware",
-    updatedAt: "2026-08-15",
+    updatedAt: "2026-08-16",
     author: {
       name: "IPTV Provider Editorial Team",
       role: "Streaming & Infrastructure Analysts"
@@ -615,7 +615,7 @@ export const allGuides: Guide[] = [
       {
         id: "top-apps-comparison",
         heading: "Comparison of Recommended IPTV Player Software",
-        directAnswer: "The top IPTV player applications are TiviMate (best overall player for Android TV/Firestick), IPTV Smarters Pro (best cross-platform app for iOS, Android, and Windows), XCIPTV Player (user-friendly dashboard layout), and GSE Smart IPTV.",
+        directAnswer: "The top IPTV player applications are TiviMate (best overall player for Android TV/Firestick), IPTV Smarters Pro (best cross-platform app for iOS, Android, and Windows), XCIPTV Player (user-friendly dashboard layout), and GSE Smart IPTV (ideal for Apple iOS/macOS).",
         content: [
           "IPTV players are standalone software media players that parse your subscription stream links via M3U URLs or Xtream Codes API credentials."
         ],
@@ -628,17 +628,85 @@ export const allGuides: Guide[] = [
             ["GSE Smart IPTV", "iOS, Android, macOS", "Advanced M3U playlist parser, EPG XMLTV integration"]
           ]
         }
+      },
+      {
+        id: "tivimate-setup-guide",
+        heading: "1. TiviMate IPTV Player: Features & Quick Setup",
+        directAnswer: "TiviMate is the premier IPTV player for Android TV and Firestick devices, offering a traditional TV guide interface, multi-playlist support, and rapid channel switching.",
+        content: [
+          "TiviMate is engineered specifically for big-screen television navigation with a physical remote control."
+        ],
+        bulletPoints: [
+          "Supported Platforms: Android TV, Google TV, Amazon Fire TV Stick, Nvidia Shield.",
+          "Installation Source: Google Play Store (Android TV) or standard sideloading via Downloader on Fire OS.",
+          "Basic Setup Flow: Open TiviMate > Select 'Add Playlist' > Choose 'Xtream Codes' > Enter Server URL, Username, and Password provided by your IPTV service.",
+          "Credential Entry: Supports both Xtream Codes API and M3U Plus playlist URLs with custom EPG XMLTV source linking.",
+          "Practical Tip: Under Settings > Playback, set 'Buffer Size' to 'Medium' (5–10 seconds) to eliminate micro-stutters during live sports broadcasts."
+        ]
+      },
+      {
+        id: "iptv-smarters-setup-guide",
+        heading: "2. IPTV Smarters Pro: Cross-Platform Setup",
+        directAnswer: "IPTV Smarters Pro is the most versatile multi-platform player, running seamlessly across iOS, Android, Windows PC, Mac, and Samsung/LG Smart TVs.",
+        content: [
+          "IPTV Smarters provides a user-friendly dashboard separating Live TV, Movies (VOD), Series, and Catch-up TV."
+        ],
+        bulletPoints: [
+          "Supported Platforms: iOS (iPhone/iPad/Apple TV), Android mobile & TV, Windows, macOS, Samsung Tizen, LG webOS.",
+          "Installation Source: Apple App Store (as Smarters Player Lite), Google Play Store, or official Smart TV content stores.",
+          "Basic Setup Flow: Open app > Select 'Login with Xtream Codes API' > Fill in Any Name, Username, Password, and Server Portal URL > Click 'Add User'.",
+          "Credential Entry: Uses Xtream Codes API login or 'Load Your Playlist or File/URL' for M3U feeds.",
+          "Practical Tip: In Player Settings, switch the video decoder from 'Native' to 'Built-in (VLC/Hardware)' if you encounter audio/video desync on certain HD streams."
+        ]
+      },
+      {
+        id: "xciptv-setup-guide",
+        heading: "3. XCIPTV Player: Dual-Player Engine Configuration",
+        directAnswer: "XCIPTV is an intuitive Android-based player featuring a clean dashboard layout, integrated EXO and VLC video players, and full EPG timeline support.",
+        content: [
+          "XCIPTV is lightweight and well-suited for budget streaming sticks with limited processing power."
+        ],
+        bulletPoints: [
+          "Supported Platforms: Android TV, Google TV, Amazon Fire TV devices, Android mobile tablets.",
+          "Installation Source: Google Play Store or verified application repositories.",
+          "Basic Setup Flow: Launch XCIPTV > Enter Server Portal URL, Username, and Password > Tap 'Sign In' > Allow EPG and channel groups to sync.",
+          "Credential Entry: Native Xtream Codes API login with optional backup M3U playlist loading.",
+          "Practical Tip: If a specific channel fails to open, toggle the default player engine between ExoPlayer and VLC Player in the app's internal Player Settings."
+        ]
+      },
+      {
+        id: "gse-smart-iptv-setup-guide",
+        heading: "4. GSE Smart IPTV: Setup for Apple iOS & macOS",
+        directAnswer: "GSE Smart IPTV is an advanced M3U playlist parser built for Apple iOS, iPadOS, and macOS, supporting multiple playlist formats and external EPG feeds.",
+        content: [
+          "GSE Smart IPTV offers powerful playlist management and customization tools for power users on Apple hardware."
+        ],
+        bulletPoints: [
+          "Supported Platforms: iOS (iPhone/iPad), Apple TV (tvOS), macOS, Android.",
+          "Installation Source: Apple App Store (iOS/macOS).",
+          "Basic Setup Flow: Open GSE Smart IPTV > Tap the top-left menu > Select 'Remote Playlists' > Tap '+' > Add Xtream Codes API or M3U URL with EPG URL > Save.",
+          "Credential Entry: Dedicated 'Xtream-Codes API' and 'Remote Playlist (M3U)' options in the side menu.",
+          "Practical Tip: Enable 'Auto-Update EPG on Start' to ensure electronic program guide data refreshes whenever you launch the app."
+        ]
       }
     ],
     faq: [
       {
         question: "Do IPTV player apps include channels?",
         answer: "No. IPTV player applications are software media players. You must input valid Xtream Codes credentials or an M3U playlist link from an IPTV service to load content."
+      },
+      {
+        question: "Which IPTV player app is best for Fire TV Stick?",
+        answer: "TiviMate is widely considered the best player for Fire TV Stick due to its fast channel zapping, intuitive EPG guide, and smooth remote control navigation."
+      },
+      {
+        question: "Can I use the same IPTV credentials on multiple player apps?",
+        answer: "Yes. Your subscription Xtream Codes API or M3U credentials can be entered into any compatible player application, provided your subscription allows active connections."
       }
     ],
-    relatedGuides: ["iptv-setup-guide", "iptv-on-fire-tv", "iptv-on-smart-tv"],
-    relatedDevices: ["android", "fire-tv", "ios", "windows"],
-    relatedCountries: ["united-states", "canada"],
+    relatedGuides: ["iptv-setup-guide", "iptv-on-fire-tv", "iptv-on-smart-tv", "m3u-vs-xtream-codes"],
+    relatedDevices: ["android", "fire-tv", "ios", "windows", "samsung-tv"],
+    relatedCountries: ["united-states", "canada", "united-kingdom"],
     relatedMoneyPages: [
       { name: "View Compatible IPTV Plans", href: "/tv/pricing" },
       { name: "Get Free Trial Login Credentials", href: "/tv/iptv-free-trial" }
