@@ -43,7 +43,7 @@ export default async function LocationsPage() {
                     <div className="text-center">
                         <p className="eyebrow-cap mb-5 text-sm font-medium text-muted-foreground">Available Worldwide</p>
                         <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">
-                            IPTV Provider Service <span className="chip-lime">Locations</span>
+                            IPTV Provider Service Locations
                         </h1>
                         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
                             We offer our premium IPTV Provider in 197 countries worldwide. Find your country below to get started with the best streaming service in your region.

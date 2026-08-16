@@ -15,6 +15,14 @@ type Props = {
   params: Promise<{ country: string }>;
 };
 
+const localizedCountryLanguages: Record<string, string> = {
+  germany: 'de-DE',
+  france: 'fr-FR',
+  'saudi-arabia': 'ar-SA',
+  spain: 'es-ES',
+  italy: 'it-IT',
+};
+
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const country = getCountryById(params.country);
@@ -26,15 +34,32 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const title = `Best IPTV in ${country.name} (2026) | #1 Provider`;
   const description = `Get the best IPTV Provider in ${country.name}. Enjoy 24,000+ channels, HD/4K quality, and instant activation. Perfect for sports, movies, and TV shows in ${country.name}.`;
 
+  const baseMetadata = generatePageMetadata({
+    title,
+    description,
+    canonical: `/country/${params.country}`,
+  });
+
+  const languageCode = localizedCountryLanguages[params.country];
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.iptvprovider.me'}/tv/country/${params.country}`;
+
+  const alternates = languageCode
+    ? {
+        canonical: canonicalUrl,
+        languages: {
+          [languageCode]: canonicalUrl,
+          'en-US': canonicalUrl,
+          'x-default': canonicalUrl,
+        },
+      }
+    : baseMetadata.alternates;
+
   return {
-    ...generatePageMetadata({
-      title,
-      description,
-      canonical: `/country/${params.country}`,
-    }),
+    ...baseMetadata,
     title: {
       absolute: title,
-    }
+    },
+    alternates,
   };
 }
 

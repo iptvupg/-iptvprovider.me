@@ -58,7 +58,7 @@ export default async function IPTVSubscription() {
 
                 <div className="text-center">
                   <p className="eyebrow-cap mb-5 text-sm font-medium text-muted-foreground">Plans &amp; Pricing</p>
-                  <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">IPTV Subscription <span className="chip-lime">Plans</span> &amp; Pricing</h1>
+                  <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl">IPTV Subscription Plans &amp; Pricing</h1>
                   <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
                       Stream 24,000+ live channels in HD & 4K quality. Choose the IPTV subscription that fits your needs — all plans include instant activation and 7-day money-back guarantee.
                   </p>
