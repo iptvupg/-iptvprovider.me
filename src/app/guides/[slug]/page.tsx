@@ -146,27 +146,32 @@ export default async function GuidePage(props: Props) {
                   )}
 
                   {section.table && (
-                    <div className="mt-6 overflow-x-auto rounded-lg border">
-                      <table className="w-full text-left text-sm">
-                        <thead className="bg-muted text-foreground border-b font-bold">
-                          <tr>
-                            {section.table.headers.map((h, i) => (
-                              <th key={i} className="p-3">{h}</th>
-                            ))}
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y text-muted-foreground">
-                          {section.table.rows.map((row, rIndex) => (
-                            <tr key={rIndex} className="hover:bg-muted/50">
-                              {row.map((cell, cIndex) => (
-                                <td key={cIndex} className="p-3 font-medium text-foreground">
-                                  {cell}
-                                </td>
+                    <div className="mt-6">
+                      <div className="sm:hidden mb-2 text-xs text-muted-foreground flex items-center gap-1.5">
+                        <span>← Scroll table horizontally to view all columns →</span>
+                      </div>
+                      <div className="overflow-x-auto rounded-lg border border-hairline bg-surface-card">
+                        <table className="w-full text-left text-sm min-w-[500px]">
+                          <thead className="bg-surface-elevated text-foreground border-b border-hairline font-bold">
+                            <tr>
+                              {section.table.headers.map((h, i) => (
+                                <th key={i} className="p-3.5 whitespace-nowrap">{h}</th>
                               ))}
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                          </thead>
+                          <tbody className="divide-y divide-hairline text-body">
+                            {section.table.rows.map((row, rIndex) => (
+                              <tr key={rIndex} className="hover:bg-surface-elevated/50 transition-colors">
+                                {row.map((cell, cIndex) => (
+                                  <td key={cIndex} className="p-3.5 font-medium text-foreground">
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   )}
                 </section>

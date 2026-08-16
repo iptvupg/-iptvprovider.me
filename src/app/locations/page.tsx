@@ -28,14 +28,14 @@ export default async function LocationsPage() {
             <main className="py-16 sm:py-24">
                 <Container>
                      <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
-                      <ol className="flex items-center gap-2">
+                      <ol className="flex flex-wrap items-center gap-2">
                         <li>
                           <Link href="/tv" className="hover:text-foreground">
                             Home
                           </Link>
                         </li>
                         <li>/</li>
-                        <li>
+                        <li className="text-foreground font-medium">
                             Service Locations
                         </li>
                       </ol>
@@ -121,15 +121,15 @@ export default async function LocationsPage() {
                     </div>
 
                     <h2 className="font-headline text-2xl font-bold tracking-tight mb-6">Global Country Directory</h2>
-                    <ul className="grid grid-cols-2 gap-x-4 gap-y-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                         {allCountries.map(country => (
-                            <li key={country.id}>
+                            <li key={country.id} className="flex">
                                 <Link 
                                     href={`/tv/country/${country.id}`}
-                                    className="flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-muted/50"
+                                    className="flex w-full min-h-[52px] items-center gap-3 rounded-lg border border-hairline bg-surface-card p-3 transition-colors hover:border-hairline-strong hover:bg-surface-elevated"
                                 >
                                     <FlagIcon countryCode={country.code} countryName={country.name} className="h-5 w-5 flex-shrink-0" />
-                                    <span className="font-medium text-sm">{country.name}</span>
+                                    <span className="font-medium text-sm text-body-strong leading-tight">{country.name}</span>
                                 </Link>
                             </li>
                         ))}

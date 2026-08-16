@@ -58,8 +58,8 @@ export default async function CountryPage(props: { params: Promise<{ country: st
 
       <main className="py-16 sm:py-24">
         <Container>
-            <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
-                <ol className="flex items-center gap-2">
+             <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
+                <ol className="flex flex-wrap items-center justify-center gap-2">
                     <li>
                         <Link href="/tv" className="hover:text-foreground">Home</Link>
                     </li>
@@ -68,7 +68,7 @@ export default async function CountryPage(props: { params: Promise<{ country: st
                         <Link href="/tv/locations" className="hover:text-foreground">Locations</Link>
                     </li>
                     <li>/</li>
-                    <li>
+                    <li className="text-foreground font-medium">
                         {name}
                     </li>
                 </ol>
@@ -81,11 +81,11 @@ export default async function CountryPage(props: { params: Promise<{ country: st
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
               Experience the best IPTV streaming in {name} with over 24,000 channels, movies, and series in stunning HD & 4K quality. Instant activation and 24/7 support guaranteed.
             </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-              <Button asChild size="lg">
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4 max-w-xl mx-auto w-full">
+              <Button asChild size="lg" className="w-full sm:w-auto h-auto min-h-[44px] py-2.5 px-6 whitespace-normal text-center leading-snug">
                 <Link href="/tv/pricing">Get Your Plan for {name}</Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto h-auto min-h-[44px] py-2.5 px-6 whitespace-normal text-center leading-snug">
                 <Link href="/tv/iptv-free-trial">Start Your Free Trial in {name}</Link>
               </Button>
             </div>
