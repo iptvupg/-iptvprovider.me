@@ -3,116 +3,50 @@
 @tailwind utilities;
 
 @layer base {
-  /* :root = Ollama flat black-on-white (DESIGN-ollama.md). Paper-white canvas
-     end-to-end. Pure black (#000) is the only brand color — every CTA a pill.
-     No gradients, no accent hues. The restraint is the design. */
+  /* ClickHouse-inspired High-Contrast Electric Yellow + Near-Black Canvas Design System */
   :root {
-    --background: 0 0% 100%; /* canvas #ffffff */
-    --foreground: 0 0% 0%; /* ink #000000 */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-    --primary: 0 0% 0%; /* ink — the single black pill CTA */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 98%; /* surface-soft #fafafa */
-    --secondary-foreground: 0 0% 0%;
-    --muted: 0 0% 98%;
-    --muted-foreground: 0 0% 45%; /* body #737373 */
-    --accent: 0 0% 98%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 72% 48%;
+    --background: 0 0% 3.9%; /* canvas #0a0a0a */
+    --foreground: 0 0% 100%; /* on-dark #ffffff */
+    --card: 0 0% 10.2%; /* surface-card #1a1a1a */
+    --card-foreground: 0 0% 100%; /* on-dark #ffffff */
+    --popover: 0 0% 10.2%; /* surface-card #1a1a1a */
+    --popover-foreground: 0 0% 100%;
+    --primary: 62 100% 70%; /* electric yellow #faff69 */
+    --primary-foreground: 0 0% 3.9%; /* on-primary / black #0a0a0a */
+    --secondary: 0 0% 7.1%; /* surface-soft #121212 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 10.2%; /* surface-card #1a1a1a */
+    --muted-foreground: 0 0% 53.3%; /* muted #888888 */
+    --accent: 0 0% 14.1%; /* surface-elevated #242424 */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%; /* accent-rose #ef4444 */
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%; /* hairline #e5e5e5 */
-    --input: 0 0% 83%; /* hairline-strong #d4d4d4 */
-    --ring: 217 91% 60%; /* focus ring — rgba(59,130,246,0.5) */
-    --chart-1: 0 0% 0%;
-    --chart-2: 0 0% 45%;
-    --chart-3: 0 0% 64%;
-    --chart-4: 0 0% 83%;
-    --chart-5: 0 0% 9%;
-    --radius: 0.75rem;
+    --border: 0 0% 16.5%; /* hairline #2a2a2a */
+    --input: 0 0% 22.7%; /* hairline-strong #3a3a3a */
+    --ring: 62 100% 70%; /* electric yellow #faff69 */
+    --radius: 0.5rem; /* rounded-md (8px) for buttons, 12px for cards */
   }
 
-  /* .dark = surface-dark #171717 inversion (DESIGN-ollama.md). Used only for
-     the single inverted "Max" tier / dark bands — not a full dark theme. */
   .dark {
-    --background: 0 0% 9%; /* surface-dark #171717 */
-    --foreground: 0 0% 100%;
-    --card: 0 0% 9%;
+    --background: 0 0% 3.9%; /* canvas #0a0a0a */
+    --foreground: 0 0% 100%; /* on-dark #ffffff */
+    --card: 0 0% 10.2%; /* surface-card #1a1a1a */
     --card-foreground: 0 0% 100%;
-    --popover: 0 0% 9%;
+    --popover: 0 0% 10.2%;
     --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%; /* white pill on dark surface */
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 15%;
+    --primary: 62 100% 70%; /* electric yellow #faff69 */
+    --primary-foreground: 0 0% 3.9%; /* on-primary #0a0a0a */
+    --secondary: 0 0% 7.1%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%; /* mute #a3a3a3 */
-    --accent: 0 0% 15%;
+    --muted: 0 0% 10.2%;
+    --muted-foreground: 0 0% 53.3%;
+    --accent: 0 0% 14.1%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 62% 42%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 217 91% 60%;
-    --chart-1: 0 0% 100%;
-    --chart-2: 0 0% 64%;
-    --chart-3: 0 0% 45%;
-    --chart-4: 0 0% 30%;
-    --chart-5: 0 0% 90%;
-  }
-}
-
-/* DESIGN.md two-polarity system: any band can commit to a canvas by scoping
-   the token variables locally, so token-driven children flip automatically.
-   Used e.g. for the light pricing band (with a dark featured tier) that sits
-   inside the otherwise-dark marketing homepage. */
-@layer base {
-  /* Ollama has no polarity alternation — the canvas is white end-to-end.
-     .polarity-light is a no-op reaffirming white; .polarity-dark repurposed
-     to the single surface-dark #171717 band (the inverted "Max" tier). */
-  .polarity-light {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 98%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 0 0% 98%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 98%;
-    --accent-foreground: 0 0% 0%;
-    --border: 0 0% 90%;
-    --input: 0 0% 83%;
-    --ring: 217 91% 60%;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-  }
-  .polarity-dark {
-    --background: 0 0% 9%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 217 91% 60%;
-    background-color: hsl(var(--card));
-    color: hsl(var(--foreground));
+    --border: 0 0% 16.5%;
+    --input: 0 0% 22.7%;
+    --ring: 62 100% 70%;
   }
 }
 
@@ -123,6 +57,8 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    background-color: #0a0a0a;
+    color: #ffffff;
   }
   body {
     @apply bg-background text-foreground;
@@ -131,23 +67,28 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* DESIGN-ollama.md: rounded display face carries tight optical spacing;
-     a hair of negative tracking on headlines. */
-  h1,
-  h2,
+  /* Display headlines: confident bold weight with negative letter-spacing */
+  h1 {
+    letter-spacing: -0.035em;
+  }
+  h2 {
+    letter-spacing: -0.03em;
+  }
   h3,
   h4 {
     letter-spacing: -0.02em;
   }
 
+  /* Electric yellow selection highlight */
   ::selection {
-    background: #000000; /* ink */
-    color: #ffffff;
+    background: #faff69; /* electric yellow */
+    color: #0a0a0a; /* black text */
   }
 
-  /* Consistent, brand-tinted focus ring for keyboard users (WCAG 2.4.7) */
+  /* High-contrast electric yellow focus ring */
   :focus-visible {
-    outline: none;
+    outline: 2px solid #faff69;
+    outline-offset: 2px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -157,22 +98,22 @@
   }
 
   .prose {
-    --tw-prose-body: hsl(var(--foreground) / 0.8);
-    --tw-prose-headings: hsl(var(--foreground));
-    --tw-prose-lead: hsl(var(--muted-foreground));
-    --tw-prose-links: hsl(var(--primary));
-    --tw-prose-bold: hsl(var(--foreground));
-    --tw-prose-counters: hsl(var(--muted-foreground));
-    --tw-prose-bullets: hsl(var(--border));
-    --tw-prose-hr: hsl(var(--border));
-    --tw-prose-quotes: hsl(var(--foreground));
-    --tw-prose-quote-borders: hsl(var(--primary));
-    --tw-prose-captions: hsl(var(--muted-foreground));
-    --tw-prose-code: hsl(var(--foreground));
-    --tw-prose-pre-code: hsl(var(--foreground));
-    --tw-prose-pre-bg: hsl(var(--muted));
-    --tw-prose-th-borders: hsl(var(--border));
-    --tw-prose-td-borders: hsl(var(--border));
+    --tw-prose-body: #cccccc;
+    --tw-prose-headings: #ffffff;
+    --tw-prose-lead: #888888;
+    --tw-prose-links: #faff69;
+    --tw-prose-bold: #ffffff;
+    --tw-prose-counters: #888888;
+    --tw-prose-bullets: #2a2a2a;
+    --tw-prose-hr: #2a2a2a;
+    --tw-prose-quotes: #ffffff;
+    --tw-prose-quote-borders: #faff69;
+    --tw-prose-captions: #888888;
+    --tw-prose-code: #ffffff;
+    --tw-prose-pre-code: #ffffff;
+    --tw-prose-pre-bg: #1a1a1a;
+    --tw-prose-th-borders: #2a2a2a;
+    --tw-prose-td-borders: #2a2a2a;
   }
 }
 
@@ -186,24 +127,31 @@
     }
   }
 
-  /* DESIGN-ollama.md: no starfield / atmospheric texture — the canvas is
-     flat paper-white. Neutralized to a no-op so any lingering usage is inert. */
-  .starfield {
-    background-image: none;
-  }
-
-  /* DESIGN-ollama.md: no lime keyword chips — headline emphasis words render
-     as plain inherited ink. Neutralized so lingering markup stays flat. */
-  .chip-lime {
-    background-color: transparent;
-    color: inherit;
-    border-radius: 0;
-    padding: 0;
-  }
-
-  /* DESIGN-ollama.md — eyebrow: small uppercase mute label above headings. */
+  /* Eyebrow: uppercase tracking label above headings */
   .eyebrow-cap {
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* Electric Yellow CTA Band */
+  .cta-band-yellow {
+    background-color: #faff69;
+    color: #0a0a0a;
+  }
+
+  /* Electric Yellow Feature Card */
+  .feature-card-yellow {
+    background-color: #faff69;
+    color: #0a0a0a;
+    border-radius: 0.75rem;
+  }
+
+  /* Signature Stat Callout */
+  .stat-callout {
+    color: #faff69;
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
 }

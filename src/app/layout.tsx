@@ -1,7 +1,7 @@
 
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Nunito, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
@@ -15,19 +15,17 @@ import { Schema } from "@/components/shared/Schema";
 import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 
-// Display tier — Nunito is the open substitute for SF Pro Rounded, the
-// soft-geometric rounded display face used on headings (DESIGN-ollama.md).
-const display = Nunito({
+// Type voice runs Inter at confident weights — 700 display, 600 subheadings/buttons, 400 body
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-display",
-  fallback: ["system-ui", "sans-serif"],
+  variable: "--font-sans",
+  fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
   preload: true,
 });
 
-// Code tier — JetBrains Mono for the install-snippet pill and terminal
-// mockups (DESIGN-ollama.md).
+// Code blocks render in JetBrains Mono inside dark cards
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -38,7 +36,7 @@ const mono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#ffffff',
+  themeColor: '#0a0a0a',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -139,7 +137,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={cn(
         "font-body antialiased",
-        display.variable,
+        inter.variable,
         mono.variable
       )}>
        <head>
@@ -166,8 +164,8 @@ export default function RootLayout({
         )}
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          forcedTheme="light"
+          defaultTheme="dark"
+          forcedTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >

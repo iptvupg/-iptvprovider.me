@@ -36,27 +36,30 @@ const features = [
 
 export function WhyChoose() {
   return (
-    <section className="py-16 sm:py-24 border-b bg-card/20">
+    <section className="py-16 sm:py-24 border-b border-hairline bg-canvas">
       <Container>
         <div className="mx-auto max-w-3xl text-center mb-12">
-          <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <p className="eyebrow-cap mb-3 text-xs font-bold uppercase tracking-wider text-primary">
+            Engineered For Performance
+          </p>
+          <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
             Why Choose Our IPTV Service?
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-body leading-relaxed">
             Experience reliable high-definition TV streaming backed by modern infrastructure and 24/7 technical support.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => (
-            <div key={i} className="rounded-lg border bg-card p-6 shadow-sm hover:border-primary/50 transition-colors">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div key={i} className="rounded-lg border border-hairline bg-surface-card p-6 transition-colors hover:border-hairline-strong">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-surface-elevated text-primary border border-hairline">
                 <feature.icon className="h-6 w-6" />
               </div>
               <h3 className="mb-2 font-headline text-xl font-bold text-foreground">
                 {feature.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-body leading-relaxed">
                 {feature.description}
               </p>
             </div>
