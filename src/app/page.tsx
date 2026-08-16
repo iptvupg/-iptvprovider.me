@@ -10,12 +10,12 @@ import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 import { getHomePageData } from "@/lib/data/home-page";
 import { faqs } from "@/lib/site-data/faq";
-import { generateFAQPageSchema } from "@/lib/schema";
+import { generateHomeGraphSchema } from "@/lib/schema";
 import { Schema } from "@/components/shared/Schema";
 
 export default async function Home() {
-  const { productSchema } = await getHomePageData();
-  const faqSchema = generateFAQPageSchema(
+  await getHomePageData();
+  const homeGraphSchema = generateHomeGraphSchema(
     faqs.map((item: { question: string; answer: string }) => ({
       question: item.question,
       answer: item.answer,
@@ -24,8 +24,7 @@ export default async function Home() {
 
   return (
     <>
-      <Schema id="product" schema={productSchema} />
-      <Schema id="faq" schema={faqSchema} />
+      <Schema id="home-graph" schema={homeGraphSchema as any} />
       <Hero />
       <CountryTicker />
       <WhyChoose />

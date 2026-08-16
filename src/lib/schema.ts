@@ -232,3 +232,124 @@ export function generateServiceSchema(props: ServiceSchemaProps): WithContext<Se
         offers: props.offers
     }
 }
+
+export function generateHomeGraphSchema(faqsList: { question: string; answer: string }[]) {
+  const lowPrice = "7.50";
+  const highPrice = "16.00";
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${siteConfig.url}/#organization`,
+        name: siteConfig.name,
+        url: `${siteConfig.url}/tv`,
+        logo: {
+          '@type': 'ImageObject',
+          '@id': `${siteConfig.url}/#logo`,
+          url: `${siteConfig.url}/api/og`,
+          caption: siteConfig.name,
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: siteConfig.links.email,
+          telephone: '+44 7848 197761',
+          contactType: 'Customer Service',
+          availableLanguage: ['English', 'German', 'French', 'Spanish', 'Arabic', 'Italian'],
+        },
+        sameAs: [
+          siteConfig.links.twitter,
+          siteConfig.links.facebook,
+          siteConfig.links.instagram,
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteConfig.url}/#website`,
+        url: `${siteConfig.url}/tv`,
+        name: siteConfig.name,
+        alternateName: ["IPTV Providers", "best iptv provider", "Best IPTV Service"],
+        publisher: {
+          '@id': `${siteConfig.url}/#organization`,
+        },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${siteConfig.url}/tv/?s={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${siteConfig.url}/tv#webpage`,
+        url: `${siteConfig.url}/tv`,
+        name: 'Best IPTV Service 2026 — 24,000+ Live Channels & 4K VOD',
+        description: siteConfig.description,
+        isPartOf: {
+          '@id': `${siteConfig.url}/#website`,
+        },
+        about: {
+          '@id': `${siteConfig.url}/tv#service`,
+        },
+        mainEntity: {
+          '@id': `${siteConfig.url}/tv#service`,
+        },
+      },
+      {
+        '@type': 'Service',
+        '@id': `${siteConfig.url}/tv#service`,
+        name: "Premium IPTV Subscription Service",
+        serviceType: "Internet Protocol Television (IPTV) Streaming Service",
+        description: "High-definition television streaming service providing 24,000+ live broadcast channels, 80,000+ VOD movies and series, and live sports over broadband IP networks.",
+        provider: {
+          '@id': `${siteConfig.url}/#organization`,
+        },
+        areaServed: {
+          '@type': 'AdministrativeArea',
+          name: 'Worldwide (197 Countries)',
+        },
+      },
+      {
+        '@type': 'Product',
+        '@id': `${siteConfig.url}/tv#product`,
+        name: "Premium IPTV Subscription",
+        description: "Get the best IPTV service with over 24,000 live channels and a massive 80,000+ VOD library. Instant activation, HD/4K quality, 2 simultaneous connections, and 24/7 support.",
+        image: `${siteConfig.url}/og-image.jpg`,
+        sku: "iptv-premium-service",
+        mpn: "iptv-premium-service",
+        brand: {
+          '@id': `${siteConfig.url}/#organization`,
+        },
+        offers: {
+          '@type': 'AggregateOffer',
+          '@id': `${siteConfig.url}/tv#aggregate-offer`,
+          priceCurrency: 'USD',
+          lowPrice: lowPrice,
+          highPrice: highPrice,
+          offerCount: 4,
+          priceValidUntil: '2026-12-31',
+          url: `${siteConfig.url}/tv/pricing`,
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${siteConfig.url}/tv#faq`,
+        isPartOf: {
+          '@id': `${siteConfig.url}/tv#webpage`,
+        },
+        mainEntity: faqsList.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+          },
+        })),
+      },
+    ],
+  };
+}
+
