@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/shared/Container";
 import { howToArticles, getSafeArticleData } from "@/lib/how-to";
-import { Check, Clock, Wrench, BookOpen, ChevronRight, ArrowRight } from "lucide-react";
+import { Check, Clock, Wrench, BookOpen, ChevronRight, ArrowRight, Tv } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
@@ -16,6 +16,20 @@ import { plans } from "@/lib/site-data/pricing";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { getPlaceholderImage } from "@/lib/server/image-blur-server";
 import { getGuideBySlug } from "@/lib/guides";
+
+const devicePairings: Record<string, string[]> = {
+  'fire-tv': ['android', 'samsung-tv', 'apple-tv'],
+  'android': ['fire-tv', 'samsung-tv', 'troubleshooting'],
+  'samsung-tv': ['lg-tv', 'fire-tv', 'android'],
+  'lg-tv': ['samsung-tv', 'fire-tv', 'apple-tv'],
+  'apple-tv': ['ios', 'macos', 'fire-tv'],
+  'ios': ['apple-tv', 'macos', 'android'],
+  'windows': ['macos', 'android', 'troubleshooting'],
+  'macos': ['windows', 'ios', 'apple-tv'],
+  'roku': ['fire-tv', 'samsung-tv', 'troubleshooting'],
+  'mag': ['android', 'fire-tv', 'troubleshooting'],
+  'troubleshooting': ['fire-tv', 'android', 'samsung-tv'],
+};
 
 type Props = {
   params: Promise<{ device: string; }>;
@@ -145,6 +159,11 @@ export default async function HowToPage(props: { params: Promise<{ device: strin
     const relatedGuides = (relatedGuideSlugs || [])
       .map((slug: string) => getGuideBySlug(slug))
       .filter((g): g is NonNullable<typeof g> => Boolean(g));
+
+    const relatedDeviceIds = devicePairings[id] || howToArticles.filter(a => a.id !== id).slice(0, 3).map(a => a.id);
+    const relatedDevicesList = relatedDeviceIds
+      .map(devId => howToArticles.find(a => a.id === devId))
+      .filter((d): d is NonNullable<typeof d> => Boolean(d));
 
     return (
       <>
@@ -297,6 +316,31 @@ export default async function HowToPage(props: { params: Promise<{ device: strin
                                 className="text-xs text-primary font-medium inline-flex items-center gap-1 mt-1"
                               >
                                 Read Guide <ChevronRight size={14} />
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {relatedDevicesList.length > 0 && (
+                      <div className="my-10 border-t pt-8">
+                        <h3 className="font-headline text-xl font-bold tracking-tight mb-4 flex items-center gap-2">
+                          <Tv className="text-primary h-5 w-5" /> Other Device Setup Guides
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                          {relatedDevicesList.map((dev) => (
+                            <div key={dev.id} className="rounded-lg border border-hairline bg-surface-card p-4 transition-colors hover:border-hairline-strong hover:bg-surface-elevated">
+                              <h4 className="font-bold text-sm mb-1 text-foreground">
+                                <Link href={`/tv/devices/${dev.id}`} className="hover:text-primary">
+                                  {dev.primaryKeyword || dev.title}
+                                </Link>
+                              </h4>
+                              <Link
+                                href={`/tv/devices/${dev.id}`}
+                                className="text-xs text-primary font-medium inline-flex items-center gap-1 mt-2"
+                              >
+                                View Setup Guide <ChevronRight size={14} />
                               </Link>
                             </div>
                           ))}

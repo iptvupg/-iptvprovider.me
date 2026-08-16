@@ -46,7 +46,7 @@ export default async function LocationsPage() {
                             IPTV Provider Service <span className="chip-lime">Locations</span>
                         </h1>
                         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                            We offer our premium IPTV Provider in over 100 countries. Find your country below to get started with the best streaming service in your region.
+                            We offer our premium IPTV Provider in 197 countries worldwide. Find your country below to get started with the best streaming service in your region.
                         </p>
                     </div>
 
