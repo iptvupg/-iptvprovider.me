@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { CountryTicker } from "@/components/sections/CountryTicker";
 import { WhyChoose } from "@/components/sections/WhyChoose";
 import { Pricing } from "@/components/sections/Pricing";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -26,6 +27,7 @@ export default async function Home() {
       <Schema id="product" schema={productSchema} />
       <Schema id="faq" schema={faqSchema} />
       <Hero />
+      <CountryTicker />
       <WhyChoose />
       <Pricing />
       <HowItWorks />
