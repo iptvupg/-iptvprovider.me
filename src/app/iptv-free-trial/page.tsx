@@ -14,7 +14,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export function generateMetadata(): Metadata {
     const title = "IPTV Free Trial 2026: Start Streaming in 5 Minutes (No Card Needed)";
-    const description = "Start your IPTV free trial today. Access 500+ live channels, sports & movies. No credit card required. Instant activation. Try before you buy →";
+    const description = "Start your IPTV free trial today. Access 24,000+ live channels, sports & movies. No credit card required. Instant activation. Try before you buy →";
     return {
       ...generatePageMetadata({
           title,
@@ -28,7 +28,7 @@ export function generateMetadata(): Metadata {
 }
 
 const trialFeatures = [
-    { icon: Tv, text: "20,000+ Live Channels & VOD" },
+    { icon: Tv, text: "24,000+ Live Channels & VOD" },
     { icon: Zap, text: "4K/HD Stream Quality" },
     { icon: Smartphone, text: "All Device Compatibility" },
     { icon: MessageCircle, text: "24/7 Support During Trial" },
@@ -90,7 +90,7 @@ export default async function IptvFreeTrialPage() {
                            Start Your IPTV <span className="chip-lime">Free Trial</span> Now
                         </h1>
                         <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-                           20,000+ Channels. Zero Commitment. Instant Access.
+                           24,000+ Channels. Zero Commitment. Instant Access.
                         </p>
                         <Button asChild size="lg" className="mt-8">
                             <Link href="https://wa.me/447848197761" target="_blank" rel="noopener noreferrer">

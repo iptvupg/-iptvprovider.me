@@ -9,7 +9,7 @@ const trialFaqs = [
     },
     {
         question: "What channels are included in the free trial?",
-        answer: "The free trial gives you full and unrestricted access to our entire package, including all 20,000+ live channels, movies, sports, and TV series. You get the exact same experience as a paid subscriber."
+        answer: "The free trial gives you full and unrestricted access to our entire package, including all 24,000+ live channels, movies, sports, and TV series. You get the exact same experience as a paid subscriber."
     },
     {
         question: "Do I need a special device for the trial?",
@@ -42,7 +42,7 @@ export const getIptvFreeTrialPageData = cache(
         serviceType: "Free IPTV Trial",
         providerName: "IPTV Provider",
         name: "24-Hour IPTV Free Trial",
-        description: "Get a free 24-hour trial of our premium IPTV service. Access over 20,000 channels, movies, and sports with no credit card required. Instant activation.",
+        description: "Get a free 24-hour trial of our premium IPTV service. Access over 24,000 channels, movies, and sports with no credit card required. Instant activation.",
         areaServed: { type: "Country", name: "Worldwide" },
         offers: {
             "@type": "Offer",
