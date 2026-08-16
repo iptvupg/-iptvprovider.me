@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/shared/Container";
-import { ArrowRight, Tv, Wrench } from "lucide-react";
+import { ArrowRight, Tv, Wrench, ExternalLink } from "lucide-react";
 
 export function WhatIsIPTVSection() {
   return (
@@ -39,6 +39,15 @@ export function WhatIsIPTVSection() {
               >
                 Legality &amp; Licensing <ArrowRight size={15} />
               </Link>
+              <a
+                href="https://en.wikipedia.org/wiki/Internet_Protocol_television"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground hover:underline"
+                title="Read more on Wikipedia"
+              >
+                Wikipedia Reference <ExternalLink size={13} />
+              </a>
             </div>
           </div>
 
