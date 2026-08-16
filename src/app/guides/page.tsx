@@ -131,6 +131,8 @@ export default function GuidesIndexPage() {
                     {category === "Setup" && <Wrench className="text-primary h-6 w-6" />}
                     {category === "Troubleshooting" && <HelpCircle className="text-primary h-6 w-6" />}
                     {category === "Apps & Hardware" && <Laptop className="text-primary h-6 w-6" />}
+                    {category === "Trust & Methodology" && <ShieldCheck className="text-primary h-6 w-6" />}
+                    {category === "Legal & Safety" && <ShieldCheck className="text-primary h-6 w-6" />}
                     <h2 className="font-headline text-2xl font-bold tracking-tight">{category} Guides</h2>
                   </div>
 

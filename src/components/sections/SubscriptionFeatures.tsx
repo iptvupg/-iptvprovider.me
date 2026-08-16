@@ -30,7 +30,7 @@ const features = [
     { 
         icon: Shield, 
         title: "Anti-Freeze Technology",
-        description: "Our advanced anti-freeze technology and load balancing ensure smooth, uninterrupted streaming with 99.9% uptime."
+        description: "Our advanced anti-freeze load balancing and redundant server infrastructure ensure smooth, uninterrupted streaming engineered for high availability."
     },
     { 
         icon: MessageCircle, 
