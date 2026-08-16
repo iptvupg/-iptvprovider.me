@@ -9,23 +9,37 @@ export function WhatIsIPTVSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 flex items-center gap-2">
-              <Tv size={16} /> Technical Overview
+              <Tv size={16} /> Technical Overview &amp; Guide
             </div>
             <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground mb-4">
-              What Is IPTV?
+              What Is IP Television (IPTV)?
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-4">
-              Internet Protocol Television (IPTV) is a digital television broadcasting technology that transmits live TV channels, sports broadcasts, and video-on-demand (VOD) media over standard broadband IP networks rather than traditional satellite dishes or cable lines.
+              Internet Protocol Television (IPTV) is a digital broadcasting technology that transmits live IPTV stream channels, sports broadcasts, and video-on-demand (VOD) media over broadband IP networks rather than traditional cable lines or satellite dishes.
             </p>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              Using modern protocols like HTTP Live Streaming (HLS), MPEG-TS packaging, and advanced H.265/AV1 video codecs, IPTV allows you to watch high-definition video seamlessly on Smart TVs, Firestick devices, smartphones, tablets, and computers anywhere with an internet connection.
+              Using standardized protocols like HTTP Live Streaming (HLS RFC 8216), MPEG-TS packaging, and advanced H.265/HEVC video codecs, IPTV enables seamless 4K and Full HD playback on Smart TVs, Firestick devices, smartphones, and computers.
             </p>
-            <Link
-              href="/tv/guides/what-is-iptv"
-              className="inline-flex items-center gap-2 font-bold text-primary hover:underline text-sm"
-            >
-              → Complete IPTV Guide <ArrowRight size={16} />
-            </Link>
+            <div className="flex flex-wrap gap-4 text-sm font-semibold">
+              <Link
+                href="/tv/guides/what-is-iptv"
+                className="inline-flex items-center gap-1.5 text-primary hover:underline"
+              >
+                What Is IPTV? <ArrowRight size={15} />
+              </Link>
+              <Link
+                href="/tv/guides/how-to-choose-an-iptv-service"
+                className="inline-flex items-center gap-1.5 text-primary hover:underline"
+              >
+                How to Choose a Provider <ArrowRight size={15} />
+              </Link>
+              <Link
+                href="/tv/guides/is-iptv-legal"
+                className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground hover:underline"
+              >
+                Legality &amp; Licensing <ArrowRight size={15} />
+              </Link>
+            </div>
           </div>
 
           <div id="setup-guides" className="rounded-lg border bg-card p-6 sm:p-8">
@@ -33,10 +47,10 @@ export function WhatIsIPTVSection() {
               <Wrench size={16} /> Easy Installation
             </div>
             <h3 className="font-headline text-2xl font-bold text-foreground mb-3">
-              IPTV Setup &amp; Installation
+              IPTV Setup &amp; Installation Guides
             </h3>
             <p className="text-sm text-muted-foreground mb-6">
-              Get step-by-step setup instructions for your favorite player apps (TiviMate, IPTV Smarters, Smartone IPTV, VLC) across all hardware platforms:
+              Get step-by-step setup instructions for your favorite player apps (TiviMate, IPTV Smarters Pro, IBO Player, VLC) across all hardware platforms:
             </p>
 
             <div className="grid grid-cols-2 gap-3 text-sm font-medium">
@@ -60,8 +74,16 @@ export function WhatIsIPTVSection() {
                 <span>Apple TV 4K</span>
                 <ArrowRight size={14} className="text-muted-foreground" />
               </Link>
-              <Link href="/tv/guides/iptv-setup-guide" className="rounded border border-primary/50 bg-primary/5 p-3 hover:border-primary transition-colors flex items-center justify-between font-bold text-primary">
-                <span>All Setup Guides</span>
+              <Link href="/tv/devices/windows" className="rounded border p-3 hover:border-primary transition-colors flex items-center justify-between text-foreground">
+                <span>Windows PC</span>
+                <ArrowRight size={14} className="text-muted-foreground" />
+              </Link>
+              <Link href="/tv/devices/troubleshooting" className="rounded border p-3 hover:border-primary transition-colors flex items-center justify-between text-foreground">
+                <span>Troubleshooting</span>
+                <ArrowRight size={14} className="text-muted-foreground" />
+              </Link>
+              <Link href="/tv/guides" className="rounded border border-primary/50 bg-primary/5 p-3 hover:border-primary transition-colors flex items-center justify-between font-bold text-primary">
+                <span>All Knowledge Guides</span>
                 <ArrowRight size={14} />
               </Link>
             </div>

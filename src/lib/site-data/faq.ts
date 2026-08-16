@@ -5,11 +5,11 @@ export const faqs = [
   },
   {
     question: "How many devices can I use with one IPTV subscription?",
-    answer: "Our standard IPTV plan allows for one active connection at a time. If you require multi-room or multi-device streaming for family members, custom multi-connection options are available."
+    answer: "Every IPTVProvider.me subscription includes 2 simultaneous connections, allowing two devices in your household to stream different live channels or on-demand content concurrently."
   },
   {
     question: "Why is my IPTV stream buffering and how do I fix it?",
-    answer: "Buffering is usually caused by network latency, Wi-Fi interference, or ISP throttling. We recommend a stable connection of at least 25 Mbps, connecting via wired Ethernet cable, or using a VPN to prevent ISP throttling."
+    answer: "Buffering is usually caused by network latency, Wi-Fi interference, or ISP throttling. We recommend a stable household connection of at least 25 Mbps, connecting via wired Ethernet cable, or using a VPN to prevent ISP throttling."
   },
   {
     question: "How long does IPTV subscription activation take?",
@@ -33,7 +33,7 @@ export const faqs = [
   },
   {
     question: "How can I get technical customer support?",
-    answer: "We provide 24/7 technical customer support via WhatsApp and email to help you with setup, playlist configuration, or device troubleshooting."
+    answer: "We provide 24/7 technical customer support via WhatsApp (+44 7848 197761) and email to help you with setup, playlist configuration, or device troubleshooting."
   },
   {
     question: "Can I cancel my IPTV subscription anytime?",
@@ -41,10 +41,14 @@ export const faqs = [
   },
   {
     question: "What internet speed is required for 4K IPTV streaming?",
-    answer: "We recommend a minimum download speed of 15 Mbps for 1080p HD streams and 25 Mbps or higher for smooth 4K Ultra HD and 60fps live sports playback."
+    answer: "While individual 1080p streams use 4–8 Mbps and 4K streams use 15–25 Mbps, a household connection of 25–50 Mbps or higher is recommended to provide reliable buffer headroom."
   },
   {
     question: "What is the difference between M3U playlists and Xtream Codes API?",
     answer: "An M3U playlist is a static file or URL listing video streams, while Xtream Codes API uses a Server URL, Username, and Password to dynamically import channels, VOD catalogs, and EPG schedules."
+  },
+  {
+    question: "Is IPTV legal to use for TV streaming?",
+    answer: "Yes. Internet Protocol Television (IPTV) is a legal, standardized telecommunications technology. The legality of an individual service depends on whether the provider holds authorized redistribution licensing for its channel feeds."
   }
 ];
