@@ -621,5 +621,133 @@ export function generatePricingGraphSchema(faqsList: { question: string; answer:
   };
 }
 
+export interface PlanGraphInput {
+  slug: string;
+  name: string;
+  metaTitle: string;
+  metaDescription: string;
+  price: number;
+  durationLabel: string;
+  faqs: { question: string; answer: string }[];
+}
+
+export function generatePlanGraphSchema(plan: PlanGraphInput): Record<string, unknown> {
+  const pageUrl = `${siteConfig.url}/tv/${plan.slug}`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${siteConfig.url}/#organization`,
+        name: siteConfig.name,
+        url: `${siteConfig.url}/tv`,
+        logo: `${siteConfig.url}/api/og`,
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'Customer Support',
+          telephone: '+44 7848 197761',
+          url: 'https://wa.me/447848197761',
+          availableLanguage: ['English', 'French', 'Spanish', 'German', 'Arabic'],
+        },
+        sameAs: [
+          siteConfig.links.twitter,
+          siteConfig.links.facebook,
+          siteConfig.links.instagram,
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteConfig.url}/#website`,
+        url: `${siteConfig.url}/tv`,
+        name: siteConfig.name,
+        alternateName: ["IPTV Providers", "best iptv provider", "Best IPTV Service"],
+        publisher: {
+          '@id': `${siteConfig.url}/#organization`,
+        },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: plan.metaTitle,
+        description: plan.metaDescription,
+        isPartOf: {
+          '@id': `${siteConfig.url}/#website`,
+        },
+        about: {
+          '@id': `${pageUrl}#product`,
+        },
+        mainEntity: {
+          '@id': `${pageUrl}#product`,
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: `${siteConfig.url}/tv`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Pricing',
+            item: `${siteConfig.url}/tv/pricing`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: `${plan.name} Subscription`,
+            item: pageUrl,
+          },
+        ],
+      },
+      {
+        '@type': 'Product',
+        '@id': `${pageUrl}#product`,
+        name: `${plan.name} IPTV Subscription`,
+        description: `${plan.name} IPTV subscription with 24,000+ live HD/4K channels, 80,000+ VOD titles, 2 concurrent connections, anti-freeze streaming, and 24/7 support.`,
+        image: `${siteConfig.url}/api/og`,
+        brand: {
+          '@id': `${siteConfig.url}/#organization`,
+        },
+        offers: {
+          '@type': 'Offer',
+          '@id': `${pageUrl}#offer`,
+          name: `${plan.name} IPTV Subscription`,
+          price: plan.price.toFixed(2),
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: pageUrl,
+          priceValidUntil: '2026-12-31',
+          description: `${plan.durationLabel} of full IPTV access on 2 devices with 24,000+ live channels, sports, and VOD movies.`,
+          seller: {
+            '@id': `${siteConfig.url}/#organization`,
+          },
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${pageUrl}#faq`,
+        isPartOf: {
+          '@id': `${pageUrl}#webpage`,
+        },
+        mainEntity: plan.faqs.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+          },
+        })),
+      },
+    ],
+  };
+}
+
+
 
 

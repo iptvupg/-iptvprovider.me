@@ -464,6 +464,29 @@ export default async function PricingPage() {
                     <td className="p-4 text-center text-body">&lt;5 Minutes</td>
                     <td className="p-4 text-center text-body bg-primary/5">&lt;5 Minutes</td>
                   </tr>
+                  <tr>
+                    <td className="p-4 font-medium text-foreground">Dedicated Plan Page</td>
+                    <td className="p-4 text-center">
+                      <Link href="/tv/iptv-1-month-subscription" className="text-xs font-semibold text-primary hover:underline">
+                        1-Month Details →
+                      </Link>
+                    </td>
+                    <td className="p-4 text-center">
+                      <Link href="/tv/iptv-3-month-subscription" className="text-xs font-semibold text-primary hover:underline">
+                        3-Month Details →
+                      </Link>
+                    </td>
+                    <td className="p-4 text-center">
+                      <Link href="/tv/iptv-6-month-subscription" className="text-xs font-semibold text-primary hover:underline">
+                        6-Month Details →
+                      </Link>
+                    </td>
+                    <td className="p-4 text-center bg-primary/5">
+                      <Link href="/tv/iptv-12-month-subscription" className="text-xs font-bold text-primary hover:underline">
+                        12-Month Details →
+                      </Link>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
