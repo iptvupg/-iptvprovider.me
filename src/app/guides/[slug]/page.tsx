@@ -23,11 +23,18 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound();
   }
 
-  return generatePageMetadata({
+  const baseMeta = generatePageMetadata({
     title: guide.title,
     description: guide.description,
     canonical: `/guides/${params.slug}`,
   });
+
+  return {
+    ...baseMeta,
+    title: {
+      absolute: guide.title,
+    },
+  };
 }
 
 export default async function GuidePage(props: Props) {

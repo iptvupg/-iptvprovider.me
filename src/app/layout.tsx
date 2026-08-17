@@ -11,8 +11,6 @@ import { cn } from "@/lib/utils";
 import { ContactSheet } from "@/components/shared/ContactSheet";
 import { ProgressBar } from '@/components/shared/ProgressBar';
 import { Analytics } from "@/components/shared/Analytics";
-import { Schema } from "@/components/shared/Schema";
-import { generateOrganizationSchema, generateWebSiteSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-config";
 
 // Type voice runs Inter at confident weights — 700 display, 600 subheadings/buttons, 400 body
@@ -141,8 +139,6 @@ export default function RootLayout({
         mono.variable
       )}>
       <body>
-        <Schema id="organization" schema={generateOrganizationSchema()} />
-        <Schema id="website" schema={generateWebSiteSchema()} />
         <ProgressBar />
         <Analytics />
         {process.env.NODE_ENV === 'production' && (

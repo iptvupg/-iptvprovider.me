@@ -47,6 +47,7 @@ export default async function CheckoutPage() {
                       </ol>
                     </nav>
                     <SectionHeader 
+                        as="h1"
                         title="Contact Us to Purchase"
                         subtitle="To complete your purchase, please contact us via WhatsApp. Our team is ready to assist you."
                     />

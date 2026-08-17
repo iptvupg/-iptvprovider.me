@@ -3,6 +3,7 @@ import { Facebook, Instagram, Twitter } from "lucide-react";
 import { Container } from "./Container";
 import { Logo } from "./Logo";
 import { footerLinks } from "@/lib/site-data/footer";
+import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   return (
@@ -29,7 +30,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold">Supported Apps</h3>
+            <h3 className="font-semibold">Device Setup Guides</h3>
             <ul className="mt-4 space-y-2">
               {footerLinks.supportedLinks.map((link) => (
                 <li key={link.name}>
@@ -41,13 +42,15 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold">Contact</h3>
-            <address className="mt-4 space-y-2 text-sm not-italic text-muted-foreground">
-              <p>{footerLinks.contact.address}</p>
-              <a href={`mailto:${footerLinks.contact.email}`} className="hover:text-foreground">
-                {footerLinks.contact.email}
-              </a>
-            </address>
+            <h3 className="font-semibold">Customer Support</h3>
+            <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <p>{footerLinks.contact.supportHours}</p>
+              <p>
+                <a href={`mailto:${footerLinks.contact.email}`} className="hover:text-foreground">
+                  {footerLinks.contact.email}
+                </a>
+              </p>
+            </div>
           </div>
         </div>
         <div className="flex flex-col items-center justify-between border-t py-6 sm:flex-row">
@@ -55,9 +58,9 @@ export function Footer() {
             &copy; {new Date().getFullYear()} IPTV Provider. All rights reserved.
           </p>
           <div className="mt-4 flex items-center space-x-4 sm:mt-0">
-            <Link href="#" aria-label="Follow us on Facebook" className="text-muted-foreground hover:text-foreground"><Facebook className="h-5 w-5" /></Link>
-            <Link href="#" aria-label="Follow us on Twitter" className="text-muted-foreground hover:text-foreground"><Twitter className="h-5 w-5" /></Link>
-            <Link href="#" aria-label="Follow us on Instagram" className="text-muted-foreground hover:text-foreground"><Instagram className="h-5 w-5" /></Link>
+            <Link href={siteConfig.links.facebook} target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" className="text-muted-foreground hover:text-foreground"><Facebook className="h-5 w-5" /></Link>
+            <Link href={siteConfig.links.twitter} target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter" className="text-muted-foreground hover:text-foreground"><Twitter className="h-5 w-5" /></Link>
+            <Link href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="text-muted-foreground hover:text-foreground"><Instagram className="h-5 w-5" /></Link>
           </div>
         </div>
       </Container>

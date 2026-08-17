@@ -119,11 +119,18 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     const { title, description } = article;
 
-    return generatePageMetadata({
+    const baseMeta = generatePageMetadata({
       title,
       description,
       canonical: `/devices/${params.device}`,
     });
+
+    return {
+      ...baseMeta,
+      title: {
+        absolute: title,
+      },
+    };
 }
 
 export default async function HowToPage(props: { params: Promise<{ device: string }>}) {
