@@ -11,7 +11,8 @@ export function Schema<T extends Thing>({ schema, id }: SchemaProps<T>) {
     <script
       id={`schema-${id}`}
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
     />
   );
 }

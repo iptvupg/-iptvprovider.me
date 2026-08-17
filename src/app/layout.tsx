@@ -140,12 +140,9 @@ export default function RootLayout({
         inter.variable,
         mono.variable
       )}>
-       <head>
-          <Schema id="organization" schema={generateOrganizationSchema()} />
-          <Schema id="website" schema={generateWebSiteSchema()} />
-          <link rel="dns-prefetch" href="https://www.google-analytics.com"/>
-        </head>
       <body>
+        <Schema id="organization" schema={generateOrganizationSchema()} />
+        <Schema id="website" schema={generateWebSiteSchema()} />
         <ProgressBar />
         <Analytics />
         {process.env.NODE_ENV === 'production' && (
