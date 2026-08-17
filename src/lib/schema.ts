@@ -353,3 +353,122 @@ export function generateHomeGraphSchema(faqsList: { question: string; answer: st
   };
 }
 
+export function generateTrialGraphSchema(faqsList: { question: string; answer: string }[]) {
+  const pageUrl = `${siteConfig.url}/tv/iptv-free-trial`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${siteConfig.url}/#organization`,
+        name: siteConfig.name,
+        url: `${siteConfig.url}/tv`,
+        logo: {
+          '@type': 'ImageObject',
+          '@id': `${siteConfig.url}/#logo`,
+          url: `${siteConfig.url}/api/og`,
+          caption: siteConfig.name,
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: siteConfig.links.email,
+          telephone: '+44 7848 197761',
+          contactType: 'Customer Service',
+          availableLanguage: ['English', 'German', 'French', 'Spanish', 'Arabic', 'Italian'],
+        },
+        sameAs: [
+          siteConfig.links.twitter,
+          siteConfig.links.facebook,
+          siteConfig.links.instagram,
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteConfig.url}/#website`,
+        url: `${siteConfig.url}/tv`,
+        name: siteConfig.name,
+        alternateName: ["IPTV Providers", "best iptv provider", "Best IPTV Service"],
+        publisher: {
+          '@id': `${siteConfig.url}/#organization`,
+        },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: 'Free Trial IPTV (2026): 24-Hour Instant Access — No Credit Card',
+        description: 'Get an instant 24-hour free trial for IPTV with access to 24,000+ live HD/4K channels, live sports & VOD. No credit card required. Start streaming in minutes.',
+        isPartOf: {
+          '@id': `${siteConfig.url}/#website`,
+        },
+        about: {
+          '@id': `${pageUrl}#service`,
+        },
+        mainEntity: {
+          '@id': `${pageUrl}#service`,
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: `${siteConfig.url}/tv`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'IPTV Free Trial',
+            item: pageUrl,
+          },
+        ],
+      },
+      {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        name: '24-Hour IPTV Free Trial',
+        serviceType: 'Internet Protocol Television (IPTV) Free Trial Service',
+        description: 'Instant 24-hour free trial providing unrestricted access to 24,000+ live channels, 80,000+ VOD titles, and live sports with zero credit card required.',
+        provider: {
+          '@id': `${siteConfig.url}/#organization`,
+        },
+        areaServed: {
+          '@type': 'AdministrativeArea',
+          name: 'Worldwide (197 Countries)',
+        },
+        offers: {
+          '@type': 'Offer',
+          '@id': `${pageUrl}#offer`,
+          name: '24-Hour IPTV Free Trial',
+          price: '0.00',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: pageUrl,
+          priceValidUntil: '2026-12-31',
+          description: '100% free 24-hour trial access to 24,000+ live TV channels, sports, and movies with automated credential delivery and no payment details required.',
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${pageUrl}#faq`,
+        isPartOf: {
+          '@id': `${pageUrl}#webpage`,
+        },
+        mainEntity: faqsList.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+          },
+        })),
+      },
+    ],
+  };
+}
+
+

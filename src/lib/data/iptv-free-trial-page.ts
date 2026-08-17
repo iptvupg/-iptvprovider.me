@@ -1,70 +1,52 @@
 
 import { unstable_cache as cache } from 'next/cache';
-import { generateBreadcrumbSchema, generateFAQPageSchema, generateServiceSchema } from '@/lib/schema';
+import { generateTrialGraphSchema } from '@/lib/schema';
 
-const trialFaqs = [
+export const trialFaqs = [
     {
         question: "Is the IPTV free trial really free?",
-        answer: "Yes, our 24-hour trial is 100% free. We do not ask for any credit card information or payment details. It is a completely risk-free way to test our service quality."
+        answer: "Yes. Our 24-hour IPTV trial is 100% free with zero hidden costs. We do not ask for credit card numbers, payment details, or billing information. It is a completely risk-free test of our live streams and VOD catalog."
     },
     {
-        question: "What channels are included in the free trial?",
-        answer: "The free trial gives you full and unrestricted access to our entire package, including all 24,000+ live channels, movies, sports, and TV series. You get the exact same experience as a paid subscriber."
+        question: "Do I need a credit card to get the free trial?",
+        answer: "No. You never need to provide a credit card or payment method to start your trial. Simply request your trial on WhatsApp, and our team will generate your instant login credentials."
     },
     {
-        question: "Do I need a special device for the trial?",
-        answer: "No, you don't need a special device. Our IPTV service works on all major devices, including Smart TVs, Amazon Fire Stick, Android devices, iOS devices, and computers. Our support team can help you get set up."
+        question: "How long does the IPTV trial last?",
+        answer: "The trial provides 24 hours of full, unrestricted access starting from the moment your activation credentials are generated."
     },
     {
-        question: "How do I cancel the trial?",
-        answer: "There is no need to cancel. The trial automatically expires after 24 hours. There are no obligations and you will not be charged."
+        question: "What channels and sports are included in the trial?",
+        answer: "Your free trial includes unrestricted access to our entire catalog: over 24,000 live HD/4K channels from the USA, UK, Canada, and worldwide, all live sports broadcasts, major PPV events, and 80,000+ on-demand movies and TV series."
     },
     {
-        question: "What happens after the IPTV trial ends?",
-        answer: "After 24 hours, your trial access will stop. If you enjoyed the service, you can easily upgrade to one of our paid plans by contacting us. Your settings and favorites will be saved."
+        question: "How are my trial login credentials delivered?",
+        answer: "Trial credentials (both Xtream Codes API username/password and M3U playlist URLs) are delivered directly to you via WhatsApp within minutes of your request."
+    },
+    {
+        question: "What devices and player apps work with the IPTV trial?",
+        answer: "Our trial works across all major hardware platforms: Amazon Firestick & Fire TV, Android TV boxes, Samsung Smart TVs (Tizen), LG Smart TVs (webOS), Apple TV, iPhone, iPad, Windows PC, and Mac. You can use popular player apps such as TiviMate, IPTV Smarters Pro, IBO Player, and VLC."
+    },
+    {
+        question: "What internet speed is recommended for the trial?",
+        answer: "While individual 1080p HD streams use 4–8 Mbps and 4K streams use 15–25 Mbps, we recommend a household broadband connection of 25–50 Mbps or higher to ensure stable, buffer-free viewing during concurrent home usage."
+    },
+    {
+        question: "What happens when my 24-hour trial expires?",
+        answer: "The trial automatically expires after 24 hours. There is no auto-billing, no subscription contract, and no cancellation required. If you decide not to subscribe, access simply closes with zero obligation."
+    },
+    {
+        question: "How do I upgrade to a paid IPTV subscription after testing?",
+        answer: "If you love the streaming quality and channel selection during your trial, you can choose any subscription plan ($7.50 to $16.00/mo) on our pricing page or message us on WhatsApp to activate a full subscription without losing your playlist configuration."
     }
 ];
 
 export const getIptvFreeTrialPageData = cache(
   async () => {
-    // Pages are served under /tv; breadcrumb URLs must match the 200 URL.
-    const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.iptvprovider.me'}/tv`;
-    const pageUrl = `${baseUrl}/iptv-free-trial`;
-
-    const breadcrumbSchemaPromise = Promise.resolve(generateBreadcrumbSchema([
-        { name: "Home", item: `${baseUrl}/` },
-        { name: "IPTV Free Trial", item: pageUrl }
-    ]));
-
-    const faqSchemaPromise = Promise.resolve(generateFAQPageSchema(trialFaqs));
-
-    const serviceSchemaPromise = Promise.resolve(generateServiceSchema({
-        serviceType: "Free IPTV Trial",
-        providerName: "IPTV Provider",
-        name: "24-Hour IPTV Free Trial",
-        description: "Get a free 24-hour trial of our premium IPTV service. Access over 24,000 channels, movies, and sports with no credit card required. Instant activation.",
-        areaServed: { type: "Country", name: "Worldwide" },
-        offers: {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-        }
-    }));
-    
-    const [
-      breadcrumbSchema,
-      faqSchema,
-      serviceSchema
-    ] = await Promise.all([
-      breadcrumbSchemaPromise,
-      faqSchemaPromise,
-      serviceSchemaPromise,
-    ]);
+    const trialGraphSchema = generateTrialGraphSchema(trialFaqs);
 
     return {
-      breadcrumbSchema,
-      faqSchema,
-      serviceSchema,
+      trialGraphSchema,
       trialFaqs
     };
   },
@@ -74,5 +56,6 @@ export const getIptvFreeTrialPageData = cache(
     tags: ['pages', 'iptv-free-trial-page'],
   }
 );
+
 
     
