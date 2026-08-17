@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import InternalLinks from "@/components/shared/InternalLinks";
 import { Schema } from "@/components/shared/Schema";
-import { generateArticleSchema, generateHowToSchema, generateFAQPageSchema, generateProductSchema, generateBreadcrumbSchema } from "@/lib/schema";
+import { generateArticleSchema, generateHowToSchema, generateFAQPageSchema, generateProductSchema, generateBreadcrumbSchema, digitalOfferShippingDetails, defaultMerchantReturnPolicy } from "@/lib/schema";
 import { generateMetadata as generatePageMetadata } from "@/lib/site-config";
 import { plans } from "@/lib/site-data/pricing";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -100,14 +100,30 @@ function StructuredData({ article }: { article: ArticleType }) {
     const productSchema = generateProductSchema({
         name: "IPTV Provider Subscription",
         description: `Our premium IPTV Provider is fully compatible with ${primaryKeyword}. Follow our guide to get set up.`,
-        image: "https://images-cdn.ubuy.co.in/633fee9c3a16a463ad2f7388-iptv-subscription-not-box-including.jpg",
-
+        image: `${baseUrl}/api/og`,
+        brand: {
+            "@type": "Brand",
+            name: "IPTVProvider.me",
+        },
         offers: {
             "@type": "AggregateOffer",
             priceCurrency: "USD",
             lowPrice: lowPrice.toFixed(2),
             highPrice: highPrice.toFixed(2),
             offerCount: plans.length,
+            offers: plans.map(p => ({
+                "@type": "Offer",
+                name: `IPTV Provider - ${p.name}`,
+                price: p.price.toFixed(2),
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+                itemCondition: "https://schema.org/NewCondition",
+                url: `${baseUrl}/pricing`,
+                validFrom: "2026-01-01T00:00:00Z",
+                priceValidUntil: "2026-12-31",
+                shippingDetails: digitalOfferShippingDetails,
+                hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
+            }))
         }
     });
 
