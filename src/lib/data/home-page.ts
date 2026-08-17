@@ -3,7 +3,7 @@ import { unstable_cache as cache } from 'next/cache';
 import { weeklyBuzzItems } from "@/lib/site-data/weekly-buzz";
 import { sportEvents } from "@/lib/site-data/sport-events";
 import { getPlaceholderImage } from "@/lib/server/image-blur-server";
-import { generateProductSchema, digitalOfferShippingDetails, defaultMerchantReturnPolicy, defaultBrand } from '@/lib/schema';
+import { generateProductSchema, defaultMerchantReturnPolicy, defaultBrand } from '@/lib/schema';
 import { siteConfig } from '@/lib/site-config';
 import { plans } from '@/lib/site-data/pricing';
 
@@ -46,9 +46,7 @@ export const getHomePageData = cache(
           availability: "https://schema.org/InStock",
           itemCondition: "https://schema.org/NewCondition",
           url: `${siteConfig.url}/tv/pricing`,
-          validFrom: "2026-01-01T00:00:00Z",
           priceValidUntil: "2026-12-31",
-          shippingDetails: digitalOfferShippingDetails,
           hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
         }))
       }

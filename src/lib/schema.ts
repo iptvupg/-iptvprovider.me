@@ -31,41 +31,12 @@ export const defaultBrand = {
   name: 'IPTVProvider.me',
 };
 
-export const digitalOfferShippingDetails = {
-  '@type': 'OfferShippingDetails' as const,
-  shippingRate: {
-    '@type': 'MonetaryAmount' as const,
-    value: '0.00',
-    currency: 'USD',
-  },
-  shippingDestination: {
-    '@type': 'DefinedRegion' as const,
-    addressCountry: 'US',
-  },
-  deliveryTime: {
-    '@type': 'ShippingDeliveryTime' as const,
-    handlingTime: {
-      '@type': 'QuantitativeValue' as const,
-      minValue: 0,
-      maxValue: 0,
-      unitCode: 'DAY',
-    },
-    transitTime: {
-      '@type': 'QuantitativeValue' as const,
-      minValue: 0,
-      maxValue: 0,
-      unitCode: 'DAY',
-    },
-  },
-};
-
 export const defaultMerchantReturnPolicy = {
   '@type': 'MerchantReturnPolicy' as const,
   applicableCountry: 'US',
   returnPolicyCountry: 'US',
   returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
   merchantReturnDays: 7,
-  returnMethod: 'https://schema.org/ReturnByMail',
   returnFees: 'https://schema.org/FreeReturn',
 };
 
@@ -132,9 +103,7 @@ export function generateProductSchema(props: ProductSchemaProps): WithContext<Pr
         availability: 'https://schema.org/InStock' as const,
         itemCondition: 'https://schema.org/NewCondition' as const,
         url: `${siteConfig.url}/tv/pricing`,
-        validFrom: '2026-01-01T00:00:00Z',
         priceValidUntil: '2026-12-31',
-        shippingDetails: digitalOfferShippingDetails,
         hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
     } : undefined);
 
@@ -385,10 +354,8 @@ export function generateHomeGraphSchema(faqsList: { question: string; answer: st
               priceCurrency: 'USD',
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
-              validFrom: '2026-01-01T00:00:00Z',
               priceValidUntil: '2026-12-31',
               url: `${siteConfig.url}/tv/pricing`,
-              shippingDetails: digitalOfferShippingDetails,
               hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
             },
             {
@@ -398,10 +365,8 @@ export function generateHomeGraphSchema(faqsList: { question: string; answer: st
               priceCurrency: 'USD',
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
-              validFrom: '2026-01-01T00:00:00Z',
               priceValidUntil: '2026-12-31',
               url: `${siteConfig.url}/tv/pricing`,
-              shippingDetails: digitalOfferShippingDetails,
               hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
             },
             {
@@ -411,10 +376,8 @@ export function generateHomeGraphSchema(faqsList: { question: string; answer: st
               priceCurrency: 'USD',
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
-              validFrom: '2026-01-01T00:00:00Z',
               priceValidUntil: '2026-12-31',
               url: `${siteConfig.url}/tv/pricing`,
-              shippingDetails: digitalOfferShippingDetails,
               hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
             },
             {
@@ -424,10 +387,8 @@ export function generateHomeGraphSchema(faqsList: { question: string; answer: st
               priceCurrency: 'USD',
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
-              validFrom: '2026-01-01T00:00:00Z',
               priceValidUntil: '2026-12-31',
               url: `${siteConfig.url}/tv/pricing`,
-              shippingDetails: digitalOfferShippingDetails,
               hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
             },
           ],
@@ -663,10 +624,8 @@ export function generatePricingGraphSchema(faqsList: { question: string; answer:
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
               url: `${pageUrl}#pricing-plans`,
-              validFrom: '2026-01-01T00:00:00Z',
               priceValidUntil: '2026-12-31',
               description: '1 month of full IPTV access on 2 devices with 24,000+ channels and 80,000+ VOD titles.',
-              shippingDetails: digitalOfferShippingDetails,
               hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
             },
             {
@@ -678,10 +637,8 @@ export function generatePricingGraphSchema(faqsList: { question: string; answer:
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
               url: `${pageUrl}#pricing-plans`,
-              validFrom: '2026-01-01T00:00:00Z',
               priceValidUntil: '2026-12-31',
               description: '3 months of full IPTV access ($13.00/mo) on 2 devices with 19% savings.',
-              shippingDetails: digitalOfferShippingDetails,
               hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
             },
             {
@@ -693,10 +650,8 @@ export function generatePricingGraphSchema(faqsList: { question: string; answer:
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
               url: `${pageUrl}#pricing-plans`,
-              validFrom: '2026-01-01T00:00:00Z',
               priceValidUntil: '2026-12-31',
               description: '6 months of full IPTV access ($10.00/mo) on 2 devices with 38% savings.',
-              shippingDetails: digitalOfferShippingDetails,
               hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
             },
             {
@@ -708,10 +663,8 @@ export function generatePricingGraphSchema(faqsList: { question: string; answer:
               availability: 'https://schema.org/InStock',
               itemCondition: 'https://schema.org/NewCondition',
               url: `${pageUrl}#pricing-plans`,
-              validFrom: '2026-01-01T00:00:00Z',
               priceValidUntil: '2026-12-31',
               description: '12 months of full IPTV access ($7.50/mo) on 2 devices with 53% savings and priority support.',
-              shippingDetails: digitalOfferShippingDetails,
               hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
             },
           ],
@@ -838,10 +791,8 @@ export function generatePlanGraphSchema(plan: PlanGraphInput): Record<string, un
           availability: 'https://schema.org/InStock',
           itemCondition: 'https://schema.org/NewCondition',
           url: pageUrl,
-          validFrom: '2026-01-01T00:00:00Z',
           priceValidUntil: '2026-12-31',
           description: `${plan.durationLabel} of full IPTV access on 2 devices with 24,000+ live channels, sports, and VOD movies.`,
-          shippingDetails: digitalOfferShippingDetails,
           hasMerchantReturnPolicy: defaultMerchantReturnPolicy,
           seller: {
             '@id': `${siteConfig.url}/#organization`,
