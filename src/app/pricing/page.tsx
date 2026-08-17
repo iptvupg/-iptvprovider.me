@@ -319,36 +319,27 @@ export default async function PricingPage() {
                           </li>
                         ))}
                       </ul>
-
                       <div className="mt-8 pt-2">
                         <Button
                           asChild
                           size="lg"
                           className={cn(
-                            "w-full font-bold shadow-sm transition-all",
+                            "w-full font-semibold",
                             isFeatured
-                              ? "bg-ink text-white hover:bg-black"
-                              : "bg-primary text-primary-foreground hover:bg-primary/90"
+                              ? "bg-ink text-white hover:bg-ink/90 active:bg-black"
+                              : "bg-primary text-ink hover:bg-primary-active active:bg-primary-active"
                           )}
                         >
-                          <Link href={plan.url}>
-                            Get Started Now <ArrowRight className="ml-1.5 h-4 w-4" />
-                          </Link>
-                        </Button>
-
-                        <div className="mt-3 text-center">
                           <Link
-                            href="https://wa.me/447848197761"
+                            href={`https://wa.me/447848197761?text=${encodeURIComponent(
+                              `Hello, I would like to order the ${plan.name} plan ($${plan.price})`
+                            )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={cn(
-                              "inline-flex items-center gap-1.5 text-xs font-medium transition-opacity hover:opacity-80",
-                              isFeatured ? "text-ink/80" : "text-muted-foreground"
-                            )}
                           >
-                            <SiWhatsapp className="h-3 w-3" /> Or order via WhatsApp
+                            <SiWhatsapp className="mr-2 h-4 w-4" /> Order Now
                           </Link>
-                        </div>
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -363,13 +354,13 @@ export default async function PricingPage() {
           <Container>
             <div className="mx-auto max-w-3xl text-center mb-12">
               <p className="eyebrow-cap mb-3 text-xs font-bold uppercase tracking-wider text-primary">
-                Detailed Feature Matrix
+                Side-by-Side Comparison
               </p>
               <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
-                Compare IPTV Subscription Plans
+                IPTV Subscription Plans Comparison Matrix
               </h2>
               <p className="mt-4 text-base sm:text-lg text-body">
-                Side-by-side comparison of duration, effective rates, device concurrency, and guarantees.
+                Detailed feature-by-feature breakdown across all four subscription tiers.
               </p>
             </div>
 
@@ -381,9 +372,7 @@ export default async function PricingPage() {
                     <th className="p-4 sm:p-5 text-center">1 Month</th>
                     <th className="p-4 sm:p-5 text-center">3 Months</th>
                     <th className="p-4 sm:p-5 text-center">6 Months</th>
-                    <th className="p-4 sm:p-5 text-center bg-primary/10 text-primary">
-                      12 Months (Best Value)
-                    </th>
+                    <th className="p-4 sm:p-5 text-center bg-primary/10 text-primary font-bold">12 Months (Best Value)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-hairline">
@@ -513,13 +502,13 @@ export default async function PricingPage() {
                 <div
                   key={item.title}
                   className={cn(
-                    "rounded-xl border p-6 sm:p-8 flex flex-col justify-between transition-all",
+                    "rounded-xl border p-6 sm:p-8 flex flex-col transition-all",
                     item.isPopular
                       ? "border-primary/50 bg-surface-card shadow-sm ring-1 ring-primary/30"
                       : "border-hairline bg-surface-card hover:border-hairline-strong"
                   )}
                 >
-                  <div>
+                  <div className="mb-4">
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <h3 className="font-headline text-xl font-bold text-foreground">{item.title}</h3>
                       {item.isPopular && (
@@ -533,7 +522,7 @@ export default async function PricingPage() {
                     </p>
                     <p className="text-sm text-body leading-relaxed mb-5">{item.description}</p>
 
-                    <div className="space-y-2 mb-6">
+                    <div className="space-y-2">
                       {item.features.map((feat) => (
                         <div key={feat} className="flex items-center gap-2 text-xs text-foreground font-medium">
                           <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
@@ -541,17 +530,6 @@ export default async function PricingPage() {
                         </div>
                       ))}
                     </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-hairline flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground font-medium">
-                      Recommended for: <strong className="text-foreground">{item.recommendedFor}</strong>
-                    </span>
-                    <Button asChild size="sm" variant={item.isPopular ? "default" : "outline"} className="rounded-md font-semibold text-xs">
-                      <Link href={`/checkout?plan=${item.planId}`}>
-                        Select <ChevronRight className="h-3 w-3 ml-1" />
-                      </Link>
-                    </Button>
                   </div>
                 </div>
               ))}

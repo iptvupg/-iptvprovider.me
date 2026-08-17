@@ -202,20 +202,28 @@ export function PlanDetailPage({ data }: PlanDetailPageProps) {
                       </div>
                     </div>
 
-                    <Button asChild size="lg" className="w-full font-bold h-12 text-base shadow-sm">
-                      <Link href={data.checkoutUrl}>
-                        Get {data.name} Access Now <ArrowRight className="ml-2 h-4 w-4" />
+                    <Button asChild size="lg" className="w-full font-semibold h-12 text-base shadow-sm">
+                      <Link
+                        href={`https://wa.me/447848197761?text=${encodeURIComponent(
+                          `Hello, I would like to order the ${data.name} plan ($${data.price})`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <SiWhatsapp className="mr-2 h-4 w-4" /> Order Now
                       </Link>
                     </Button>
 
                     <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground pt-2">
                       <Link
-                        href="https://wa.me/447848197761"
+                        href={`https://wa.me/447848197761?text=${encodeURIComponent(
+                          `Hello, I have a question about the ${data.name} plan ($${data.price})`
+                        )}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
                       >
-                        <SiWhatsapp className="h-3.5 w-3.5 text-emerald-400" /> Order on WhatsApp
+                        <SiWhatsapp className="h-3.5 w-3.5 text-emerald-400" /> WhatsApp Support
                       </Link>
                       <Link href="/tv/pricing" className="hover:text-foreground underline transition-colors">
                         Compare all plans →
@@ -591,8 +599,14 @@ export function PlanDetailPage({ data }: PlanDetailPageProps) {
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="border-hairline font-semibold">
-                    <Link href={data.checkoutUrl}>
-                      Buy {data.name} Plan (${data.price.toFixed(2)})
+                    <Link
+                      href={`https://wa.me/447848197761?text=${encodeURIComponent(
+                        `Hello, I would like to order the ${data.name} plan ($${data.price})`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <SiWhatsapp className="mr-2 h-4 w-4 text-emerald-400" /> Buy {data.name} Plan (${data.price.toFixed(2)})
                     </Link>
                   </Button>
                 </div>
@@ -648,9 +662,15 @@ export function PlanDetailPage({ data }: PlanDetailPageProps) {
                 Instant automated activation, 24,000+ live HD/4K channels, 2 device streams, and an unconditional 7-day money-back guarantee for just ${data.price.toFixed(2)}.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Button asChild size="lg" className="rounded-md font-bold px-8 h-12 shadow-sm">
-                  <Link href={data.checkoutUrl}>
-                    Get {data.name} Access Now <ArrowRight className="ml-2 h-4 w-4" />
+                <Button asChild size="lg" className="rounded-md font-semibold px-8 h-12 shadow-sm">
+                  <Link
+                    href={`https://wa.me/447848197761?text=${encodeURIComponent(
+                      `Hello, I would like to order the ${data.name} plan ($${data.price})`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <SiWhatsapp className="mr-2 h-4 w-4" /> Order Now
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="rounded-md font-semibold px-8 h-12 border-hairline">
