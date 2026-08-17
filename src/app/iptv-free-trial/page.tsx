@@ -151,6 +151,40 @@ export default async function IptvFreeTrialPage() {
                     </Container>
                 </section>
 
+                {/* Technical Overview & Definition for AEO / Snippets */}
+                <section className="py-12 sm:py-16 border-b border-hairline bg-surface-card/20">
+                    <Container>
+                        <div className="mx-auto max-w-4xl rounded-xl border border-hairline bg-surface-card p-6 sm:p-8">
+                            <div className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 flex items-center gap-2">
+                                <Tv size={16} /> Service Definition &amp; Formats
+                            </div>
+                            <h2 className="font-headline text-2xl sm:text-3xl font-bold text-foreground mb-3">
+                                What Is an IPTV Free Trial &amp; How Does It Work?
+                            </h2>
+                            <p className="text-base text-body leading-relaxed mb-4">
+                                An <strong>IPTV free trial</strong> is a time-limited, no-cost test access pass provided by an IPTV service provider that allows prospective subscribers to evaluate live channel quality, sports broadcast stability, video-on-demand (VOD) performance, Electronic Program Guide (EPG) accuracy, and player app compatibility before purchasing a paid subscription.
+                            </p>
+                            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                                Upon requesting your trial, our automated provisioning system generates standard <strong>Xtream Codes API</strong> credentials (Server URL, Username, and Password) alongside an <strong>M3U Plus playlist</strong> URL. These credentials can be entered directly into your preferred media player app (such as TiviMate, IPTV Smarters Pro, IBO Player, or VLC) without installing unverified third-party APKs or entering payment information.
+                            </p>
+                            <div className="flex flex-wrap gap-4 text-sm font-semibold">
+                                <Link href="/tv/guides/what-is-iptv" className="inline-flex items-center gap-1.5 text-primary hover:underline">
+                                    What Is IPTV? <ArrowRight size={14} />
+                                </Link>
+                                <Link href="/tv/guides/how-to-choose-an-iptv-service" className="inline-flex items-center gap-1.5 text-primary hover:underline">
+                                    How to Choose a Provider <ArrowRight size={14} />
+                                </Link>
+                                <Link href="/tv/guides/iptv-setup-guide" className="inline-flex items-center gap-1.5 text-primary hover:underline">
+                                    IPTV Setup Guide <ArrowRight size={14} />
+                                </Link>
+                                <Link href="/tv/guides/is-iptv-legal" className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground hover:underline">
+                                    Legality &amp; Safety <ArrowRight size={14} />
+                                </Link>
+                            </div>
+                        </div>
+                    </Container>
+                </section>
+
                 {/* What You Get in the Trial */}
                 <section className="py-16 sm:py-24 border-b border-hairline bg-surface-card/30">
                     <Container>
