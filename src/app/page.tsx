@@ -8,13 +8,11 @@ import { WhatIsIPTVSection } from "@/components/sections/WhatIsIPTVSection";
 import { FreeTrialBanner } from "@/components/sections/FreeTrialBanner";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
-import { getHomePageData } from "@/lib/data/home-page";
 import { faqs } from "@/lib/site-data/faq";
 import { generateHomeGraphSchema } from "@/lib/schema";
 import { Schema } from "@/components/shared/Schema";
 
-export default async function Home() {
-  await getHomePageData();
+export default function Home() {
   const homeGraphSchema = generateHomeGraphSchema(
     faqs.map((item: { question: string; answer: string }) => ({
       question: item.question,
