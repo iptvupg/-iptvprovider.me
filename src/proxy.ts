@@ -22,6 +22,22 @@ const STATIC_FILE = /\.[a-zA-Z0-9]+$/;
 export default function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
+  // Deleted programmatic country routes: return HTTP 410 Gone
+  if (
+    pathname === "/country" ||
+    pathname.startsWith("/country/") ||
+    pathname === "/tv/country" ||
+    pathname.startsWith("/tv/country/")
+  ) {
+    return new NextResponse("410 Gone: This resource has been permanently removed.", {
+      status: 410,
+      headers: {
+        "Content-Type": "text/plain",
+        "X-Robots-Tag": "noindex",
+      },
+    });
+  }
+
   const isExcludedPrefix = EXCLUDED_PREFIXES.some(
     (p) => pathname === p || pathname.startsWith(`${p}/`)
   );
@@ -43,10 +59,8 @@ export default function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Only run on routes that could actually be redirected. The negative
-  // lookahead skips internal Next paths, the /tv prefix, the meta files,
-  // and anything containing a file extension (static assets).
+  // Only run on routes that could actually be redirected or return 410.
   matcher: [
-    "/((?!tv|_next/static|_next/image|api|favicon.ico|robots.txt|sitemap.xml|manifest.json|.*\\.[a-zA-Z0-9]+$).*)",
+    "/((?!_next/static|_next/image|api|favicon.ico|robots.txt|sitemap.xml|manifest.json|.*\\.[a-zA-Z0-9]+$).*)",
   ],
 };

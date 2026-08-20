@@ -12,12 +12,12 @@ export const trialFaqs = [
         answer: "No. You never need to provide a credit card or payment method to start your trial. Simply request your trial on WhatsApp, and our team will generate your instant login credentials."
     },
     {
-        question: "How long does the IPTV trial last?",
-        answer: "The trial provides 24 hours of full, unrestricted access starting from the moment your activation credentials are generated."
+        question: "How long does the IPTV trial last and when does it start?",
+        answer: "The trial provides 24 hours of full, unrestricted access starting from the moment your activation credentials are generated and delivered to you on WhatsApp."
     },
     {
-        question: "What channels and sports are included in the trial?",
-        answer: "Your free trial includes unrestricted access to our entire catalog: over 24,000 live HD/4K channels from the USA, UK, Canada, and worldwide, all live sports broadcasts, major PPV events, and 80,000+ on-demand movies and TV series."
+        question: "What channels, live sports, and VOD movies are included in the trial?",
+        answer: "Your free trial includes unrestricted access to our entire catalog: over 24,000 live HD/4K channels from the USA, UK, Canada, and worldwide, all live sports broadcasts in 60fps, major PPV events, and 80,000+ on-demand movies and TV series."
     },
     {
         question: "How are my trial login credentials delivered?",
@@ -28,8 +28,8 @@ export const trialFaqs = [
         answer: "Our trial works across all major hardware platforms: Amazon Firestick & Fire TV, Android TV boxes, Samsung Smart TVs (Tizen), LG Smart TVs (webOS), Apple TV, iPhone, iPad, Windows PC, and Mac. You can use popular player apps such as TiviMate, IPTV Smarters Pro, IBO Player, and VLC."
     },
     {
-        question: "What internet speed is recommended for the trial?",
-        answer: "While individual 1080p HD streams use 4–8 Mbps and 4K streams use 15–25 Mbps, we recommend a household broadband connection of 25–50 Mbps or higher to ensure stable, buffer-free viewing during concurrent home usage."
+        question: "What internet speed is recommended for buffer-free streaming?",
+        answer: "While individual 1080p HD streams use 8–10 Mbps and 4K streams use 20–25 Mbps, we recommend a broadband connection of 25–50 Mbps or higher to ensure stable, buffer-free viewing during concurrent home usage."
     },
     {
         question: "What happens when my 24-hour trial expires?",
@@ -38,6 +38,10 @@ export const trialFaqs = [
     {
         question: "How do I upgrade to a paid IPTV subscription after testing?",
         answer: "If you love the streaming quality and channel selection during your trial, you can choose any subscription plan ($7.50 to $16.00/mo) on our pricing page or message us on WhatsApp to activate a full subscription without losing your playlist configuration."
+    },
+    {
+        question: "Why do you deliver trial credentials via WhatsApp?",
+        answer: "WhatsApp delivery ensures instant, real-time activation without email spam delays or lost messages, while giving you immediate access to our 24/7 technical support team if you need help with setup or app configuration."
     }
 ];
 

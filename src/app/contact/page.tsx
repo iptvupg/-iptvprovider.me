@@ -17,6 +17,7 @@ export function generateMetadata(): Metadata {
         title: "Contact Us | IPTV Provider",
         description: "Get in touch with our team. Whether you have a question about our IPTV Provider or need support, we're here to help.",
         canonical: "/contact",
+        noIndex: true,
     });
 }
 

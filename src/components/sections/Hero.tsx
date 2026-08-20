@@ -9,7 +9,7 @@ export function Hero() {
       <Container className="relative z-10 flex flex-col items-center justify-center py-20 text-center sm:py-28 lg:py-32">
         <div className="w-full max-w-4xl">
           <p className="eyebrow-cap mb-4 text-xs font-bold uppercase tracking-wider text-primary">
-            #1 IPTV Streaming Provider (2026)
+            Premium IPTV Streaming Provider
           </p>
           <h1 className="text-balance font-headline text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
             Best IPTV Service for Live TV, Sports &amp; Movies

@@ -9,7 +9,6 @@ import { getGuidePageData } from "@/lib/data/guide-page";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle2, ChevronRight, Globe, Info, Tv } from "lucide-react";
-import { getCountryById } from "@/lib/countries";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -44,10 +43,6 @@ export default async function GuidePage(props: Props) {
   const relatedGuidesList = guide.relatedGuides
     .map((s) => getGuideBySlug(s))
     .filter((g): g is NonNullable<typeof g> => Boolean(g));
-
-  const relatedCountriesList = (guide.relatedCountries || [])
-    .map((cId) => getCountryById(cId))
-    .filter((c): c is NonNullable<typeof c> => Boolean(c));
 
   return (
     <>
@@ -226,25 +221,6 @@ export default async function GuidePage(props: Props) {
                 </section>
               )}
 
-              {relatedCountriesList.length > 0 && (
-                <section className="pt-8 border-t">
-                  <h3 className="font-headline text-xl font-bold text-foreground mb-4">
-                    Popular Regional Locations
-                  </h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
-                    {relatedCountriesList.map((country) => (
-                      <Link
-                        key={country.id}
-                        href={`/tv/country/${country.id}`}
-                        className="rounded-md border p-3 hover:border-primary transition-colors flex items-center justify-between text-foreground"
-                      >
-                        <span>{country.name}</span>
-                        <ChevronRight size={14} className="text-muted-foreground" />
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-              )}
 
               <section className="pt-8 border-t">
                 <div className="rounded-lg border bg-card p-6 sm:p-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">

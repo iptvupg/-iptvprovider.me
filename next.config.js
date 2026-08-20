@@ -111,42 +111,65 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Point directly at the final /tv URL. Targeting /pricing would create a
-      // chain (/iptv-subscription -> /pricing -> /tv/pricing) because the proxy
-      // then redirects /pricing again; this keeps it to a single hop.
+      // Commercial alias
       {
         source: '/iptv-subscription',
         destination: '/tv/pricing',
         permanent: true,
       },
+      // Legacy locations
       {
-        source: '/country/east-germany',
-        destination: '/tv/country/germany',
+        source: '/locations',
+        destination: '/tv/guides',
         permanent: true,
       },
       {
-        source: '/tv/country/east-germany',
-        destination: '/tv/country/germany',
+        source: '/tv/locations',
+        destination: '/tv/guides',
+        permanent: true,
+      },
+      // Consolidated device troubleshooting -> knowledge base guide
+      {
+        source: '/devices/troubleshooting',
+        destination: '/tv/guides/iptv-buffering-troubleshooting',
         permanent: true,
       },
       {
-        source: '/country/congo-free-state',
-        destination: '/tv/country/democratic-republic-of-the-congo',
+        source: '/tv/devices/troubleshooting',
+        destination: '/tv/guides/iptv-buffering-troubleshooting',
+        permanent: true,
+      },
+      // Consolidated fire TV guide -> Fire TV hardware hub
+      {
+        source: '/guides/iptv-on-fire-tv',
+        destination: '/tv/devices/fire-tv',
         permanent: true,
       },
       {
-        source: '/tv/country/congo-free-state',
-        destination: '/tv/country/democratic-republic-of-the-congo',
+        source: '/tv/guides/iptv-on-fire-tv',
+        destination: '/tv/devices/fire-tv',
+        permanent: true,
+      },
+      // Consolidated generic setup -> Guides hub
+      {
+        source: '/guides/iptv-setup-guide',
+        destination: '/tv/guides',
         permanent: true,
       },
       {
-        source: '/country/burma',
-        destination: '/tv/country/myanmar',
+        source: '/tv/guides/iptv-setup-guide',
+        destination: '/tv/guides',
+        permanent: true,
+      },
+      // Consolidated streaming services comparison -> Cable comparison guide
+      {
+        source: '/guides/iptv-vs-streaming-services',
+        destination: '/tv/guides/iptv-vs-cable',
         permanent: true,
       },
       {
-        source: '/tv/country/burma',
-        destination: '/tv/country/myanmar',
+        source: '/tv/guides/iptv-vs-streaming-services',
+        destination: '/tv/guides/iptv-vs-cable',
         permanent: true,
       },
     ]

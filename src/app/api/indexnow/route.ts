@@ -1,7 +1,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { howToArticles } from '@/lib/how-to';
-import { allCountries } from '@/lib/countries';
+import { allGuides } from '@/lib/guides';
 
 const INDEXNOW_API_URL = 'https://api.indexnow.org/indexnow';
 const SITE_URL = process.env.SITE_URL || 'https://www.iptvprovider.me';
@@ -42,20 +42,24 @@ export async function GET(req: NextRequest) {
     const staticPages = [
         '/',
         '/pricing',
-        '/locations',
         '/faq',
         '/contact',
         '/iptv-free-trial',
+        '/iptv-1-month-subscription',
+        '/iptv-3-month-subscription',
+        '/iptv-6-month-subscription',
+        '/iptv-12-month-subscription',
+        '/guides',
     ];
 
     const devicePages = howToArticles.map(article => `/devices/${article.id}`);
-    const countryPages = allCountries.map(country => `/country/${country.id}`);
+    const guidePages = allGuides.map(guide => `/guides/${guide.slug}`);
 
     // Every route is served under the /tv prefix, so submit the final 200 URLs.
     const allUrls = [
         ...staticPages.map(path => `${SITE_URL}/tv${path === '/' ? '' : path}`),
         ...devicePages.map(path => `${SITE_URL}/tv${path}`),
-        ...countryPages.map(path => `${SITE_URL}/tv${path}`),
+        ...guidePages.map(path => `${SITE_URL}/tv${path}`),
     ];
     
     const result = await submitUrls(allUrls);

@@ -76,12 +76,12 @@ const includedFeatures = [
 const supportedPlatforms = [
   { name: "Amazon Firestick & Fire TV", href: "/tv/devices/fire-tv", app: "TiviMate / Smarters Pro" },
   { name: "Android TV & Google TV", href: "/tv/devices/android", app: "TiviMate / XCIPTV" },
-  { name: "Samsung Smart TV (Tizen)", href: "/tv/devices/smart-tv", app: "IBO Player / Smart IPTV" },
-  { name: "LG Smart TV (webOS)", href: "/tv/devices/smart-tv", app: "IBO Player / Nanomid" },
+  { name: "Samsung Smart TV (Tizen)", href: "/tv/devices/samsung-tv", app: "IBO Player / Smart IPTV" },
+  { name: "LG Smart TV (webOS)", href: "/tv/devices/lg-tv", app: "IBO Player / Nanomid" },
   { name: "Apple TV 4K & iOS", href: "/tv/devices/apple-tv", app: "IPTVX / GSE Smart IPTV" },
-  { name: "Windows PC & macOS", href: "/tv/devices/windows-pc", app: "IPTV Smarters / VLC" },
-  { name: "MAG Boxes & Formuler", href: "/tv/devices/troubleshooting", app: "Stalker Portal / MyTVOnline" },
-  { name: "Playback Troubleshooting", href: "/tv/devices/troubleshooting", app: "ISP & Cache Optimization" },
+  { name: "Windows PC & macOS", href: "/tv/devices/windows", app: "IPTV Smarters / VLC" },
+  { name: "MAG Boxes & Formuler", href: "/tv/devices/mag", app: "Stalker Portal / MyTVOnline" },
+  { name: "Playback Troubleshooting", href: "/tv/guides/iptv-buffering-troubleshooting", app: "ISP & Cache Optimization" },
 ];
 
 interface PlanDetailPageProps {

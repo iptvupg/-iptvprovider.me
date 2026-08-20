@@ -513,6 +513,36 @@ export function generateTrialGraphSchema(faqsList: { question: string; answer: s
         },
       },
       {
+        '@type': 'HowTo',
+        '@id': `${pageUrl}#howto`,
+        name: 'How to Activate Your 24-Hour IPTV Free Trial',
+        description: 'Step-by-step instructions to request, receive, and configure an IPTV free trial test account on any streaming device.',
+        totalTime: 'PT3M',
+        step: [
+          {
+            '@type': 'HowToStep',
+            position: 1,
+            name: 'Request Trial on WhatsApp',
+            text: 'Click the WhatsApp button to message our 24/7 activation team and request your free trial test line.',
+            url: `${pageUrl}#step1`,
+          },
+          {
+            '@type': 'HowToStep',
+            position: 2,
+            name: 'Receive Xtream Codes & M3U Credentials',
+            text: 'Our team delivers your unique Xtream Codes API login (Server URL, Username, Password) and M3U playlist URL in minutes.',
+            url: `${pageUrl}#step2`,
+          },
+          {
+            '@type': 'HowToStep',
+            position: 3,
+            name: 'Enter Login in Player App & Start Streaming',
+            text: 'Open your preferred player app (such as TiviMate, IPTV Smarters Pro, IBO Player, or VLC) on Firestick, Smart TV, or PC and enter your credentials to enjoy 24 hours of full access.',
+            url: `${pageUrl}#step3`,
+          },
+        ],
+      },
+      {
         '@type': 'FAQPage',
         '@id': `${pageUrl}#faq`,
         isPartOf: {

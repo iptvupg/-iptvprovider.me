@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
 import { howToArticles } from '@/lib/how-to';
-import { allCountries } from '@/lib/countries';
 import { allGuides } from '@/lib/guides';
 
 // Every route is served under the /tv prefix (see src/proxy.ts + the /tv
@@ -10,26 +9,31 @@ const baseUrl = `${process.env.SITE_URL || 'https://www.iptvprovider.me'}/tv`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
 
-  const devicePages: MetadataRoute.Sitemap = howToArticles.map((article) => ({
-    url: `${baseUrl}/devices/${article.id}`,
-    lastModified: new Date(article.dateModified),
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
+  // Exclude consolidated device troubleshooting (which 301-redirects to the knowledge guide)
+  const devicePages: MetadataRoute.Sitemap = howToArticles
+    .filter((article) => article.id !== 'troubleshooting')
+    .map((article) => ({
+      url: `${baseUrl}/devices/${article.id}`,
+      lastModified: new Date(article.dateModified),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }));
 
-  const countryPages: MetadataRoute.Sitemap = allCountries.map((country) => ({
-    url: `${baseUrl}/country/${country.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
+  // Exclude consolidated redundant guides (which 301-redirect to their authoritative hubs)
+  const excludedGuideSlugs = new Set([
+    'iptv-on-fire-tv',
+    'iptv-setup-guide',
+    'iptv-vs-streaming-services',
+  ]);
 
-  const guidePages: MetadataRoute.Sitemap = allGuides.map((guide) => ({
-    url: `${baseUrl}/guides/${guide.slug}`,
-    lastModified: new Date(`${guide.updatedAt}T00:00:00Z`),
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
+  const guidePages: MetadataRoute.Sitemap = allGuides
+    .filter((guide) => !excludedGuideSlugs.has(guide.slug))
+    .map((guide) => ({
+      url: `${baseUrl}/guides/${guide.slug}`,
+      lastModified: new Date(`${guide.updatedAt}T00:00:00Z`),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }));
 
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -45,22 +49,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/locations`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.5,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/iptv-free-trial`,
@@ -104,6 +96,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...guidePages,
     ...devicePages,
-    ...countryPages,
   ]
 }

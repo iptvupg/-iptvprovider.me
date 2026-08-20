@@ -306,64 +306,68 @@ export const allGuides: Guide[] = [
   },
   {
     slug: "iptv-vs-cable",
-    title: "IPTV vs Cable TV: Features, Costs & Technology Compared",
-    description: "Compare IPTV and traditional cable TV across channel availability, equipment fees, contract requirements, multi-device support, and stream resolution.",
-    h1: "IPTV vs Cable TV: Features, Costs & Technology Compared",
+    title: "IPTV vs Cable TV vs Streaming Services: Complete Cost & Technology Comparison",
+    description: "Compare IPTV, traditional cable TV, and on-demand streaming services across monthly costs, hardware fees, channel lineups, sports coverage, and device mobility.",
+    h1: "IPTV vs Cable TV vs Streaming Services: The Definitive Comparison Guide",
     category: "Comparison",
-    updatedAt: "2026-08-15",
+    updatedAt: "2026-08-20",
     author: {
       name: "IPTV Provider Editorial Team",
       role: "Streaming & Infrastructure Analysts"
     },
-    editorialMethodology: "This comparison is based on structural telecommunication differences, hardware licensing models, and standard consumer equipment requirements.",
-    summary: "IPTV provides multi-device accessibility, larger international channel selection, and zero hardware rental fees, whereas cable television relies on coaxial set-top boxes bound to a single physical room.",
+    editorialMethodology: "Data and metrics are compiled from current North American and European average cable billing statements, regional hardware rental schedules, and broadband network transmission benchmarks.",
+    summary: "Compare the total cost of ownership, hardware requirements, live channel capacity, and multi-device portability between Internet Protocol Television (IPTV), traditional cable television, and fragmented OTT subscription services.",
     sections: [
       {
-        id: "side-by-side-comparison",
-        heading: "Feature Comparison: IPTV vs. Cable TV",
-        directAnswer: "The fundamental technical difference between IPTV and cable TV is transmission media. Cable TV delivers signals over physical coaxial cables tied to proprietary box rentals, while IPTV streams digital media over standard broadband internet networks accessible across multiple smart devices simultaneously.",
+        id: "three-way-comparison",
+        heading: "3-Way Technical & Feature Comparison",
+        directAnswer: "Traditional cable TV relies on physical coaxial infrastructure tied to proprietary set-top boxes in fixed rooms. OTT streaming services (Netflix, Disney+) offer on-demand movie libraries but lack comprehensive live broadcast television. IPTV combines real-time linear live broadcasts, international sports in 60fps, and complete on-demand VOD libraries into a unified interface across all your smart devices.",
         content: [
-          "As broadband infrastructure speeds expand worldwide, consumers are transitioning from traditional cable TV packages to internet-protocol streaming options."
+          "Cord-cutting consumers face an increasingly fragmented entertainment market. Understanding the architectural and financial differences between cable, fragmented streaming apps, and IPTV enables an informed household decision:"
         ],
         table: {
-          headers: ["Comparison Category", "IPTV Provider", "Traditional Cable TV"],
+          headers: ["Feature / Dimension", "IPTV Provider", "Traditional Cable TV", "Fragmented OTT Apps (Netflix/Hulu/Disney)"],
           rows: [
-            ["Transmission Infrastructure", "Broadband Internet (TCP/IP Network)", "Physical Coaxial Cable Network"],
-            ["Hardware Requirements", "Uses existing Smart TVs, Firestick, Android, iOS, PC", "Mandatory set-top box rental per TV"],
-            ["Contract Commitment", "Flexible monthly options / no long-term contracts", "Typically requires 12 to 24-month contracts"],
-            ["Hardware Rental Fees", "Zero hardware rental fees", "Monthly equipment and set-top box rental fees"],
-            ["Multi-Device Support", "Supported via app login across multiple screens", "Requires additional physical set-top box rentals"],
-            ["Channel Capacity", "24,000+ Global HD/4K channels & VOD catalog", "Limited regional cable package channel tiers"]
+            ["Average Monthly Cost", "$7.50 to $16.00 / month", "$85.00 to $140.00 / month", "$60.00 to $95.00 / month (combined)"],
+            ["Hardware Requirements", "Existing Smart TVs, Firestick, Android, iOS, PC", "Mandatory rented proprietary cable boxes", "Smart TVs, mobile apps, streaming sticks"],
+            ["Hardware Rental Fees", "$0.00 (Zero hardware fees)", "$10–$25/month per connected room", "$0.00 (Zero hardware fees)"],
+            ["Contract Commitment", "No long-term contracts (Pay-as-you-go)", "12 to 24-month locked contracts", "Monthly cancel-anytime subscriptions"],
+            ["Live Linear Channels", "24,000+ Global HD/4K channels with EPG", "150–300 regional tier channels", "Limited or separate live TV add-on ($70+/mo)"],
+            ["60FPS Live Sports & PPV", "Included at no additional surcharge", "Expensive sports tier add-on ($15–$30/mo)", "Fragmented across separate sports apps"],
+            ["Device Portability", "Watch anywhere with high-speed internet", "Locked to physical residential coaxial jack", "Watch anywhere on supported mobile apps"]
           ]
         }
       },
       {
-        id: "pros-and-cons",
-        heading: "Advantages and Technical Considerations",
+        id: "annual-cost-breakdown",
+        heading: "Annual Cost Comparison & Household Savings",
         content: [
-          "Evaluating the operational advantages of both systems helps determine the ideal home entertainment configuration:"
+          "A standard household with three televisions subscribed to traditional cable spends an average of $1,400 to $1,800 annually once equipment rentals, regional sports fees, and broadcast surcharges are calculated.",
+          "By contrast, an annual IPTV subscription provides 2 concurrent streams on existing household hardware for $90.00 per year ($7.50/month), delivering over $1,200 in annual household savings without sacrificing live sports or news coverage."
         ],
         bulletPoints: [
-          "IPTV Advantage: Portability — watch content anywhere in the world with an active broadband connection.",
-          "IPTV Advantage: Eliminates technician installation visits, wall drilling, and box rental charges.",
-          "Technical Requirement: IPTV requires a stable high-speed broadband connection (minimum 25 Mbps recommended).",
-          "Cable Limitation: Fixed location access bound strictly to coaxial outlets in your residence."
+          "Cable Equipment Traps: Most cable providers charge $10 to $15 per month for each additional set-top box, adding $360/year solely for hardware rentals.",
+          "Fragmented App Fatigue: Subscribing individually to live sports, movie apps, and premium networks frequently exceeds $80/month across multiple billing portals.",
+          "IPTV Unified Aggregation: Consolidates 24,000+ live channels and 80,000+ on-demand titles under a single player interface and single low subscription."
         ]
       }
     ],
     faq: [
       {
-        question: "Can IPTV replace traditional cable TV?",
-        answer: "Yes. IPTV runs directly on Smart TVs, Firesticks, Android boxes, and mobile devices, providing live TV channels and VOD catalogs without physical cable boxes or contract commitments."
+        question: "Can IPTV completely replace my cable TV subscription?",
+        answer: "Yes. IPTV delivers live local channels, national cable networks, 60fps sports broadcasts, and on-demand movies directly to your Smart TVs and streaming devices, providing a complete cable replacement with zero equipment fees."
       },
       {
-        question: "Do I need a cable box for IPTV?",
-        answer: "No. IPTV operates through software applications installed directly on modern Smart TVs or low-cost media sticks (such as Amazon Fire TV Stick or Android TV boxes)."
+        question: "Do I need a cable box or satellite dish to use IPTV?",
+        answer: "No. IPTV requires only an active broadband internet connection (25 Mbps or higher) and a compatible player application installed on your Smart TV, Firestick, Android device, Apple TV, or PC."
+      },
+      {
+        question: "How much money does a household save by switching from cable to IPTV?",
+        answer: "The average household saves between $1,000 and $1,400 annually by eliminating cable equipment rental fees, broadcast surcharges, and long-term contract penalties."
       }
     ],
-    relatedGuides: ["what-is-iptv", "iptv-vs-streaming-services", "how-to-choose-an-iptv-service"],
+    relatedGuides: ["what-is-iptv", "how-to-choose-an-iptv-service", "iptv-apps-and-players"],
     relatedDevices: ["samsung-tv", "lg-tv", "fire-tv"],
-    relatedCountries: ["united-states", "united-kingdom", "germany"],
     relatedMoneyPages: [
       { name: "Review IPTV Subscription Pricing", href: "/tv/pricing" },
       { name: "Test IPTV Service with Free Trial", href: "/tv/iptv-free-trial" }
@@ -549,50 +553,71 @@ export const allGuides: Guide[] = [
   },
   {
     slug: "iptv-buffering-troubleshooting",
-    title: "How to Fix IPTV Buffering: Causes & Step-by-Step Fixes",
-    description: "Learn proven technical solutions to eliminate IPTV buffering, freezing, lag, and connection drops on any device.",
-    h1: "How to Fix IPTV Buffering & Freezing: Troubleshooting Guide",
+    title: "How to Fix IPTV Buffering: 8 Proven Technical Steps & Solutions",
+    description: "Learn proven technical solutions to eliminate IPTV buffering, freezing, stutter, and connection drops on Firestick, Smart TVs, Android, and PC.",
+    h1: "How to Fix IPTV Buffering & Freezing: Complete Technical Troubleshooting Guide",
     category: "Troubleshooting",
-    updatedAt: "2026-08-15",
+    updatedAt: "2026-08-20",
     author: {
       name: "IPTV Provider Editorial Team",
       role: "Streaming & Infrastructure Analysts"
     },
-    editorialMethodology: "Troubleshooting steps are derived from standard IP network diagnostics, video decoder optimization benchmarks, and local hardware cache management protocols.",
-    summary: "Resolve IPTV stream buffering by switching to an Ethernet cable connection, clearing application RAM cache, configuring hardware video decoders, or using a VPN to bypass ISP throttling.",
+    editorialMethodology: "Troubleshooting procedures are tested and validated against real streaming environments, network packet loss monitors, hardware GPU decoders, and ISP traffic shaping protocols.",
+    summary: "Eliminate IPTV stream buffering by switching to an Ethernet connection, clearing player cache, switching to hardware video decoding (HW+), tuning buffer size, and bypassing ISP throttling.",
     sections: [
       {
-        id: "buffering-causes",
-        heading: "Primary Technical Causes of IPTV Buffering",
-        directAnswer: "IPTV stream buffering is primarily caused by local Wi-Fi latency, packet loss, ISP speed throttling during peak viewing hours, cluttered device RAM cache memory, or misconfigured software video decoders in your IPTV player application.",
+        id: "root-causes",
+        heading: "Understanding the Primary Causes of IPTV Stream Buffering",
+        directAnswer: "IPTV buffering occurs when the video player's incoming data buffer empties before the next video packet arrives. This bottleneck is typically caused by local Wi-Fi packet drops, device RAM saturation, software video decoding bottlenecks, or selective ISP traffic throttling during high-bandwidth live events.",
         content: [
-          "When experiencing stream freezing during major live events, systematic network and hardware troubleshooting quickly isolates and resolves the bottleneck."
-        ]
+          "Streaming high-definition video (especially 1080p 60fps sports and 4K UHD movies) requires a continuous, uninterrupted data stream. Unlike on-demand platforms like YouTube or Netflix that can buffer minutes in advance, live broadcast television streams in real time with tight latency windows.",
+          "When a disruption occurs between the IPTV server cluster, your home broadband modem, and your streaming hardware's video decoder chip, playback pauses to refill the data buffer. Identifying whether the issue is local (home network/hardware) or upstream (ISP routing) is the first step to resolving lag permanently."
+        ],
+        table: {
+          headers: ["Buffering Symptom", "Likely Technical Cause", "Recommended Solution"],
+          rows: [
+            ["Freezing only during live sports", "ISP bandwidth throttling / Peak CDN load", "Connect a secure VPN; use Ethernet"],
+            ["Constant stuttering every 10 seconds", "Player buffer size set to zero / Wi-Fi packet loss", "Increase player buffer to 5–10s in app settings"],
+            ["Audio plays but video freezes / black screen", "Software video decoder incompatibility", "Switch app video decoder to Hardware (HW/HW+)"],
+            ["App crashes or freezes after hours of use", "Device RAM memory exhaustion", "Clear application cache; restart streaming device"],
+            ["All channels buffer across all devices", "Local modem/router DNS or connection drop", "Reboot router; change DNS to 1.1.1.1 or 8.8.8.8"]
+          ]
+        }
       },
       {
-        id: "troubleshooting-steps",
-        heading: "5 Step-by-Step Technical Fixes for IPTV Lag",
+        id: "proven-fixes",
+        heading: "8 Step-by-Step Technical Fixes to Stop Stream Lag",
         content: [
-          "Execute these diagnostic steps to restore smooth, buffer-free stream playback:"
+          "Follow these eight technical troubleshooting steps in sequential order to eliminate buffering and restore smooth stream playback:"
         ],
         bulletPoints: [
-          "1. Switch to Ethernet Cable: Connect your streaming device directly to your router using a Cat6 Ethernet cable to eliminate Wi-Fi latency and wireless signal drops.",
-          "2. Clear App Cache Memory: Navigate to Device Settings > Applications > IPTV Player > Clear Cache to remove temporary system data clogging RAM.",
-          "3. Change Video Decoder: In your player app settings, switch the video decoder from Software (SW) to Hardware (HW) or HW+ to utilize the device GPU.",
-          "4. Enable a Secure VPN: Connect a VPN to bypass selective ISP bandwidth throttling applied to high-bandwidth streaming ports during peak hours.",
-          "5. Increase Buffer Size: Adjust the stream buffer setting in TiviMate or IPTV Smarters from 'None' to 'Medium' (5 to 10 seconds) to create a video data buffer."
+          "1. Switch from Wi-Fi to Wired Ethernet: Wireless signals are susceptible to 2.4 GHz household interference, wall attenuation, and micro-packet drops. Connecting an Ethernet cable directly between your router and streaming device provides dedicated, low-jitter throughput.",
+          "2. Switch Video Decoding to Hardware (HW / HW+): In your IPTV player app settings (e.g. TiviMate, IPTV Smarters Pro), change the Video Decoder from Software (SW) to Hardware (HW). Hardware decoding utilizes your device's dedicated GPU processor chip rather than overloading the CPU.",
+          "3. Adjust Stream Buffer Size: In player settings, locate the 'Buffer Size' option. If set to 'None', minor network fluctuations cause immediate pauses. Set buffer size to 'Medium' or 'Large' (5 to 10 seconds) to create a protective data cache.",
+          "4. Clear Player App Cache and Data: On Fire TV or Android devices, go to Settings > Applications > Manage Installed Applications > [Your IPTV App] > Clear Cache. This purges temporary system logs and frees system memory.",
+          "5. Switch Video Stream Format (HLS vs. MPEG-TS): If your IPTV provider supports both stream formats, switch your playlist output format. MPEG-TS offers lower channel switching latency, whereas HLS (HTTP Live Streaming) handles fluctuating broadband speeds more gracefully.",
+          "6. Configure High-Speed Public DNS: Many Internet Service Provider default DNS servers suffer from slow lookup queries. Configure your router or streaming device to use Cloudflare DNS (1.1.1.1 and 1.0.0.1) or Google Public DNS (8.8.8.8 and 8.8.4.4).",
+          "7. Use a Secure VPN to Bypass ISP Throttling: If your download speeds drop specifically during primetime live sports while regular internet browsing remains fast, your ISP may be throttling streaming ports. Enabling a VPN encrypts your traffic so your ISP cannot identify or throttle video packets.",
+          "8. Power-Cycle Your Home Network Hardware: Turn off your modem, Wi-Fi router, and streaming device for 60 seconds. Powering on resets local routing tables and clears stale IP lease conflicts."
         ]
       }
     ],
     faq: [
       {
-        question: "Why does my IPTV buffer only during live sports events?",
-        answer: "Live sports streams generate heavy concurrent network traffic. ISPs may apply bandwidth throttling during peak viewing windows, and Wi-Fi networks can drop packets. Connecting via wired Ethernet and streaming from load-balanced server infrastructure helps resolve live sports buffering."
+        question: "Why does my IPTV stream buffer only during major football and live sports events?",
+        answer: "Live sports events generate massive concurrent network traffic. Many standard Internet Service Providers actively monitor and throttle high-bandwidth video streaming traffic during peak evening matches. Connecting your device via wired Ethernet and using a reliable VPN encrypts your packets, preventing ISP throttling."
+      },
+      {
+        question: "Does increasing the buffer size in TiviMate or IPTV Smarters fix lag?",
+        answer: "Yes. Setting the buffer size to 'Medium' or 'Large' (5–10 seconds) gives your player a safety margin of pre-downloaded video frames, allowing it to bridge temporary micro-drops in wireless connectivity without pausing playback."
+      },
+      {
+        question: "What minimum internet download speed is required to stop buffering on 4K channels?",
+        answer: "While individual 1080p 60fps sports feeds consume 15–20 Mbps and 4K streams consume 25–35 Mbps, we recommend an overall household broadband plan of 50–100 Mbps to ensure concurrent internet use (gaming, browsing) does not starve the IPTV stream."
       }
     ],
-    relatedGuides: ["iptv-setup-guide", "how-to-choose-an-iptv-service", "what-is-iptv"],
-    relatedDevices: ["troubleshooting", "fire-tv", "android"],
-    relatedCountries: ["united-states", "united-kingdom"],
+    relatedGuides: ["iptv-apps-and-players", "how-to-choose-an-iptv-service", "what-is-iptv"],
+    relatedDevices: ["fire-tv", "android", "samsung-tv"],
     relatedMoneyPages: [
       { name: "Check Load-Balanced IPTV Plans", href: "/tv/pricing" },
       { name: "Test Stream Stability with Free Trial", href: "/tv/iptv-free-trial" }
@@ -714,44 +739,80 @@ export const allGuides: Guide[] = [
   },
   {
     slug: "iptv-on-smart-tv",
-    title: "How to Install & Set Up IPTV on Smart TV (Samsung, LG, Android TV)",
-    description: "Detailed setup instructions for IPTV on Smart TVs including Samsung Tizen, LG webOS, Sony Android TV, and Hisense Vidaa.",
-    h1: "How to Set Up IPTV on Smart TV (Samsung, LG, Android)",
+    title: "How to Set Up IPTV on Smart TV: Complete Guide for All TV Brands",
+    description: "Learn how to install and watch IPTV on any Smart TV including Samsung (Tizen), LG (webOS), Sony & TCL (Android TV), and Fire TV Edition.",
+    h1: "How to Set Up IPTV on Smart TV: The Complete Multi-Brand Installation Guide",
     category: "Setup",
-    updatedAt: "2026-08-15",
+    updatedAt: "2026-08-20",
     author: {
       name: "IPTV Provider Editorial Team",
       role: "Streaming & Infrastructure Analysts"
     },
-    editorialMethodology: "Instructions follow official app store deployment rules for Samsung Tizen App Store, LG Content Store, and Google Play Store.",
-    summary: "Install IPTV on your Smart TV by downloading a compatible player app (such as Smartone IPTV, IBO Player, or IPTV Smarters) directly from your TV's official app store.",
+    editorialMethodology: "Setup procedures are verified against official Smart TV application store guidelines across Samsung Tizen Smart Hub, LG webOS Content Store, and Google Play Store.",
+    summary: "Set up IPTV on any Smart TV by identifying your TV operating system (Tizen, webOS, Android TV) and downloading a dedicated player application like IBO Player, TiviMate, or Smartone IPTV directly from your TV's native app store.",
     sections: [
       {
-        id: "smart-tv-setup",
-        heading: "Step-by-Step IPTV Installation for Samsung & LG Smart TVs",
-        directAnswer: "To set up IPTV on Samsung Tizen or LG webOS Smart TVs: 1) Open your TV's App Store (Samsung App Store or LG Content Store), 2) Search for and install an IPTV app like Smartone IPTV, IBO Player, or IPTV Smarters Pro, and 3) Open the app and log in using your subscription Xtream Codes or MAC address portal.",
+        id: "smart-tv-os-breakdown",
+        heading: "Understanding Your Smart TV Operating System",
+        directAnswer: "Setting up IPTV on a Smart TV depends entirely on the television's underlying operating system. Samsung TVs use Tizen OS, LG TVs use webOS, Sony/TCL/Hisense models typically run Android TV/Google TV, and Amazon Fire TVs run Fire OS. Each operating system features its own native application store and dedicated IPTV player apps.",
         content: [
-          "Modern Smart TVs support dedicated IPTV player applications natively, eliminating the need for external set-top boxes."
+          "Unlike standard cable television that requires a proprietary set-top box rental, modern Smart TVs can decode live IPTV streams directly through software media player applications installed on the TV.",
+          "Before configuring your service, identify which operating system your Smart TV runs to select the optimal player application:"
+        ],
+        table: {
+          headers: ["TV Brand", "Operating System", "Recommended Native Player", "Installation Guide"],
+          rows: [
+            ["Samsung Smart TV", "Tizen OS", "IBO Player / Smartone IPTV", "View Samsung Setup Guide"],
+            ["LG Smart TV", "webOS", "IBO Player / Nanomid / Smart IPTV", "View LG webOS Setup Guide"],
+            ["Sony / TCL / Philips", "Android TV / Google TV", "TiviMate / IPTV Smarters Pro", "View Android TV Guide"],
+            ["Amazon Fire TV Edition", "Fire OS", "TiviMate / Downloader", "View Firestick Guide"],
+            ["Hisense / Toshiba", "VIDAA OS / Android TV", "Smartone IPTV / SS IPTV", "View Generic Smart TV Steps"]
+          ]
+        }
+      },
+      {
+        id: "setup-methods",
+        heading: "Step-by-Step Installation by Operating System",
+        content: [
+          "Follow the specific installation workflow for your television's native platform:"
         ],
         bulletPoints: [
-          "Samsung Smart TVs (Tizen OS): Download Smartone IPTV, IBO Player, or Nanomid Player directly from the Samsung App Store.",
-          "LG Smart TVs (webOS): Search for IPTV Smarters, SS IPTV, or Smartone IPTV in the LG Content Store.",
-          "Android / Google TVs (Sony, TCL, Hisense): Install TiviMate or IPTV Smarters Pro directly from the Google Play Store."
+          "Samsung Smart TVs (Tizen OS): Open the Samsung Smart Hub, search for 'IBO Player' or 'Smartone IPTV', install the app, and note your TV MAC Address. Upload your M3U playlist or Xtream API credentials via the player's web activation portal.",
+          "LG Smart TVs (webOS): Open the LG Content Store, search for 'IPTV Smarters Pro' or 'IBO Player', install the application, and log in directly using your Server URL, Username, and Password.",
+          "Android TV & Google TV (Sony, Philips, TCL, Hisense): Open the Google Play Store on your TV, install 'TiviMate IPTV Player', select 'Add Playlist > Xtream Codes', and enter your credentials.",
+          "Fire TV Edition Smart TVs (Insignia, Toshiba): Open Search, install the official 'Downloader' app from the Amazon Appstore, and sideload TiviMate or IPTV Smarters Pro."
+        ]
+      },
+      {
+        id: "smart-tv-optimization",
+        heading: "Optimizing Smart TV Playback & Avoiding Buffering",
+        content: [
+          "Smart TV internal processors are often less powerful than standalone streaming hardware. To maximize picture quality and prevent buffering on Smart TVs:",
+          "1. Connect via Ethernet: Plug an Ethernet cable into your TV's RJ45 LAN port for zero-jitter connectivity.",
+          "2. Use Hardware Decoding: In your player app settings, enable Hardware (HW) video decoding to leverage your TV's dedicated video chip.",
+          "3. Clear TV App Cache: Regularly restart your television by holding the remote power button for 5 seconds to flush RAM memory."
         ]
       }
     ],
     faq: [
       {
-        question: "Can I watch IPTV on a Smart TV without a Firestick?",
-        answer: "Yes. If your Smart TV runs Android TV, Samsung Tizen OS, or LG webOS, you can install an IPTV player application directly onto the TV without needing an external streaming stick."
+        question: "Can I watch IPTV on a Smart TV without buying an external Firestick or Android box?",
+        answer: "Yes. If your Smart TV runs Samsung Tizen OS, LG webOS, or Android TV, you can install player apps like IBO Player, Smartone IPTV, or IPTV Smarters directly from your TV's built-in app store without external hardware."
+      },
+      {
+        question: "Why is TiviMate not available in the Samsung or LG TV App Store?",
+        answer: "TiviMate is developed exclusively for Android TV and Fire OS. Samsung (Tizen) and LG (webOS) use proprietary Linux-based operating systems. For Samsung and LG TVs, the best native alternatives are IBO Player and Smartone IPTV."
+      },
+      {
+        question: "Do Smart TV IPTV apps cost money to activate?",
+        answer: "Some third-party Smart TV player apps (like IBO Player or Smartone IPTV) provide a 7-day free trial, after which they require a small one-time lifetime developer activation fee (around $6–$8). Other apps like IPTV Smarters are completely free."
       }
     ],
-    relatedGuides: ["iptv-setup-guide", "iptv-apps-and-players", "iptv-on-fire-tv"],
-    relatedDevices: ["samsung-tv", "lg-tv", "android"],
-    relatedCountries: ["united-states", "united-kingdom", "germany"],
+    relatedGuides: ["iptv-apps-and-players", "iptv-buffering-troubleshooting", "what-is-iptv"],
+    relatedDevices: ["samsung-tv", "lg-tv", "android", "fire-tv"],
     relatedMoneyPages: [
       { name: "Check Subscription Pricing", href: "/tv/pricing" },
-      { name: "Start Free Trial for Smart TV", href: "/tv/iptv-free-trial" }
+      { name: "Start 24-Hour Free Trial for Smart TV", href: "/tv/iptv-free-trial" }
     ]
   },
   {

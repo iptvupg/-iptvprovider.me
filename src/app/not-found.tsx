@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/shared/Container';
-import { Home, Compass, HelpCircle } from 'lucide-react';
+import { Home, Compass, HelpCircle, BookOpen } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -42,9 +42,9 @@ export default function NotFound() {
                 </Link>
               </Button>
               <Button asChild variant="outline">
-                <Link href="/tv/locations">
-                  <Compass className="mr-2 h-4 w-4" />
-                  Browse Locations
+                <Link href="/tv/guides">
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  Setup Guides
                 </Link>
               </Button>
               <Button asChild variant="outline">
